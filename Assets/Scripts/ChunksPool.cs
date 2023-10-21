@@ -1,20 +1,14 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ChunksPool : MonoBehaviour
 {
+    public int PoolCount => _chunksList.Count;
+
     [SerializeField] private ChunkItem[] _chunks;
 
     private List<Chunk> _chunksList;
-
-    public Chunk GetChunk()
-    {
-        Chunk chunk = _chunksList[UnityEngine.Random.Range(0, _chunks.Length)];
-        chunk.gameObject.SetActive(true);
-        return chunk;
-    }
 
     private void Awake()
     {
@@ -29,6 +23,25 @@ public class ChunksPool : MonoBehaviour
                 _chunksList.Add(instantiatedChunk);
             }
         }
+    }
+
+    public Chunk GetChunk()
+    {
+        Chunk chunk = _chunksList[UnityEngine.Random.Range(0, _chunksList.Count)];
+
+        if (chunk.gameObject.activeSelf)
+        {
+            return GetChunk();
+        }
+
+        chunk.gameObject.SetActive(true);
+
+        return chunk;
+    }
+
+    public void ReturnChunk(Chunk chunk)
+    {
+        chunk.gameObject.SetActive(false);
     }
 
     [Serializable]
