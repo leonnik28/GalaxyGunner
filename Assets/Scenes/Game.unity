@@ -437,7 +437,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4863209422200609419}
   - component: {fileID: 4420948364507823531}
-  - component: {fileID: 4863209422200609420}
   m_Layer: 0
   m_Name: ChunksPool
   m_TagString: Untagged
@@ -479,16 +478,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4863209422200609420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2547064728267334566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4967422a176f54998e9e87d35fa80a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pool: {fileID: 4420948364507823531}
