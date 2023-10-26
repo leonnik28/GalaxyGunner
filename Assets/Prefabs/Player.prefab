@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 15, y: 15}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3983736589709932930
 CanvasRenderer:
@@ -227,12 +227,12 @@ GameObject:
   - component: {fileID: 8918021151195974344}
   - component: {fileID: 6810143135719314329}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: AimCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8170793939459489081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -329,7 +329,6 @@ GameObject:
   - component: {fileID: 7149558743715890089}
   - component: {fileID: 3622043375151412798}
   - component: {fileID: 4738730022151302723}
-  - component: {fileID: 5662609128685420428}
   m_Layer: 5
   m_Name: AimExtern
   m_TagString: Untagged
@@ -355,7 +354,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 15, y: 15}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3622043375151412798
 CanvasRenderer:
@@ -395,19 +394,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5662609128685420428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5213812576942526371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ced81bd8d99d5ae4db1e8c1caadc9173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _duration: 10
 --- !u!1 &6327158735413343129
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +406,7 @@ GameObject:
   - component: {fileID: 436601718198286716}
   - component: {fileID: 9050063893826041697}
   - component: {fileID: 4154654240818904768}
+  - component: {fileID: 2293073485204881391}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -479,5 +466,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6b1aead0cf49a478633a6b6cc97407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aim: {fileID: 5662609128685420428}
+  aim: {fileID: 2293073485204881391}
   _timeDelay: 1000
+--- !u!114 &2293073485204881391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6327158735413343129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ced81bd8d99d5ae4db1e8c1caadc9173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _aimInternal: {fileID: 2335098926294387869}
+  _aimExtern: {fileID: 5213812576942526371}
+  _aimCanvas: {fileID: 4473980332307650186}
+  _duration: 1
+  _scaleCount: 1
