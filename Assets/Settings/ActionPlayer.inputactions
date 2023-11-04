@@ -1,0 +1,54 @@
+{
+    "name": "ActionPlayer",
+    "maps": [
+        {
+            "name": "ActionMap",
+            "id": "a2150a1b-f600-46eb-8f67-72d81e2d2068",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "511f4204-2323-4779-ae6e-21a37da9302a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "5dd2c67a-6f76-4e71-86cf-601aa69a8107",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "123ca482-0307-4fb0-8b52-3b1ac40fb3b0",
+                    "path": "<Joystick>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a89062e-1449-4735-bb4c-d0d7cfe1e8f3",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
