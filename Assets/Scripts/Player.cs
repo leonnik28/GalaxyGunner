@@ -5,16 +5,16 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Movement _movement;
 
-    private Vector2 m_move;
+    private Vector2 _inputVector;
 
     private void Update()
     {
-        _movement.Move(m_move.x);
+        _movement.Move(_inputVector.x);
     }
 
     private void OnMove(InputValue value)
     {
-        m_move = value.Get<Vector2>();
+        _inputVector = value.Get<Vector2>();
     }
 
     private void OnJump(InputValue value)
