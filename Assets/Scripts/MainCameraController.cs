@@ -26,14 +26,14 @@ public class MainCameraController : MonoBehaviour
     private float _originalTilt;
     private Vector2 _moveInput;
 
-    void Start()
+    private void Start()
     {
         _vcam.Follow = _player.transform;
         _lastPlayerPosition = _player.transform.position;
         _originalTilt = _vcam.transform.localRotation.eulerAngles.x;
     }
 
-    void Update()
+    private void Update()
     {
         if (IsGrounded())
         {
