@@ -1,6 +1,7 @@
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public class MainCameraController : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class MainCameraController : MonoBehaviour
     [Header("FOV")]
     [SerializeField] private float _minFOV = 60f;
     [SerializeField] private float _maxFOV = 70f;
+    [SerializeField] private Animator _moveAnimator;
 
     private Vector3 _lastPlayerPosition;
     private float _originalTilt;
@@ -33,6 +35,15 @@ public class MainCameraController : MonoBehaviour
 
     void Update()
     {
+        if (IsGrounded())
+        {
+            OnLanding();
+        }
+        else
+        {
+            OnJump();
+        }
+
         float newFOV = _minFOV + _player.velocity.magnitude;
         _vcam.m_Lens.FieldOfView = Mathf.Clamp(newFOV, _minFOV, _maxFOV);
 
@@ -47,6 +58,7 @@ public class MainCameraController : MonoBehaviour
             hit.collider.GetComponent<IWall>().IsWall() &&
             isMovingTowardsWall;
 
+        
 
         if (!isTouchingWall)
         {
@@ -55,11 +67,28 @@ public class MainCameraController : MonoBehaviour
             _vcam.transform.localRotation = Quaternion.Euler(tilt, 0, 0);
 
             float rotationSpeed = 20;
-            _vcam.transform.RotateAround(_player.transform.position, Vector3.up, move.x * Time.deltaTime * rotationSpeed);
+            float rotationAmount = move.x * Time.deltaTime * rotationSpeed;
+            rotationAmount = Mathf.Clamp(rotationAmount, -_maxRotation, _maxRotation);
+            _vcam.transform.RotateAround(_player.transform.position, Vector3.up, rotationAmount);
         }
 
 
         _lastPlayerPosition = _player.transform.position;
+    }
+
+    private bool IsGrounded()
+    {
+        return _player.transform.position.y <= 0.3;
+    }
+
+    public void OnLanding()
+    {
+        _moveAnimator.speed = 1;
+    }
+
+    public void OnJump()
+    {
+        _moveAnimator.speed = 0;
     }
 
     public void OnMove(InputValue value)
