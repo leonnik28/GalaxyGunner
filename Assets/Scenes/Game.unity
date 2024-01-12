@@ -967,7 +967,7 @@ MonoBehaviour:
   _traveledDistance: {fileID: 695352017046511139}
   _startChunk: {fileID: 8082620299087342281}
   _offset: 10
-  _roadChunksCount: 10
+  _roadChunksCount: 15
 --- !u!1 &1485429580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,6 +1254,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1800478911 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7577348586658285770, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3664902619463245800}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ceca15311309a45bb2e3913d20d50b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1802471004
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2077,12 +2089,22 @@ PrefabInstance:
     - target: {fileID: 199177000139458132, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 1.22838e-40
+      value: 2.01238e-40
       objectReference: {fileID: 0}
     - target: {fileID: 1237618033119020339, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107770631538285491, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+        type: 3}
+      propertyPath: _movement
+      value: 
+      objectReference: {fileID: 1800478911}
+    - target: {fileID: 7577348586658285770, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+        type: 3}
+      propertyPath: _forwardSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8006914951718293049, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
@@ -2153,9 +2175,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f97d56b9938f4458269d66889b4dd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chunks:
+  _chunksCommon:
   - Chunk: {fileID: 33565881256259937, guid: 45232bc6ac8eed546a4bb146ed85493c, type: 3}
-    Count: 15
+    Count: 1
+  - Chunk: {fileID: 33565881256259937, guid: d1ee893b6e3c69b4a9995c7fcd37ccf0, type: 3}
+    Count: 20
+  _chunksSpecial:
+  - Chunk: {fileID: 33565881256259937, guid: 5291ef70367fb6542bbf11894f12aeca, type: 3}
+    Count: 20
+  - Chunk: {fileID: 33565881256259937, guid: 09b7b741753c11d449fe83856c94380e, type: 3}
+    Count: 1
+  - Chunk: {fileID: 33565881256259937, guid: f290ef2cd45a5a64eb5e26725a0b6a5e, type: 3}
+    Count: 1
 --- !u!33 &4770048845396461449
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2723,6 +2754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737cd0057fa196a47af6cddce0350ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isStartChunk: 0
+  _isEndChunk: 0
 --- !u!1001 &8315827733096896906
 PrefabInstance:
   m_ObjectHideFlags: 0

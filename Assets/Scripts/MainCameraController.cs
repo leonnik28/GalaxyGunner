@@ -5,16 +5,12 @@ using DG.Tweening;
 
 public class MainCameraController : MonoBehaviour
 {
-    [Space]
     [SerializeField] private CinemachineVirtualCamera _vcam;
-
-    [Space]
+    [SerializeField] private Movement _movement;
     [SerializeField] private Rigidbody _player;
 
     [Space]
     [SerializeField] private float _tiltAmount = 0.3f;
-
-    [Space]
     [SerializeField] private float _maxRotation = 30f;
 
     [Header("FOV")]
@@ -24,7 +20,6 @@ public class MainCameraController : MonoBehaviour
 
     private Vector3 _lastPlayerPosition;
     private float _originalTilt;
-    private Vector2 _moveInput;
 
     private void Start()
     {
@@ -35,7 +30,8 @@ public class MainCameraController : MonoBehaviour
 
     private void Update()
     {
-        if (IsGrounded())
+        if (_movement.CurrentState.State == MovementState.PlaceState.Ground ||
+            _movement.CurrentState.State == MovementState.PlaceState.WallGround)
         {
             OnLanding();
         }
@@ -46,21 +42,9 @@ public class MainCameraController : MonoBehaviour
 
         float newFOV = _minFOV + _player.velocity.magnitude;
         _vcam.m_Lens.FieldOfView = Mathf.Clamp(newFOV, _minFOV, _maxFOV);
+        var move = _player.transform.position - _lastPlayerPosition;      
 
-        RaycastHit hit = new RaycastHit();
-
-        var move = _player.transform.position - _lastPlayerPosition;
-
-        bool isMovingTowardsWall = Vector3.Dot(move, hit.normal) < 0;
-
-        bool isTouchingWall = Physics.Raycast(_player.transform.position, Vector3.right * _moveInput.x, out hit, 1f) &&
-            hit.collider.GetComponent<IWall>() != null &&
-            hit.collider.GetComponent<IWall>().IsWall() &&
-            isMovingTowardsWall;
-
-        
-
-        if (!isTouchingWall)
+        if (_movement.CurrentState.State != MovementState.PlaceState.WallGround)
         {
             var tilt = _originalTilt + move.x * _tiltAmount;
             tilt = Mathf.Clamp(tilt, -1, 1);
@@ -72,13 +56,7 @@ public class MainCameraController : MonoBehaviour
             _vcam.transform.RotateAround(_player.transform.position, Vector3.up, rotationAmount);
         }
 
-
         _lastPlayerPosition = _player.transform.position;
-    }
-
-    private bool IsGrounded()
-    {
-        return _player.transform.position.y <= 0.3;
     }
 
     public void OnLanding()
@@ -89,10 +67,5 @@ public class MainCameraController : MonoBehaviour
     public void OnJump()
     {
         _moveAnimator.speed = 0;
-    }
-
-    public void OnMove(InputValue value)
-    {
-        _moveInput = value.Get<Vector2>();
     }
 }

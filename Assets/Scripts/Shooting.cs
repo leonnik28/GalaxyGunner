@@ -35,7 +35,7 @@ public class Shooting : MonoBehaviour
         {
             if (hit.transform.TryGetComponent(out IDamageable damageable))
             {
-                if (_isDelayInProgress == false)
+                if (!_isDelayInProgress)
                 {
                     _isDelayInProgress = true;
                     _fireGunAnimator.SetTrigger("StartFireAnimation");
@@ -45,8 +45,19 @@ public class Shooting : MonoBehaviour
                     _isDelayInProgress = false;
                 }
             }
+            else if (hit.transform.TryGetComponent(out ITargetToOpenDoor openDoor))
+            {
+                if (!_isDelayInProgress)
+                {
+                    _isDelayInProgress = true;
+                    _fireGunAnimator.SetTrigger("StartFireAnimation");
+                    openDoor.GetOpenDoor();
+                    await Task.Delay(_timeDelay);
+
+                    _isDelayInProgress = false;                
+                }
+            }
         }
     }
-
 }
 

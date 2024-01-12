@@ -14,6 +14,7 @@ public class RoadGenerate : MonoBehaviour
     private Queue<Chunk> _roadChunksQueue = new Queue<Chunk>();
 
     private int _oldRoadChunkIndex = 0;
+    private bool _specialCunks = false;
 
     private void Start()
     {
@@ -21,10 +22,30 @@ public class RoadGenerate : MonoBehaviour
 
         for(int i = 0;  i < _roadChunksCount; i++)
         {
-            Chunk chunk = _chunksPool.GetChunk();
-            chunk.transform.position = Vector3.forward * (i + 1) * _offset;
+            Chunk chunk;
+            if (_specialCunks)
+            {
+                chunk = _chunksPool.GetSpecialChunk();
+            }
+            else
+            {
+                chunk = _chunksPool.GetChunk();
+            }
 
+            if (chunk.CheckChunkToStartChunk())
+            {
+                _specialCunks = true;
+            }
+
+            if (chunk.CheckChunkToEndChunk())
+            {
+                _specialCunks = false;
+            }
+
+            chunk.transform.position = Vector3.forward * (i + 1) * _offset;
             _roadChunksQueue.Enqueue(chunk);
+            
+            
         }
     }
 
@@ -37,10 +58,27 @@ public class RoadGenerate : MonoBehaviour
             Chunk oldChunk = _roadChunksQueue.Dequeue();
             _chunksPool.ReturnChunk(oldChunk);
 
-            Chunk chunk = _chunksPool.GetChunk();
-            chunk.transform.position = Vector3.forward * _offset * (currentRoadChunkIndex + _roadChunksCount);
+            Chunk chunk;
 
+            if (_specialCunks)
+            {
+                chunk = _chunksPool.GetSpecialChunk();
+            }
+            else
+            {
+                chunk = _chunksPool.GetChunk();
+            }
+            chunk.transform.position = Vector3.forward * _offset * (currentRoadChunkIndex + _roadChunksCount);
             _roadChunksQueue.Enqueue(chunk);
+
+            if (chunk.CheckChunkToStartChunk() && !_specialCunks)
+            {
+                _specialCunks = true;
+            }
+            if (chunk.CheckChunkToEndChunk() && _specialCunks)
+            {
+                _specialCunks = false;
+            }
 
             _oldRoadChunkIndex = currentRoadChunkIndex;
         }
