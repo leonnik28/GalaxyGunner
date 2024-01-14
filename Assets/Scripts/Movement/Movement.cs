@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float _wallJumpHeight = 1f;
     [SerializeField] private float _wallJumpNormalHeight = 2f;
     [SerializeField] private float _wallMoveRiseUpHeight = 5f;
-    [SerializeField] private float _wallFallMultiplier = .45f;
+    [SerializeField] private float _wallFallMultiplier = .05f;
 
     [Header("Ground Detect")]
     [SerializeField] private LayerMask _groundLayerMask;

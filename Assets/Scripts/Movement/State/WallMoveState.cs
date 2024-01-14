@@ -26,6 +26,7 @@ public class WallMoveState : MovementState
 
     public override void Move(Vector3 moveVector, Vector3 velocity)
     {
+        _characterController.Move(moveVector * Time.deltaTime);
         _characterController.Move(velocity * Time.deltaTime);
     }
 }
