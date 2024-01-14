@@ -26,6 +26,7 @@ public class MainCameraController : MonoBehaviour
         _vcam.Follow = _player.transform;
         _lastPlayerPosition = _player.transform.position;
         _originalTilt = _vcam.transform.localRotation.eulerAngles.x;
+        _vcam.m_Lens.FieldOfView = 70;
     }
 
     private void Update()

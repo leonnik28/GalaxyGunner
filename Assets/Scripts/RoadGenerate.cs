@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RoadGenerate : MonoBehaviour
@@ -14,7 +15,9 @@ public class RoadGenerate : MonoBehaviour
     private Queue<Chunk> _roadChunksQueue = new Queue<Chunk>();
 
     private int _oldRoadChunkIndex = 0;
-    private bool _specialCunks = false;
+    private int _oldChunkType= 1;
+    private int _index;
+    private int _chunkType = 1;
 
     private void Start()
     {
@@ -22,30 +25,10 @@ public class RoadGenerate : MonoBehaviour
 
         for(int i = 0;  i < _roadChunksCount; i++)
         {
-            Chunk chunk;
-            if (_specialCunks)
-            {
-                chunk = _chunksPool.GetSpecialChunk();
-            }
-            else
-            {
-                chunk = _chunksPool.GetChunk();
-            }
-
-            if (chunk.CheckChunkToStartChunk())
-            {
-                _specialCunks = true;
-            }
-
-            if (chunk.CheckChunkToEndChunk())
-            {
-                _specialCunks = false;
-            }
+            Chunk chunk = _chunksPool.GetChunk(_chunkType, true);       
 
             chunk.transform.position = Vector3.forward * (i + 1) * _offset;
-            _roadChunksQueue.Enqueue(chunk);
-            
-            
+            _roadChunksQueue.Enqueue(chunk);                     
         }
     }
 
@@ -60,24 +43,31 @@ public class RoadGenerate : MonoBehaviour
 
             Chunk chunk;
 
-            if (_specialCunks)
+            if (_index > 0)
             {
-                chunk = _chunksPool.GetSpecialChunk();
+                chunk = _chunksPool.GetChunk(_chunkType, true);
+                _index--;
             }
             else
             {
-                chunk = _chunksPool.GetChunk();
+                chunk = _chunksPool.GetChunk(_chunkType, false);
             }
+
             chunk.transform.position = Vector3.forward * _offset * (currentRoadChunkIndex + _roadChunksCount);
             _roadChunksQueue.Enqueue(chunk);
 
-            if (chunk.CheckChunkToStartChunk() && !_specialCunks)
+            if (chunk.CheckChunkToStartChunk() || chunk.CheckChunkToEndChunk())
             {
-                _specialCunks = true;
-            }
-            if (chunk.CheckChunkToEndChunk() && _specialCunks)
-            {
-                _specialCunks = false;
+                int newChunkType;
+
+                do
+                {
+                    newChunkType = Random.Range(1, 4);
+                } while (newChunkType == _chunkType || newChunkType == _oldChunkType);
+
+                _oldChunkType = _chunkType;
+                _chunkType = newChunkType;
+                _index = _roadChunksCount;
             }
 
             _oldRoadChunkIndex = currentRoadChunkIndex;
