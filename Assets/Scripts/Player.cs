@@ -24,4 +24,5 @@ public class Player : MonoBehaviour
             _movement.Jump();
         }
     }
+
 }
