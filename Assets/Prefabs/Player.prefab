@@ -567,6 +567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vcam: {fileID: 5107770631161045584}
+  _movement: {fileID: 0}
   _player: {fileID: 5107770632203105373}
   _tiltAmount: 0.3
   _maxRotation: 30

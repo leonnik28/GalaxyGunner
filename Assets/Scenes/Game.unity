@@ -504,7 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1698746845}
-  _radius: 0.5
+  _radius: 0.7
 --- !u!1 &2547064728267334566
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +537,7 @@ PrefabInstance:
     - target: {fileID: 199177000139458132, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 6.948e-42
+      value: 3.5904e-41
       objectReference: {fileID: 0}
     - target: {fileID: 199177000139458132, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
@@ -624,10 +624,15 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5107770632203105373, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+        type: 3}
+      propertyPath: m_Mass
+      value: 43.99
+      objectReference: {fileID: 0}
     - target: {fileID: 7577348586658285770, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
       propertyPath: _forwardSpeed
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8006914951718293049, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
@@ -750,11 +755,15 @@ MonoBehaviour:
     Count: 1
   - Chunk: {fileID: 33565881256259937, guid: f290ef2cd45a5a64eb5e26725a0b6a5e, type: 3}
     Count: 1
+  - Chunk: {fileID: 33565881256259937, guid: f692698fd340e3f4e81ed50c8cc643ad, type: 3}
+    Count: 5
   _chunksSpecial2:
   - Chunk: {fileID: 33565881256259937, guid: 297a37a5af9f2ab4b987d7951653c62a, type: 3}
     Count: 5
   - Chunk: {fileID: 33565881256259937, guid: 28c9e5c21d3ca7441bbe7a6f537ca49d, type: 3}
     Count: 1
+  - Chunk: {fileID: 33565881256259937, guid: d308c9f8900aeb545b10b38e2bd9ea6d, type: 3}
+    Count: 5
 --- !u!4 &4863209422200609419
 Transform:
   m_ObjectHideFlags: 0
