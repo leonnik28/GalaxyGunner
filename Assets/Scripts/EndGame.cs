@@ -20,4 +20,12 @@ public class EndGame : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.TryGetComponent(out IUfo wall))
+        {
+            Time.timeScale = 0f;
+        }
+    }
 }
