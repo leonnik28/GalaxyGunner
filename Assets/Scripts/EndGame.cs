@@ -23,7 +23,7 @@ public class EndGame : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.TryGetComponent(out IUfo wall))
+        if (other.transform.TryGetComponent(out IGameOverTrigger wall))
         {
             Time.timeScale = 0f;
         }

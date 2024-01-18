@@ -464,7 +464,7 @@ PrefabInstance:
     - target: {fileID: 199177000139458132, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 9.6056e-41
+      value: 1.9589e-40
       objectReference: {fileID: 0}
     - target: {fileID: 1237618033119020339, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
@@ -544,23 +544,43 @@ MonoBehaviour:
   - Chunk: {fileID: 33565881256259937, guid: 45232bc6ac8eed546a4bb146ed85493c, type: 3}
     Count: 1
   - Chunk: {fileID: 33565881256259937, guid: d1ee893b6e3c69b4a9995c7fcd37ccf0, type: 3}
-    Count: 5
+    Count: 2
+  - Chunk: {fileID: 33565881256259937, guid: 030636d2886e3c04a8632a0b1d745d48, type: 3}
+    Count: 10
   _chunksSpecial:
-  - Chunk: {fileID: 33565881256259937, guid: 5291ef70367fb6542bbf11894f12aeca, type: 3}
-    Count: 5
   - Chunk: {fileID: 33565881256259937, guid: 09b7b741753c11d449fe83856c94380e, type: 3}
     Count: 1
   - Chunk: {fileID: 33565881256259937, guid: f290ef2cd45a5a64eb5e26725a0b6a5e, type: 3}
     Count: 1
+  - Chunk: {fileID: 33565881256259937, guid: 5291ef70367fb6542bbf11894f12aeca, type: 3}
+    Count: 5
   - Chunk: {fileID: 33565881256259937, guid: f692698fd340e3f4e81ed50c8cc643ad, type: 3}
     Count: 5
+  - Chunk: {fileID: 33565881256259937, guid: e42ed90ec877ac648b8438b6ae60789f, type: 3}
+    Count: 5
   _chunksSpecial2:
-  - Chunk: {fileID: 33565881256259937, guid: 297a37a5af9f2ab4b987d7951653c62a, type: 3}
-    Count: 5
   - Chunk: {fileID: 33565881256259937, guid: 28c9e5c21d3ca7441bbe7a6f537ca49d, type: 3}
-    Count: 1
-  - Chunk: {fileID: 33565881256259937, guid: d308c9f8900aeb545b10b38e2bd9ea6d, type: 3}
     Count: 5
+  - Chunk: {fileID: 33565881256259937, guid: 5a98d60441396eb43be0316b6ec1ee71, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: 0125febc3451118408fbb71f5ab2ca43, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: daa7469bca444e24481aecc805882525, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: d69e339a5d4f5e342917c804b2aee56c, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: dfc023bbb1b62d94d9232a08bd320b92, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: b4b5118ccd136474ca0f6fce1da3bc3e, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: 8491ebcd320fb11468fb2b9ac5480f68, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: 8dfa664412d8d964f8fc47b8dc03babd, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: c12f0f4080abaaa438d898695df405b4, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: 297a37a5af9f2ab4b987d7951653c62a, type: 3}
+    Count: 10
 --- !u!4 &4863209422200609419
 Transform:
   m_ObjectHideFlags: 0
