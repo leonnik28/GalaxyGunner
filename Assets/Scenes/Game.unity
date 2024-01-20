@@ -14,12 +14,12 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
-  m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_FogDensity: 0.03
+  m_LinearFogStart: 0.87
+  m_LinearFogEnd: 299.25
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 6efd4eb817e38074ebdcc37c641ade26,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -337,7 +338,7 @@ MonoBehaviour:
   _traveledDistance: {fileID: 695352017046511139}
   _startChunk: {fileID: 1662077731}
   _offset: 10
-  _roadChunksCount: 5
+  _roadChunksCount: 10
 --- !u!114 &1662077731 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3566498799264928792, guid: 71c25e8a326c2844eb79bfe22dca9866,
@@ -464,7 +465,7 @@ PrefabInstance:
     - target: {fileID: 199177000139458132, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 1.9589e-40
+      value: 2.48848e-40
       objectReference: {fileID: 0}
     - target: {fileID: 1237618033119020339, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
@@ -526,6 +527,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8433667187696184809, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8433667187696184809, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 8433667187696184809, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 8433667187696184809, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.5019608
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f5f6a3e843ae9d42b69f9647e183ae4, type: 3}
 --- !u!114 &4420948364507823531
@@ -543,9 +564,15 @@ MonoBehaviour:
   _chunksCommon:
   - Chunk: {fileID: 33565881256259937, guid: 45232bc6ac8eed546a4bb146ed85493c, type: 3}
     Count: 1
+  - Chunk: {fileID: 33565881256259937, guid: c172593629cffe8429248f1784affe78, type: 3}
+    Count: 1
   - Chunk: {fileID: 33565881256259937, guid: d1ee893b6e3c69b4a9995c7fcd37ccf0, type: 3}
-    Count: 2
+    Count: 10
   - Chunk: {fileID: 33565881256259937, guid: 030636d2886e3c04a8632a0b1d745d48, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: 1c2df2b4cff4289489db4ef79ec5ea82, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: aa2186765053f5d4b963e4aa2eb81df8, type: 3}
     Count: 10
   _chunksSpecial:
   - Chunk: {fileID: 33565881256259937, guid: 09b7b741753c11d449fe83856c94380e, type: 3}
