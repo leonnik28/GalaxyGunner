@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class FireTarget : MonoBehaviour, IDamageable
 {
-    public void GetDamage()
+    [SerializeField] private float _health;
+
+    public void GetDamage(float damage)
     {
-        Destroy(gameObject);
+        _health -= damage;
+        if( _health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

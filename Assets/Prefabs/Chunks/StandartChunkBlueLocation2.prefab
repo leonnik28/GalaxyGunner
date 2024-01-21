@@ -305,6 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ufoAnimator: {fileID: 8071974985882274501}
+  obj: {fileID: 7671649542164025212, guid: 17608dccd791ea1418fa32f9f852a4e5, type: 3}
 --- !u!4 &3629018696732439023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 498868, guid: f18932879bb23b84ca5370b65419ee41,
