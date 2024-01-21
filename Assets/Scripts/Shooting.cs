@@ -7,6 +7,7 @@ public class Shooting : MonoBehaviour
 {
     [SerializeField] private int _timeDelay = 1000;
     [SerializeField] private Animator _fireGunAnimator;
+    [SerializeField] private float _radius;
 
     private Camera _camera;
 
@@ -23,14 +24,11 @@ public class Shooting : MonoBehaviour
 
         Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
 
-        TryShoot();
+        TryShoot(ray);
     }
 
-    private async void TryShoot()
+    private async void TryShoot(Ray ray)
     {
-
-        Ray ray = _camera.ViewportPointToRay(Vector2.one / 2);
-
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             if (hit.transform.TryGetComponent(out IDamageable damageable))
