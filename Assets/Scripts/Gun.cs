@@ -44,14 +44,12 @@ public class Gun : MonoBehaviour
     public void ChoiceAssaultRifle()
     {
         Type = GunType.AssaultRifle;
-        GunAnimator = _assaultRifle.GetComponent<Animator>();
         UpdateGun();
     }
 
     public void ChoiceWeapon()
     {
         Type = GunType.Weapon;
-        GunAnimator = _weapon.GetComponent<Animator>();
         UpdateGun();
     }
 
@@ -62,7 +60,7 @@ public class Gun : MonoBehaviour
             case GunType.Pistol:
                 GameObject pistol = Instantiate(_pistol.gameObject,  _position,  _rotation,  transform);
                 _damage = 1f;
-                _distance = 5f;
+                _distance = 8f;
                 _rateOfFire = 2000;
                 GunAnimator = pistol.GetComponent<Animator>();
                 break;
@@ -70,15 +68,17 @@ public class Gun : MonoBehaviour
             case GunType.AssaultRifle:
                 GameObject assaultRifle = Instantiate(_assaultRifle.gameObject, _position, _rotation, transform);
                 _damage = 2f;
-                _distance = 6f;
+                _distance = 10f;
                 _rateOfFire = 500;
+                GunAnimator = assaultRifle.GetComponent<Animator>();
                 break; 
 
             case GunType.Weapon:
                 GameObject weapon = Instantiate(_weapon.gameObject, _position, _rotation, transform);
                 _damage = 5f;
-                _distance = 2f;
+                _distance = 3f;
                 _rateOfFire = 4000;
+                GunAnimator = weapon.GetComponent<Animator>();
                 break;
         }
     }

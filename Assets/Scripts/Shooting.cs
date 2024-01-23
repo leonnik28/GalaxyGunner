@@ -44,7 +44,6 @@ public class Shooting : MonoBehaviour
             {
                 _isDelayInProgress = true;
                 _gun.GunAnimator.SetTrigger("StartFireAnimation");
-                await Task.Delay(300);
                 damageable.GetDamage(_gun.Damage);
 
                 await Task.Delay(_gun.RateOfFire);
