@@ -4,8 +4,22 @@ using UnityEngine;
 
 public class FireTarget : MonoBehaviour, IDamageable
 {
-    public void GetDamage()
+    [SerializeField] private float _health;
+
+    private Animator _animator;
+
+    public void GetDamage(float damage)
     {
-        Destroy(gameObject);
+        _animator = GetComponent<Animator>();
+        if (_animator != null)
+        {
+            _animator.SetTrigger("GetDamage");
+        }
+
+        _health -= damage;
+        if( _health <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

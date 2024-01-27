@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    [SerializeField] private int _timeDelay = 1000;
     [SerializeField] private Animator _fireGunAnimator;
     [SerializeField] private float _radius;
+    [SerializeField] private Gun _gun;
 
     private Camera _camera;
 
@@ -16,6 +16,7 @@ public class Shooting : MonoBehaviour
     private void Awake()
     {
         _camera = Camera.main;
+        
     }
 
     private void FixedUpdate()
@@ -27,33 +28,38 @@ public class Shooting : MonoBehaviour
         TryShoot(ray);
     }
 
-    private async void TryShoot(Ray ray)
+    private void TryShoot(Ray ray)
     {
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (Physics.Raycast(ray, out RaycastHit hit, _gun.Distance))
         {
-            if (hit.transform.TryGetComponent(out IDamageable damageable))
-            {
-                if (!_isDelayInProgress)
-                {
-                    _isDelayInProgress = true;
-                    _fireGunAnimator.SetTrigger("StartFireAnimation");
-                    await Task.Delay(_timeDelay);
+            TryHitEnemy(hit);
+        }
+    }
 
-                    damageable.GetDamage();
-                    _isDelayInProgress = false;
-                }
+    private async void TryHitEnemy(RaycastHit hit)
+    {
+        if (hit.transform.TryGetComponent(out IDamageable damageable))
+        {
+            if (!_isDelayInProgress)
+            {
+                _isDelayInProgress = true;
+                _gun.GunAnimator.SetTrigger("StartFireAnimation");
+                damageable.GetDamage(_gun.Damage);
+
+                await Task.Delay(_gun.RateOfFire);
+                _isDelayInProgress = false;
             }
-            else if (hit.transform.TryGetComponent(out ITargetToOpenDoor openDoor))
+        }
+        else if (hit.transform.TryGetComponent(out ITargetToOpenDoor openDoor))
+        {
+            if (!_isDelayInProgress)
             {
-                if (!_isDelayInProgress)
-                {
-                    _isDelayInProgress = true;
-                    _fireGunAnimator.SetTrigger("StartFireAnimation");
-                    openDoor.GetOpenDoor();
-                    await Task.Delay(_timeDelay);
+                _isDelayInProgress = true;
+                _gun.GunAnimator.SetTrigger("StartFireAnimation");
+                openDoor.GetOpenDoor();
+                await Task.Delay(_gun.RateOfFire);
 
-                    _isDelayInProgress = false;                
-                }
+                _isDelayInProgress = false;
             }
         }
     }

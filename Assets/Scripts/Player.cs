@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     private void OnMove(InputValue value)
     {
-        _inputVector = value.Get<Vector2>();
+        _inputVector = value.Get<Vector2>() * 5 / 6 ;
     }
 
     private void OnJump(InputValue value)
