@@ -482,7 +482,7 @@ MonoBehaviour:
     Count: 10
   _chunksSpecial:
   - Chunk: {fileID: 33565881256259937, guid: 09b7b741753c11d449fe83856c94380e, type: 3}
-    Count: 1
+    Count: 100
   - Chunk: {fileID: 33565881256259937, guid: f290ef2cd45a5a64eb5e26725a0b6a5e, type: 3}
     Count: 1
   - Chunk: {fileID: 33565881256259937, guid: 5291ef70367fb6542bbf11894f12aeca, type: 3}
@@ -493,7 +493,7 @@ MonoBehaviour:
     Count: 5
   _chunksSpecial2:
   - Chunk: {fileID: 33565881256259937, guid: 28c9e5c21d3ca7441bbe7a6f537ca49d, type: 3}
-    Count: 5
+    Count: 100
   - Chunk: {fileID: 33565881256259937, guid: 5a98d60441396eb43be0316b6ec1ee71, type: 3}
     Count: 10
   - Chunk: {fileID: 33565881256259937, guid: 0125febc3451118408fbb71f5ab2ca43, type: 3}
@@ -594,7 +594,7 @@ PrefabInstance:
     - target: {fileID: 7643110140582103944, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 1.5317e-40
+      value: 1.66258e-40
       objectReference: {fileID: 0}
     - target: {fileID: 8790658460896577775, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}

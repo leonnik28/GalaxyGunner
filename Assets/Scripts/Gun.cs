@@ -16,8 +16,7 @@ public class Gun : MonoBehaviour
     public float Damage => _damage;
     public float Distance => _distance;
     public int RateOfFire => _rateOfFire;
-
-    public Animator GunAnimator;
+    public Animator GunAnimator => _gunAnimator;
 
     [SerializeField] private Transform _pistol;
     [SerializeField] private Transform _assaultRifle;
@@ -26,13 +25,14 @@ public class Gun : MonoBehaviour
     private float _damage;
     private float _distance;
     private int _rateOfFire;
+    private Animator _gunAnimator;
 
     private Vector3 _position = new Vector3(0f, 2f, 1.37f);
     private Quaternion _rotation = Quaternion.Euler(-95f, 0f, 0f);
 
     private void Start()
     {
-        ChoicePistol();
+        ChoiceAssaultRifle();
     }
 
     public void ChoicePistol()
@@ -62,7 +62,7 @@ public class Gun : MonoBehaviour
                 _damage = 1f;
                 _distance = 8f;
                 _rateOfFire = 2000;
-                GunAnimator = pistol.GetComponent<Animator>();
+                _gunAnimator = pistol.GetComponent<Animator>();
                 break;
               
             case GunType.AssaultRifle:
@@ -70,7 +70,7 @@ public class Gun : MonoBehaviour
                 _damage = 2f;
                 _distance = 10f;
                 _rateOfFire = 500;
-                GunAnimator = assaultRifle.GetComponent<Animator>();
+                _gunAnimator = assaultRifle.GetComponent<Animator>();
                 break; 
 
             case GunType.Weapon:
@@ -78,7 +78,7 @@ public class Gun : MonoBehaviour
                 _damage = 5f;
                 _distance = 3f;
                 _rateOfFire = 4000;
-                GunAnimator = weapon.GetComponent<Animator>();
+                _gunAnimator = weapon.GetComponent<Animator>();
                 break;
         }
     }
