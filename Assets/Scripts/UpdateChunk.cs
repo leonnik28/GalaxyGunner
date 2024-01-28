@@ -4,28 +4,27 @@ using UnityEngine;
 
 public class UpdateChunk : MonoBehaviour
 {
-    [SerializeField] private GameObject _gameObject1;
-    [SerializeField] private GameObject _gameObject2;
-    [SerializeField] private GameObject _gameObject3;
-    [SerializeField] private GameObject _gameObject4;
+    [SerializeField] private GameObject[] _gameObjects;
+    [SerializeField] private Animator _animator;
 
-    private void Start()
+    public void UpdateChunkObjects()
     {
-        if(_gameObject1 != null)
+        if (_animator != null)
         {
-            _gameObject1.SetActive(true);
+            _animator.SetTrigger("UpdateAnimator");
         }
-        if(_gameObject2 != null)
+
+        foreach (var gameObject in _gameObjects)
         {
-            _gameObject2.SetActive(true);
-        }
-        if(_gameObject3 != null)
-        {
-            _gameObject3.SetActive(true);
-        }
-        if (_gameObject4 != null)
-        {
-            _gameObject4.SetActive(true);
+            if (gameObject != null)
+            {
+                gameObject.SetActive(true);
+                gameObject.TryGetComponent<FireTarget>(out FireTarget fireTarget);
+                if (fireTarget != null)
+                {
+                    fireTarget.UpdateHealth();
+                }
+            }
         }
     }
 }

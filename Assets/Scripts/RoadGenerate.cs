@@ -53,6 +53,12 @@ public class RoadGenerate : MonoBehaviour
                 chunk = _chunksPool.GetChunk(_chunkType, false);
             }
 
+            chunk.TryGetComponent<UpdateChunk>(out UpdateChunk updateChunk);
+            if(updateChunk != null)
+            {
+                updateChunk.UpdateChunkObjects();
+            }
+
             chunk.transform.position = Vector3.forward * _offset * (currentRoadChunkIndex + _roadChunksCount);
             _roadChunksQueue.Enqueue(chunk);
 
