@@ -469,9 +469,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chunksCommon:
   - Chunk: {fileID: 33565881256259937, guid: 45232bc6ac8eed546a4bb146ed85493c, type: 3}
-    Count: 1
+    Count: 100
   - Chunk: {fileID: 33565881256259937, guid: c172593629cffe8429248f1784affe78, type: 3}
-    Count: 1
+    Count: 100
   - Chunk: {fileID: 33565881256259937, guid: d1ee893b6e3c69b4a9995c7fcd37ccf0, type: 3}
     Count: 5
   - Chunk: {fileID: 33565881256259937, guid: 030636d2886e3c04a8632a0b1d745d48, type: 3}
@@ -520,17 +520,29 @@ MonoBehaviour:
     Count: 5
   _chunksSpecial:
   - Chunk: {fileID: 33565881256259937, guid: 09b7b741753c11d449fe83856c94380e, type: 3}
-    Count: 100
+    Count: 1
   - Chunk: {fileID: 33565881256259937, guid: f290ef2cd45a5a64eb5e26725a0b6a5e, type: 3}
     Count: 1
   - Chunk: {fileID: 33565881256259937, guid: 5291ef70367fb6542bbf11894f12aeca, type: 3}
-    Count: 5
+    Count: 10
   - Chunk: {fileID: 33565881256259937, guid: f692698fd340e3f4e81ed50c8cc643ad, type: 3}
-    Count: 5
+    Count: 10
   - Chunk: {fileID: 33565881256259937, guid: e42ed90ec877ac648b8438b6ae60789f, type: 3}
-    Count: 5
+    Count: 10
   - Chunk: {fileID: 33565881256259937, guid: 82a91b5401ddaed419183643785c2930, type: 3}
-    Count: 5
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: c91c68b15b347c041a3c55a33335ef7a, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: 1faa698637ddde245a811e370d103196, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: b1e4831bccf7e134c98658e76e3b13b2, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: 4b7918bea6f542148b16c80fb7b3ebaf, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: b9e15e764764b6046afc506b89ca57cb, type: 3}
+    Count: 10
+  - Chunk: {fileID: 33565881256259937, guid: ebe4ec627e1f7104085097309b20e5d7, type: 3}
+    Count: 10
   _chunksSpecial2:
   - Chunk: {fileID: 33565881256259937, guid: 28c9e5c21d3ca7441bbe7a6f537ca49d, type: 3}
     Count: 100
@@ -636,10 +648,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4292293060914316994, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+        type: 3}
+      propertyPath: m_Height
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7643110140582103944, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 2.6408e-40
+      value: 3.33865e-40
       objectReference: {fileID: 0}
     - target: {fileID: 8790658460896577775, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}

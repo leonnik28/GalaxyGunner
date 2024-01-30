@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isStartChunk: 0
   _isEndChunk: 0
+  _isSpecialChunk: 0
 --- !u!1001 &2332351291756094776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134,7 +135,8 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6766962958451596151, guid: f070cc57d6542bb41ad2899515415505, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f070cc57d6542bb41ad2899515415505, type: 3}
 --- !u!1 &9027538935873016278 stripped
 GameObject:
@@ -401,18 +403,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5053679753124555650}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7175561714427056177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960236838419505004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02972ea415e2d554c9a5c8b589e06198, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7976607791864344233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,7 +589,8 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6766962958451596151, guid: f070cc57d6542bb41ad2899515415505, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f070cc57d6542bb41ad2899515415505, type: 3}
 --- !u!4 &3389782454216794155 stripped
 Transform:

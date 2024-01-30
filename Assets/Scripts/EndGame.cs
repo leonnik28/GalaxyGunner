@@ -28,4 +28,12 @@ public class EndGame : MonoBehaviour
             Time.timeScale = 0f;
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.transform.TryGetComponent(out IGameOverTrigger wall))
+        {
+            Time.timeScale = 0f;
+        }
+    }
 }

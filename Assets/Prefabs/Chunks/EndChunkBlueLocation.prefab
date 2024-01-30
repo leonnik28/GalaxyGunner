@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isStartChunk: 0
   _isEndChunk: 1
+  _isSpecialChunk: 0
 --- !u!1001 &3629018696732339547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -180,7 +181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 101144, guid: 8d76d7bf209da5b44a73507c804295d4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 453906, guid: 8d76d7bf209da5b44a73507c804295d4, type: 3}
       propertyPath: m_RootOrder
@@ -237,7 +238,7 @@ PrefabInstance:
     - target: {fileID: 2327398, guid: 8d76d7bf209da5b44a73507c804295d4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e305453a48fa58446882f6671dfa0d58, type: 2}
+      objectReference: {fileID: 2100000, guid: d37e8378fe566f84a8b75b0083ec4838, type: 2}
     - target: {fileID: 6507788, guid: 8d76d7bf209da5b44a73507c804295d4, type: 3}
       propertyPath: m_IsTrigger
       value: 1

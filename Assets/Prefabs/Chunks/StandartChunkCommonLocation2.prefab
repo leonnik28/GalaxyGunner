@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isStartChunk: 0
   _isEndChunk: 0
+  _isSpecialChunk: 0
 --- !u!114 &7366946248579820173
 MonoBehaviour:
   m_ObjectHideFlags: 0

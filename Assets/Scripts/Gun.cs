@@ -32,7 +32,7 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        ChoicePistol();
+        ChoiceAssaultRifle();
     }
 
     public void ChoicePistol()
