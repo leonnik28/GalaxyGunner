@@ -59,25 +59,25 @@ public class Gun : MonoBehaviour
         {
             case GunType.Pistol:
                 GameObject pistol = Instantiate(_pistol.gameObject,  _position,  _rotation,  transform);
-                _damage = 1f;
-                _distance = 8f;
-                _rateOfFire = 2000;
+                _damage = 2f;
+                _distance = 12f;
+                _rateOfFire = 1000;
                 _gunAnimator = pistol.GetComponent<Animator>();
                 break;
               
             case GunType.AssaultRifle:
                 GameObject assaultRifle = Instantiate(_assaultRifle.gameObject, _position, _rotation, transform);
-                _damage = 2f;
-                _distance = 10f;
+                _damage = 3f;
+                _distance = 15f;
                 _rateOfFire = 500;
                 _gunAnimator = assaultRifle.GetComponent<Animator>();
                 break; 
 
             case GunType.Weapon:
                 GameObject weapon = Instantiate(_weapon.gameObject, _position, _rotation, transform);
-                _damage = 5f;
+                _damage = 10f;
                 _distance = 3f;
-                _rateOfFire = 4000;
+                _rateOfFire = 1500;
                 _gunAnimator = weapon.GetComponent<Animator>();
                 break;
         }
