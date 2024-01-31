@@ -16,7 +16,6 @@ public class Shooting : MonoBehaviour
     private void Awake()
     {
         _camera = Camera.main;
-        
     }
 
     private void FixedUpdate()
@@ -44,6 +43,7 @@ public class Shooting : MonoBehaviour
             {
                 _isDelayInProgress = true;
                 _gun.GunAnimator.SetTrigger("StartFireAnimation");
+                _gun.GunAudioSource.PlayOneShot(_gun.GunAudioSource.clip);
                 damageable.GetDamage(_gun.Damage);
 
                 await Task.Delay(_gun.RateOfFire);

@@ -17,6 +17,7 @@ public class Gun : MonoBehaviour
     public float Distance => _distance;
     public int RateOfFire => _rateOfFire;
     public Animator GunAnimator => _gunAnimator;
+    public AudioSource GunAudioSource => _gunAudioSource;
 
     [SerializeField] private Transform _pistol;
     [SerializeField] private Transform _assaultRifle;
@@ -26,6 +27,7 @@ public class Gun : MonoBehaviour
     private float _distance;
     private int _rateOfFire;
     private Animator _gunAnimator;
+    private AudioSource _gunAudioSource;
 
     private Vector3 _position = new Vector3(0f, 2f, 1.37f);
     private Quaternion _rotation = Quaternion.Euler(-95f, 0f, 0f);
@@ -63,6 +65,7 @@ public class Gun : MonoBehaviour
                 _distance = 12f;
                 _rateOfFire = 1000;
                 _gunAnimator = pistol.GetComponent<Animator>();
+                _gunAudioSource = pistol.GetComponent<AudioSource>();
                 break;
               
             case GunType.AssaultRifle:
@@ -71,6 +74,7 @@ public class Gun : MonoBehaviour
                 _distance = 15f;
                 _rateOfFire = 500;
                 _gunAnimator = assaultRifle.GetComponent<Animator>();
+                _gunAudioSource = assaultRifle.GetComponent <AudioSource>();
                 break; 
 
             case GunType.Weapon:
@@ -79,6 +83,7 @@ public class Gun : MonoBehaviour
                 _distance = 3f;
                 _rateOfFire = 1500;
                 _gunAnimator = weapon.GetComponent<Animator>();
+                _gunAudioSource.GetComponent<AudioSource>();
                 break;
         }
     }

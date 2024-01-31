@@ -40,9 +40,10 @@ public class MainCameraController : MonoBehaviour
             OnJump();
         }
 
-        float newFOV = _minFOV + _player.velocity.magnitude;
-        _vcam.m_Lens.FieldOfView = Mathf.Clamp(newFOV, _minFOV, _maxFOV);
-        var move = _player.transform.position - _lastPlayerPosition;      
+        float distanceRatio = _player.transform.position.z / 800f;
+        _vcam.m_Lens.FieldOfView = Mathf.Clamp(_minFOV + distanceRatio,  _minFOV,  _maxFOV);
+
+        var move = _player.transform.position - _lastPlayerPosition;
 
         if (_movement.CurrentState.State != MovementState.PlaceState.WallGround)
         {
