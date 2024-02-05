@@ -291,7 +291,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _aimExtern: {fileID: 1938575191}
-  _aimInternal: {fileID: 1147391132}
   _gun: {fileID: 11400000, guid: 448f8959e55996d40920d9c952e8efe8, type: 2}
   _scaleCount: 1.5
 --- !u!224 &619877792 stripped
@@ -864,7 +863,7 @@ PrefabInstance:
     - target: {fileID: 7643110140582103944, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 3.55005e-40
+      value: 3.55826e-40
       objectReference: {fileID: 0}
     - target: {fileID: 8790658460896577775, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
