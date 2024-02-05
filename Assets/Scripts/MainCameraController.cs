@@ -20,6 +20,7 @@ public class MainCameraController : MonoBehaviour
 
     private Vector3 _lastPlayerPosition;
     private float _originalTilt;
+    private float _fieldOfViewScaleFactor = 800f;
 
     private void Start()
     {
@@ -40,7 +41,7 @@ public class MainCameraController : MonoBehaviour
             OnJump();
         }
 
-        float distanceRatio = _player.transform.position.z / 800f;
+        float distanceRatio = _player.transform.position.z / _fieldOfViewScaleFactor;
         _vcam.m_Lens.FieldOfView = Mathf.Clamp(_minFOV + distanceRatio,  _minFOV,  _maxFOV);
 
         var move = _player.transform.position - _lastPlayerPosition;

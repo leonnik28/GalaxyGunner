@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Shooting : MonoBehaviour
 {
-    [SerializeField] private Animator _fireGunAnimator;
-    [SerializeField] private float _radius;
     [SerializeField] private Gun _gun;
+    [SerializeField] private GunSpawn _gunSpawn;
+    [SerializeField] private Aim _aim;
 
     private Camera _camera;
 
@@ -21,9 +20,6 @@ public class Shooting : MonoBehaviour
     private void FixedUpdate()
     {
         Ray ray = _camera.ViewportPointToRay(Vector2.one / 2);
-
-        Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
-
         TryShoot(ray);
     }
 
@@ -42,8 +38,9 @@ public class Shooting : MonoBehaviour
             if (!_isDelayInProgress)
             {
                 _isDelayInProgress = true;
-                _gun.GunAnimator.SetTrigger("StartFireAnimation");
-                _gun.GunAudioSource.PlayOneShot(_gun.GunAudioSource.clip);
+                _gunSpawn.GunAnimator.SetTrigger("StartFireAnimation");
+               // _gun.GunAudioSource.PlayOneShot(_gun.GunAudioSource.clip);
+                _aim.ScaleAim();
                 damageable.GetDamage(_gun.Damage);
 
                 await Task.Delay(_gun.RateOfFire);
@@ -55,7 +52,9 @@ public class Shooting : MonoBehaviour
             if (!_isDelayInProgress)
             {
                 _isDelayInProgress = true;
-                _gun.GunAnimator.SetTrigger("StartFireAnimation");
+                _gunSpawn.GunAnimator.SetTrigger("StartFireAnimation");
+                //_gun.GunAudioSource.PlayOneShot(_gun.GunAudioSource.clip);
+                _aim.ScaleAim();
                 openDoor.GetOpenDoor();
                 await Task.Delay(_gun.RateOfFire);
 
