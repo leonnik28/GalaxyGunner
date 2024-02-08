@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7eef0fef44f4640acb3d1e9fa6aa3d, type: 3}
   m_Name: AssaultRifle
   m_EditorClassIdentifier: 
+  _name: AssaultRifle
   _damage: 3
   _distance: 15
   _rateOfFire: 500
   _gunTransform: {fileID: 1648365757156262789, guid: e053e8d9665f72f4abbf730eb4dde156,
     type: 3}
+  _cost: 0
   _position: {x: 0, y: 2, z: 1.37}
   _rotation: {x: -0.7372773, y: 0, z: 0, w: 0.6755902}
