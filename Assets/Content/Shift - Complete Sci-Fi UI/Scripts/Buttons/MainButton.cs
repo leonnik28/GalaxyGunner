@@ -7,8 +7,8 @@ namespace Michsky.UI.Shift
     public class MainButton : MonoBehaviour
     {
         [Header("Settings")]
-        public string buttonText = "My Title";
-        public bool useCustomText = false;
+        [SerializeField] private string _buttonText = "";
+        [SerializeField] private bool _useCustomText = false;
 
         [Header("Resources")]
         public TextMeshProUGUI normalText;
@@ -17,11 +17,11 @@ namespace Michsky.UI.Shift
 
         void OnEnable()
         {
-            if (useCustomText == false)
+            if (_useCustomText == false)
             {
-                if (normalText != null) { normalText.text = buttonText; }
-                if (highlightedText != null) { highlightedText.text = buttonText; }
-                if (pressedText != null) { pressedText.text = buttonText; }
+                if (normalText != null) { normalText.text = _buttonText; }
+                if (highlightedText != null) { highlightedText.text = _buttonText; }
+                if (pressedText != null) { pressedText.text = _buttonText; }
             }
         }
     }

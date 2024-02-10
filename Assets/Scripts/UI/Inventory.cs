@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -5,23 +6,17 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private Gun _gun;
+    public Gun Gun => _gun;
 
-    [SerializeField] TextMeshProUGUI _name;
-    [SerializeField] TextMeshProUGUI _damage;
-    [SerializeField] TextMeshProUGUI _rateOfFire;
-    [SerializeField] TextMeshProUGUI _distance;
+    public event Action<Gun> OnGunChanged;
 
-    private void Update()
+    [SerializeField] private List<Gun> _gunList;
+
+    private Gun _gun;
+
+    public void ChooseGun(int index)
     {
-        
-    }
-
-    public void ChoiceGunOnInventory()
-    {
-        _name.text = "Name: " + _gun.Name;
-        _damage.text = "Damage: " + _gun.Damage.ToString();
-        _rateOfFire.text = "Rate of fire: " + _gun.RateOfFire.ToString();
-        _distance.text = "Distance: " + _gun.Distance.ToString();
+        _gun = _gunList[index];
+        OnGunChanged?.Invoke(_gun);
     }
 }
