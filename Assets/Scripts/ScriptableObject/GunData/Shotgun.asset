@@ -19,5 +19,5 @@ MonoBehaviour:
   _gunTransform: {fileID: 449219517181779858, guid: 58199db575f12874b91796fe9ab41bc7,
     type: 3}
   _cost: 50
-  _position: {x: 0, y: 2, z: 1.37}
+  _position: {x: 0, y: 1.2, z: 1.37}
   _rotation: {x: -0.7372773, y: 0, z: 0, w: 0.6755902}
