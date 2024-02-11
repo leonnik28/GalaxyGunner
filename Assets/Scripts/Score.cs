@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +7,7 @@ public class Score : MonoBehaviour
     [SerializeField] private Vector3 _score;
     [SerializeField] private Transform _player;
 
-    private delegate void PlayerMovedHandle(Vector3 newPosition);
-    private event PlayerMovedHandle OnPlayerMoved;
+    private event Action<Vector3> OnPlayerMoved;
 
     private Vector3 _startPosition;
     private Vector3 _lastPosition;

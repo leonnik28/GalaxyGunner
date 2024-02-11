@@ -5,6 +5,7 @@ public class GunUI : MonoBehaviour
 {
     [SerializeField] private Inventory _inventory;
 
+    [Space]
     [SerializeField] TextMeshProUGUI _name;
     [SerializeField] TextMeshProUGUI _damage;
     [SerializeField] TextMeshProUGUI _rateOfFire;

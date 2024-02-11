@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,10 @@ using UnityEngine;
 
 public class StartGame : MonoBehaviour
 {
+    public event Action OnGameStart;
+
     [SerializeField] private Player _player;
+    [SerializeField] private Shooting _shooting;
     [SerializeField] private GunSpawn _gunSpawn;
 
     [Space]
@@ -22,18 +26,26 @@ public class StartGame : MonoBehaviour
     [Space]
     [SerializeField] private int _timeDelay;
 
+    private void OnEnable()
+    {
+        OnGameStart += _player.GameStart;
+        OnGameStart += _shooting.GameStart;
+    }
+
+    private void OnDisable()
+    {
+        OnGameStart -= _player.GameStart;
+        OnGameStart -= _shooting.GameStart;
+    }
+
     public void PlayGame()
     {
         _mainUI.SetActive(false);
-
-        ChangeScreenMaterial();
-
         _virtualCameraUI.gameObject.SetActive(false);
-
         _movementUI.SetActive(true);
 
+        ChangeScreenMaterial();
         _gunSpawn.Spawn();
-        
         StartMove();
     }
 
@@ -45,6 +57,6 @@ public class StartGame : MonoBehaviour
     private async void StartMove()
     {
         await Task.Delay(_timeDelay);
-        _player.GameStart();
+        OnGameStart?.Invoke();
     }
 }

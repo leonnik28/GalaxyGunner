@@ -4,23 +4,29 @@ using UnityEngine.UIElements;
 
 public class Shooting : MonoBehaviour
 {
-    [SerializeField] private Gun _gun;
     [SerializeField] private GunSpawn _gunSpawn;
     [SerializeField] private Aim _aim;
 
     private Camera _camera;
+    private Gun _gun;
 
     private bool _isDelayInProgress = false;
+    private bool _gameIsStart = false;
 
-    private void Awake()
+    private void Update()
     {
-        _camera = Camera.main;
+        if (_gameIsStart)
+        {
+            Ray ray = _camera.ViewportPointToRay(Vector2.one / 2);
+            TryShoot(ray);
+        }
     }
 
-    private void FixedUpdate()
+    public void GameStart()
     {
-        Ray ray = _camera.ViewportPointToRay(Vector2.one / 2);
-        TryShoot(ray);
+        _gun = _gunSpawn.Gun;
+        _camera = Camera.main;
+        _gameIsStart = true;
     }
 
     private void TryShoot(Ray ray)
@@ -33,34 +39,31 @@ public class Shooting : MonoBehaviour
 
     private async void TryHitEnemy(RaycastHit hit)
     {
-        if (hit.transform.TryGetComponent(out IDamageable damageable))
+        if (!_isDelayInProgress)
         {
-            if (!_isDelayInProgress)
+            _isDelayInProgress = true;
+
+            if (hit.transform.TryGetComponent(out IDamageable damageable))
             {
-                _isDelayInProgress = true;
-                _gunSpawn.GunAnimator.SetTrigger("StartFireAnimation");
-               // _gun.GunAudioSource.PlayOneShot(_gun.GunAudioSource.clip);
-                _aim.ScaleAim();
+                StartFire();
                 damageable.GetDamage(_gun.Damage);
-
-                await Task.Delay(_gun.RateOfFire);
-                _isDelayInProgress = false;
             }
-        }
-        else if (hit.transform.TryGetComponent(out ITargetToOpenDoor openDoor))
-        {
-            if (!_isDelayInProgress)
+            else if (hit.transform.TryGetComponent(out ITargetToOpenDoor openDoor))
             {
-                _isDelayInProgress = true;
-                _gunSpawn.GunAnimator.SetTrigger("StartFireAnimation");
-                //_gun.GunAudioSource.PlayOneShot(_gun.GunAudioSource.clip);
-                _aim.ScaleAim();
+                StartFire();
                 openDoor.GetOpenDoor();
-                await Task.Delay(_gun.RateOfFire);
-
-                _isDelayInProgress = false;
             }
+
+            await Task.Delay(_gun.RateOfFire);
+            _isDelayInProgress = false;
         }
+    }
+
+    private void StartFire()
+    {
+        _gunSpawn.GunAnimator.SetTrigger("StartFireAnimation");
+        //_gun.GunAudioSource.PlayOneShot(_gun.GunAudioSource.clip);
+        _aim.ScaleAim();
     }
 }
 

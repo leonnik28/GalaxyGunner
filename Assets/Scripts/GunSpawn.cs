@@ -1,26 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class GunSpawn : MonoBehaviour
 {
-    public Animator GunAnimator => _animator;
+    public Gun Gun => _gun;
+    public Animator GunAnimator => _gunAnimator;
 
     [SerializeField] private Inventory _inventory;
+    [SerializeField] private GunPool _gunPool;
+    [SerializeField] private IStorageService _storageService;
 
-    private Animator _animator;
     private Gun _gun;
+    private Animator _gunAnimator;
 
-    public void Spawn()
+    private void Awake()
     {
+        _storageService = new StorageService();
+    }
+
+    public async void Spawn()
+    {
+        await LoadCurrentGun();
         GameObject gun = Instantiate(_gun.GunTransform.gameObject, _gun.Position, _gun.Rotation, transform);
-        _animator = gun.GetComponent<Animator>();
+        _gunAnimator = gun.GetComponent<Animator>();
     }
 
     public void ChooseGun()
     {
         _gun = _inventory.Gun;
         _inventory.gameObject.SetActive(false);
+
+        _storageService.SaveAsync("currentGun", _gun.Name);
+    }
+
+    public async Task LoadCurrentGun()
+    { 
+        string gunName = await _storageService.LoadAsync<string>("currentGun");
+        _gun = _gunPool.GetGun(gunName);
     }
 }
