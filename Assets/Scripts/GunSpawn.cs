@@ -11,7 +11,8 @@ public class GunSpawn : MonoBehaviour
 
     [SerializeField] private Inventory _inventory;
     [SerializeField] private GunPool _gunPool;
-    [SerializeField] private IStorageService _storageService;
+
+    private IStorageService _storageService;
 
     private Gun _gun;
     private Animator _gunAnimator;

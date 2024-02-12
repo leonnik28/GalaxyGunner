@@ -26,14 +26,12 @@ namespace Michsky.UI.Shift
         {
             if (UIManagerAsset == null)
             {
-                try { UIManagerAsset = Resources.Load<UIManager>("Shift UI Manager"); }
-                catch { Debug.Log("<b>[UI Element Sound]</b> No UI Manager found.", this); this.enabled = false; }
+                UIManagerAsset = Resources.Load<UIManager>("Shift UI Manager");
             }
 
             if (Application.isPlaying == true && audioObject == null)
             {
-                try { audioObject = GameObject.Find("UI Audio").GetComponent<AudioSource>(); }
-                catch { Debug.Log("<b>[UI Element Sound]</b> No Audio Source found.", this); }
+              //  audioObject = GameObject.Find("UI Audio").GetComponent<AudioSource>();
             }
 
             if (checkForInteraction == true) { sourceButton = gameObject.GetComponent<Button>(); }
