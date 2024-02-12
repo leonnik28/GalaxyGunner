@@ -5,51 +5,49 @@ using UnityEngine;
 public class ChunksPool : MonoBehaviour
 {
 
-    [SerializeField] private ChunkItem[] _chunksCommon;
-    [SerializeField] private ChunkItem[] _chunksSpecial;
-    [SerializeField] private ChunkItem[] _chunksSpecial2;
+    [SerializeField] private ChunkItem[] _chunksWhiteLocation;
+    [SerializeField] private ChunkItem[] _chunksBlackLocation;
+    [SerializeField] private ChunkItem[] _chunksBlueLocation;
 
-    private List<Chunk> _chunksCommonList;
-    private List<Chunk> _chunksSpecialList;
-    private List<Chunk> _chunksSpecialList2;
-    private List<Chunk> _chunksSpecialList3;
-    private List<Chunk> _chunksSpecialList4;
+    private List<Chunk> _chunksWhiteLocationList;
+    private List<Chunk> _chunksBlackLocationList;
+    private List<Chunk> _chunksBlueLocationList;
 
     private void Awake()
     {
-        _chunksCommonList = new List<Chunk>();
+        _chunksWhiteLocationList = new List<Chunk>();
 
-        foreach (var chunkItem in _chunksCommon)
+        foreach (var chunkItem in _chunksWhiteLocation)
         {
             for (int i = 0; i < chunkItem.Count; i++)
             {
                 Chunk instantiatedChunk = Instantiate(chunkItem.Chunk, transform);
                 instantiatedChunk.gameObject.SetActive(false);
-                _chunksCommonList.Add(instantiatedChunk);
+                _chunksWhiteLocationList.Add(instantiatedChunk);
             }
         }
 
-        _chunksSpecialList = new List<Chunk>();
+        _chunksBlackLocationList = new List<Chunk>();
 
-        foreach (var chunkItem in _chunksSpecial)
+        foreach (var chunkItem in _chunksBlackLocation)
         {
             for (int i = 0; i < chunkItem.Count; i++)
             {
                 Chunk instantiatedChunk = Instantiate(chunkItem.Chunk, transform);
                 instantiatedChunk.gameObject.SetActive(false);
-                _chunksSpecialList.Add(instantiatedChunk);
+                _chunksBlackLocationList.Add(instantiatedChunk);
             }
         }
 
-        _chunksSpecialList2 = new List<Chunk>();
+        _chunksBlueLocationList = new List<Chunk>();
 
-        foreach (var chunkItem in _chunksSpecial2)
+        foreach (var chunkItem in _chunksBlueLocation)
         {
             for (int i = 0; i < chunkItem.Count; i++)
             {
                 Chunk instantiatedChunk = Instantiate(chunkItem.Chunk, transform);
                 instantiatedChunk.gameObject.SetActive(false);
-                _chunksSpecialList2.Add(instantiatedChunk);
+                _chunksBlueLocationList.Add(instantiatedChunk);
             }
         }
     }
@@ -62,13 +60,13 @@ public class ChunksPool : MonoBehaviour
             switch (numberOfCunksBiom)
             {
                 case 1:
-                    chunk = GetStandartChunk(_chunksCommonList);
+                    chunk = GetStandartChunk(_chunksWhiteLocationList);
                     break;
                 case 2:
-                    chunk = GetStandartChunk(_chunksSpecialList);
+                    chunk = GetStandartChunk(_chunksBlackLocationList);
                     break;
                 case 3:
-                    chunk = GetStandartChunk(_chunksSpecialList2);
+                    chunk = GetStandartChunk(_chunksBlueLocationList);
                     break;
                 default:
                     break;
@@ -79,13 +77,13 @@ public class ChunksPool : MonoBehaviour
             switch (numberOfCunksBiom)
             {
                 case 1:
-                    chunk = GetChunk(_chunksCommonList);
+                    chunk = GetChunk(_chunksWhiteLocationList);
                     break;
                 case 2:
-                    chunk = GetChunk(_chunksSpecialList);
+                    chunk = GetChunk(_chunksBlackLocationList);
                     break;
                 case 3:
-                    chunk = GetChunk(_chunksSpecialList2);
+                    chunk = GetChunk(_chunksBlueLocationList);
                     break;
                 default:
                     break;
