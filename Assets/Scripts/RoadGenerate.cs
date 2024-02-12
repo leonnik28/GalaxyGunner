@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RoadGenerate : MonoBehaviour
 {
+    public int ChunkIndex => _oldRoadChunkIndex;
+
     [SerializeField] private ChunksPool _chunksPool;
     [SerializeField] private TraveledDistance _traveledDistance;
     [SerializeField] private Chunk _startChunk;
@@ -77,6 +79,19 @@ public class RoadGenerate : MonoBehaviour
             }
 
             _oldRoadChunkIndex = currentRoadChunkIndex;
+        }
+    }
+
+    public void ChangeChunk(Chunk otherChunk)
+    {
+        if (_roadChunksQueue.Count > 0)
+        {
+            Chunk oldChunk = _roadChunksQueue.Dequeue();
+            oldChunk.gameObject.SetActive(false);
+
+            otherChunk.transform.position = oldChunk.transform.position;
+            otherChunk.gameObject.SetActive(true);
+            _roadChunksQueue.Enqueue(otherChunk);
         }
     }
 }
