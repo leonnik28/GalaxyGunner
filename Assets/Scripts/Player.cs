@@ -22,6 +22,11 @@ public class Player : MonoBehaviour
         _gameIsStart = true;
     }
 
+    public void GameStop()
+    {
+        _gameIsStart = false;
+    }
+
     private void OnMove(InputValue value)
     {
         _inputVector = value.Get<Vector2>() * _inputScaleVector;

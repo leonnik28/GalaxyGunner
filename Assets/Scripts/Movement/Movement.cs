@@ -90,6 +90,7 @@ public class Movement : MonoBehaviour
     private bool m_isGrounded;
     private bool m_isWalled;
 
+
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
@@ -225,6 +226,11 @@ public class Movement : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void ResetMovement(Vector3 oldPosition)
+    {
+        transform.position = oldPosition;
     }
 
 #if UNITY_EDITOR
