@@ -75,7 +75,13 @@ public class RoadGenerate : MonoBehaviour
         }
     }
 
-    public void ChangeChunk(Chunk otherChunk)
+    public Chunk FindNeedChunk(List<Chunk> otherChunksList)
+    {
+        Chunk newChunk = otherChunksList[_oldChunkType - 1];
+        return newChunk;
+    }
+
+    public void ChangeChunk(Chunk chunk)
     {
         int currentRoadChunkIndex = 1;
 
@@ -89,8 +95,8 @@ public class RoadGenerate : MonoBehaviour
 
         oldChunk.gameObject.SetActive(false);
 
-        otherChunk.transform.position = oldChunk.transform.position;
-        otherChunk.gameObject.SetActive(true);
+        chunk.transform.position = oldChunk.transform.position;
+        chunk.gameObject.SetActive(true);
     }
 
     public void StartGame()

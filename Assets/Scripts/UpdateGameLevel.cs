@@ -1,13 +1,15 @@
 using Cinemachine;
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class DeahtReliveUI : MonoBehaviour
+public class UpdateGameLevel : MonoBehaviour
 {
+    public bool GameActive => _gameActive;
+
+    [SerializeField] private List<Chunk> _emptyChunksList;
+
     [SerializeField] private RoadGenerate _roadGenerate;
-    [SerializeField] private Chunk _chunk;
     [SerializeField] private GameObject _model;
     [SerializeField] private Player _player;
     [SerializeField] private Movement _movement;
@@ -27,6 +29,7 @@ public class DeahtReliveUI : MonoBehaviour
 
     private int _timeDeleteEmptyChunk = 5000;
     private Vector3 _playerUpdated;
+    private bool _gameActive = true;
 
     private void Start()
     {
@@ -35,6 +38,7 @@ public class DeahtReliveUI : MonoBehaviour
 
     public void GameOver()
     {
+        _gameActive = false;
         if (_healthIndex >= 1)
         {
             _healthIndex--;
@@ -51,16 +55,18 @@ public class DeahtReliveUI : MonoBehaviour
 
     public async void Relive()
     {
-        _chunk = Instantiate(_chunk, transform);
-        _roadGenerate.ChangeChunk(_chunk);
+        Chunk emptyChunk = _roadGenerate.FindNeedChunk(_emptyChunksList);
+        emptyChunk = Instantiate(emptyChunk, transform);
+        _roadGenerate.ChangeChunk(emptyChunk);
 
         _reliveUI.SetActive(false);
         _movementUI.SetActive(true);
 
+        GameReset();
         Time.timeScale = 1;
 
         await Task.Delay(_timeDeleteEmptyChunk);
-        _chunk.gameObject.SetActive(false);
+        emptyChunk.gameObject.SetActive(false);
     }
 
     public void ExitUI()
@@ -72,6 +78,12 @@ public class DeahtReliveUI : MonoBehaviour
         UpdateWorld();
     }
 
+    private async void GameReset()
+    {
+        await Task.Delay(2000);
+        _gameActive = true;
+    }
+
     private void UpdateWorld()
     {
         _player.GameStop();
@@ -80,6 +92,8 @@ public class DeahtReliveUI : MonoBehaviour
         _movement.ResetMovement(_playerUpdated);
         _vcamUI.gameObject.SetActive(true);
         _gunSpawn.DeleteGun();
+        GameReset();
+        _healthIndex = 1;
         Time.timeScale = 1;
     }
 
