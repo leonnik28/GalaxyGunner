@@ -16,6 +16,7 @@ public class GunSpawn : MonoBehaviour
 
     private Gun _gun;
     private Animator _gunAnimator;
+    private GameObject _spawnedGun;
 
     private void Awake()
     {
@@ -25,8 +26,8 @@ public class GunSpawn : MonoBehaviour
     public async void Spawn()
     {
         await LoadCurrentGun();
-        GameObject gun = Instantiate(_gun.GunTransform.gameObject, _gun.Position, _gun.Rotation, transform);
-        _gunAnimator = gun.GetComponent<Animator>();
+        _spawnedGun = Instantiate(_gun.GunTransform.gameObject, _gun.Position, _gun.Rotation, transform);
+        _gunAnimator = _spawnedGun.GetComponent<Animator>();
     }
 
     public void ChooseGun()
@@ -41,5 +42,15 @@ public class GunSpawn : MonoBehaviour
     { 
         string gunName = await _storageService.LoadAsync<string>("currentGun");
         _gun = _gunPool.GetGun(gunName);
+    }
+
+    public void DeleteGun()
+    {
+        if (_spawnedGun != null)
+        {
+            Destroy(_spawnedGun);
+            _spawnedGun = null;
+            _gunAnimator = null;
+        }
     }
 }

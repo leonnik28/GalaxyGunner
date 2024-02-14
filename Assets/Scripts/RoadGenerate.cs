@@ -1,9 +1,12 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class RoadGenerate : MonoBehaviour
 {
+    public int ChunkIndex => _oldRoadChunkIndex;
+
     [SerializeField] private ChunksPool _chunksPool;
     [SerializeField] private TraveledDistance _traveledDistance;
     [SerializeField] private Chunk _startChunk;
@@ -21,15 +24,7 @@ public class RoadGenerate : MonoBehaviour
 
     private void Start()
     {
-        _roadChunksQueue.Enqueue(_startChunk);
-
-        for(int i = 0;  i < _roadChunksCount; i++)
-        {
-            Chunk chunk = _chunksPool.GetChunk(_chunkType, true);       
-
-            chunk.transform.position = Vector3.forward * (i + 1) * _offset;
-            _roadChunksQueue.Enqueue(chunk);                     
-        }
+        StartGame();
     }
 
     private void LateUpdate()
@@ -78,5 +73,55 @@ public class RoadGenerate : MonoBehaviour
 
             _oldRoadChunkIndex = currentRoadChunkIndex;
         }
+    }
+
+    public Chunk FindNeedChunk(List<Chunk> otherChunksList)
+    {
+        Chunk newChunk = otherChunksList[_oldChunkType - 1];
+        return newChunk;
+    }
+
+    public void ChangeChunk(Chunk chunk)
+    {
+        int currentRoadChunkIndex = 1;
+
+        if (_traveledDistance.Distance % _offset < _offset / 2)
+        {
+            currentRoadChunkIndex--;
+        }
+
+        Chunk[] chunks = _roadChunksQueue.ToArray();
+        Chunk oldChunk = chunks[currentRoadChunkIndex];
+
+        oldChunk.gameObject.SetActive(false);
+
+        chunk.transform.position = oldChunk.transform.position;
+        chunk.gameObject.SetActive(true);
+    }
+
+    public void StartGame()
+    {
+        _chunkType = 1;
+        _oldChunkType = 1;
+        _oldRoadChunkIndex = 0;
+
+        while(_roadChunksQueue.Count > 0)
+        {
+            Chunk chunk = _roadChunksQueue.Dequeue();
+            _chunksPool.ReturnChunk(chunk);
+        }
+        _roadChunksQueue?.Clear();
+
+        _roadChunksQueue.Enqueue(_startChunk);
+        _startChunk.gameObject.SetActive(true);
+
+        for (int i = 0; i < _roadChunksCount; i++)
+        {
+            Chunk chunk = _chunksPool.GetChunk(_chunkType, true);
+
+            chunk.transform.position = Vector3.forward * (i + 1) * _offset;
+            _roadChunksQueue.Enqueue(chunk);
+        }
+        
     }
 }

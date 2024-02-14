@@ -235,7 +235,6 @@ GameObject:
   - component: {fileID: 408141717272479768}
   - component: {fileID: 367403151258354206}
   - component: {fileID: 920054231648511114}
-  - component: {fileID: 647032275102192081}
   - component: {fileID: 4427576788709137005}
   m_Layer: 0
   m_Name: Cabinet
@@ -345,20 +344,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &647032275102192081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431000723481685776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a843d8d2ff0808a4891eaf3744291b04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 4
-  _isDestroyed: 1
 --- !u!114 &4427576788709137005
 MonoBehaviour:
   m_ObjectHideFlags: 0

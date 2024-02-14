@@ -13,7 +13,7 @@ public class TraveledDistance : MonoBehaviour
         _startPositionZ = _root.position.z;
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         Distance = _root.position.z - _startPositionZ;
     }
