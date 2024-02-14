@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     [SerializeField] private Movement _movement;
+    [SerializeField] Animator _handsAnimator;
 
     private Vector2 _inputVector;
     private float _inputScaleVector = 5f / 6f;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     public void GameStart()
     {
         _gameIsStart = true;
+        _handsAnimator.SetTrigger("StartAnimation");
     }
 
     public void GameStop()

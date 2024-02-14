@@ -9,25 +9,30 @@ public class UpdateGameLevel : MonoBehaviour
 
     [SerializeField] private List<Chunk> _emptyChunksList;
 
+    [Header("Active Game Objects")]
     [SerializeField] private RoadGenerate _roadGenerate;
     [SerializeField] private GameObject _model;
     [SerializeField] private Player _player;
     [SerializeField] private Movement _movement;
     [SerializeField] private CinemachineVirtualCamera _vcamUI;
     [SerializeField] private GunSpawn _gunSpawn;
+    [SerializeField] private Animator _runAnimator;
 
     [Space]
     [SerializeField] private GameObject _screen;
     [SerializeField] private Material _screenMaterial;
 
+    [Header("Active UI")]
     [SerializeField] private GameObject _deathUI;
     [SerializeField] private GameObject _reliveUI;
     [SerializeField] private GameObject _movementUI;
     [SerializeField] private GameObject _mainUI;
 
+    [Header("Const Values")]
     [SerializeField] private int _healthIndex = 1;
+    [SerializeField] private int _timeDeleteEmptyChunk = 3000;
+    [SerializeField] private int _gameResetDelay = 1000;
 
-    private int _timeDeleteEmptyChunk = 5000;
     private Vector3 _playerUpdated;
     private bool _gameActive = true;
 
@@ -74,13 +79,13 @@ public class UpdateGameLevel : MonoBehaviour
         _deathUI?.SetActive(false);
         _reliveUI?.SetActive(false);
 
-        _mainUI.SetActive(true);
         UpdateWorld();
+        _mainUI.SetActive(true);
     }
 
     private async void GameReset()
     {
-        await Task.Delay(2000);
+        await Task.Delay(1000);
         _gameActive = true;
     }
 
@@ -88,11 +93,16 @@ public class UpdateGameLevel : MonoBehaviour
     {
         _player.GameStop();
         _roadGenerate.StartGame();
-        ChangeScreenMaterial();
-        _movement.ResetMovement(_playerUpdated);
-        _vcamUI.gameObject.SetActive(true);
         _gunSpawn.DeleteGun();
+
+        _movement.ResetMovement(_playerUpdated);
+        _runAnimator.Play("StayHandsAnimation");
+
+        ChangeScreenMaterial();
+        _vcamUI.gameObject.SetActive(true);
+
         GameReset();
+
         _healthIndex = 1;
         Time.timeScale = 1;
     }

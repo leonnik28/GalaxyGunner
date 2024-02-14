@@ -231,6 +231,8 @@ public class Movement : MonoBehaviour
     public void ResetMovement(Vector3 oldPosition)
     {
         transform.position = oldPosition;
+        _moveSpeedForward = 0f;
+        _currentMoveVector = Vector3.zero;
     }
 
 #if UNITY_EDITOR

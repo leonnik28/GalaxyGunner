@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.InputSystem.UI;
 
 public class StartGame : MonoBehaviour
 {
@@ -26,6 +27,13 @@ public class StartGame : MonoBehaviour
     [Space]
     [SerializeField] private int _timeDelay;
 
+    private InputSystemUIInputModule _mainUiInputSystemModule;
+
+    private void Start()
+    {
+        _mainUiInputSystemModule = _mainUI.GetComponent<InputSystemUIInputModule>();
+    }
+
     private void OnEnable()
     {
         OnGameStart += _player.GameStart;
@@ -38,15 +46,20 @@ public class StartGame : MonoBehaviour
         OnGameStart -= _shooting.GameStart;
     }
 
-    public void PlayGame()
+    public async void PlayGame()
     {
-        _mainUI.SetActive(false);
-        _virtualCameraUI.gameObject.SetActive(false);
-        _movementUI.SetActive(true);
+        if (_mainUiInputSystemModule.enabled) {
+            _mainUiInputSystemModule.enabled = false;
+            await Task.Delay(1000);
+            _mainUI.SetActive(false);
+            _virtualCameraUI.gameObject.SetActive(false);
+            _movementUI.SetActive(true);
 
-        ChangeScreenMaterial();
-        _gunSpawn.Spawn();
-        StartMove();
+            ChangeScreenMaterial();
+            _gunSpawn.Spawn();
+            StartMove();
+            _mainUiInputSystemModule.enabled = true;
+        }
     }
 
     private void ChangeScreenMaterial()
