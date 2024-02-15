@@ -1,29 +1,39 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField] private Vector3 _score;
-    [SerializeField] private Transform _player;
+    public int CurrentScore => (int)_score;
 
-    private event Action<Vector3> OnPlayerMoved;
+    [SerializeField] private Transform _model;
+    [SerializeField] private TextMeshProUGUI _textScore;
 
-    private Vector3 _startPosition;
-    private Vector3 _lastPosition;
+#if UNITY_EDITOR
+    [SerializeField] private float _scoreDebug;
+#endif
+
+    private event Action<float> OnPlayerMoved;
+
+    private float _score;
+    private float _startPosition;
+    private float _lastPosition;
+
+    private int _scoreFactor = 1;
 
     private void Start()
     {
-        _startPosition = _player.position;
-        _lastPosition = _player.position;
+        _startPosition = _model.position.z;
+        _lastPosition = _model.position.z;
     }
 
     private void FixedUpdate()
     {
-        if (_player.position != _lastPosition)
+        if (_model.position.z != _lastPosition)
         {
-            OnPlayerMoved?.Invoke(_player.position);
-            _lastPosition = _player.position;
+            OnPlayerMoved?.Invoke(_model.position.z);
+            _lastPosition = _model.position.z;
         }
     }
 
@@ -37,8 +47,10 @@ public class Score : MonoBehaviour
         OnPlayerMoved -= UpdateScore;
     }
 
-    private void UpdateScore(Vector3 newPosition)
+    private void UpdateScore(float newPosition)
     {
-        _score = _player.position - _startPosition;
+        _score = (int)(_model.position.z - _startPosition) / _scoreFactor;
+        _textScore.text = "Score: " + _score;
+        _scoreDebug = _score;
     }
 }

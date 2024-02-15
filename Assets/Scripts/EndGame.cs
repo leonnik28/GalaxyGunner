@@ -13,7 +13,7 @@ public class EndGame : MonoBehaviour
     {
         Ray ray = _camera.ViewportPointToRay(Vector2.one / 2);
 
-        if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, _radius) && _updateGameLevel.GameActive)
+        if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, _radius) && _updateGameLevel.IsGameActive)
         {
             if(hit.transform.TryGetComponent(out IWall wall))
             {
@@ -24,7 +24,7 @@ public class EndGame : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.TryGetComponent(out IGameOverTrigger wall) && _updateGameLevel.GameActive)
+        if (other.transform.TryGetComponent(out IGameOverTrigger wall) && _updateGameLevel.IsGameActive)
         {
             _updateGameLevel.GameOver();
         }
@@ -32,7 +32,7 @@ public class EndGame : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.TryGetComponent(out IGameOverTrigger wall) && _updateGameLevel.GameActive)
+        if (other.transform.TryGetComponent(out IGameOverTrigger wall) && _updateGameLevel.IsGameActive)
         {
             _updateGameLevel.GameOver();
         }

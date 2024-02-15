@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 2150523655989698613}
+  _updateGameLevel: {fileID: 0}
   _radius: 0.7
 --- !u!114 &1806299356
 MonoBehaviour:
@@ -549,6 +550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movement: {fileID: 142549639063389462}
+  _handsAnimator: {fileID: 6489141444433675413}
 --- !u!114 &6028188200470662167
 MonoBehaviour:
   m_ObjectHideFlags: 0

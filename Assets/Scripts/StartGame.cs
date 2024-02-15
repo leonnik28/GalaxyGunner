@@ -25,7 +25,8 @@ public class StartGame : MonoBehaviour
     [SerializeField] private Material _screenMaterial;
 
     [Space]
-    [SerializeField] private int _timeDelay;
+    [SerializeField] private int _timeDelay = 1800;
+    [SerializeField] private int _timeDelayExitMainUI = 1000;
 
     private InputSystemUIInputModule _mainUiInputSystemModule;
 
@@ -50,7 +51,7 @@ public class StartGame : MonoBehaviour
     {
         if (_mainUiInputSystemModule.enabled) {
             _mainUiInputSystemModule.enabled = false;
-            await Task.Delay(1000);
+            await Task.Delay(_timeDelayExitMainUI);
             _mainUI.SetActive(false);
             _virtualCameraUI.gameObject.SetActive(false);
             _movementUI.SetActive(true);
