@@ -207,7 +207,6 @@ GameObject:
   - component: {fileID: 3981505228679359785}
   - component: {fileID: 3974836757412649469}
   - component: {fileID: 3963982235185450117}
-  - component: {fileID: 4015058129557868523}
   - component: {fileID: 8765824616547860506}
   m_Layer: 0
   m_Name: Globe
@@ -282,19 +281,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4015058129557868523
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3986813787221500735}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.44, y: 0.1, z: 0.52}
-  m_Center: {x: 0, y: 0.06649906, z: 0}
 --- !u!64 &8765824616547860506
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -323,8 +309,8 @@ GameObject:
   - component: {fileID: 1838685782828639381}
   - component: {fileID: 836143725112710736}
   - component: {fileID: 802042379154403081}
-  - component: {fileID: 6163277763887319027}
   - component: {fileID: 5512466161484277947}
+  - component: {fileID: 2815791451703496908}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -435,19 +421,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f0e0ec5187e1654ba6c1d312cba7e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &6163277763887319027
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3986928260455811247}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.8, z: 0.5}
-  m_Center: {x: 0.0000002682209, y: 0.000000059604645, z: -0.2}
 --- !u!95 &5512466161484277947
 Animator:
   serializedVersion: 5
@@ -469,6 +442,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!135 &2815791451703496908
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986928260455811247}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4361336055544957908
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +466,6 @@ GameObject:
   - component: {fileID: 4365030256472540610}
   - component: {fileID: 4394355405767373078}
   - component: {fileID: 4382128720007914606}
-  - component: {fileID: 4353516383208515328}
   - component: {fileID: 8247464236001667313}
   m_Layer: 0
   m_Name: Globe (1)
@@ -555,19 +540,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4353516383208515328
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4361336055544957908}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.44, y: 0.1, z: 0.52}
-  m_Center: {x: 0, y: 0.06649906, z: 0}
 --- !u!64 &8247464236001667313
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -596,8 +568,8 @@ GameObject:
   - component: {fileID: 1321460107948854398}
   - component: {fileID: 20268691562708667}
   - component: {fileID: 68674698822895586}
-  - component: {fileID: 6798969195569262360}
   - component: {fileID: 2345163020935472913}
+  - component: {fileID: 1447004412123622599}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -708,19 +680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f0e0ec5187e1654ba6c1d312cba7e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &6798969195569262360
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4361450555621810244}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.8, z: 0.5}
-  m_Center: {x: 0.0000002682209, y: 0.000000059604645, z: -0.2}
 --- !u!95 &2345163020935472913
 Animator:
   serializedVersion: 5
@@ -742,6 +701,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!135 &1447004412123622599
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4361450555621810244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4588662599818498298
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,7 +726,6 @@ GameObject:
   - component: {fileID: 4601858551361792018}
   - component: {fileID: 4611184300235614158}
   - component: {fileID: 4558271666832843802}
-  - component: {fileID: 3410761441009610952}
   - component: {fileID: 688829668919983128}
   m_Layer: 0
   m_Name: ScifiBox
@@ -841,18 +812,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &3410761441009610952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4588662599818498298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02972ea415e2d554c9a5c8b589e06198, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &688829668919983128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -881,7 +840,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4671168604403942448
 Transform:
@@ -967,7 +926,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4671168604404043362
 Transform:
@@ -1064,7 +1023,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4671168604403941764
 Transform:
@@ -1149,7 +1108,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4671168604404037500
 Transform:
@@ -1232,7 +1191,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4671168604403951704
 Transform:
@@ -1280,7 +1239,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4671168604403982484
 Transform:
@@ -1352,7 +1311,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4671168604403951508
 Transform:
@@ -1442,14 +1401,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4671168604404027484}
-  - component: {fileID: 4128102747827504039}
-  - component: {fileID: 8017793088176415195}
   m_Layer: 0
   m_Name: Corridor_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4671168604404027484
 Transform:
@@ -1470,32 +1427,6 @@ Transform:
   m_Father: {fileID: 513400763057226445}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!65 &4128102747827504039
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4671168604403875422}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.2, y: 1, z: 4}
-  m_Center: {x: 4, y: 0.5, z: 0}
---- !u!65 &8017793088176415195
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4671168604403875422}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.2, y: 3.5, z: 4}
-  m_Center: {x: 4, y: 3.5, z: 0}
 --- !u!1 &4671168604403884500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,7 +1443,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4671168604404027774
 Transform:
@@ -1664,7 +1595,6 @@ GameObject:
   - component: {fileID: 7592100594220540696}
   - component: {fileID: 7580928532494686156}
   - component: {fileID: 7574859385553748660}
-  - component: {fileID: 7612755407728034266}
   - component: {fileID: 2863125696177425963}
   m_Layer: 0
   m_Name: Globe (3)
@@ -1739,19 +1669,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7612755407728034266
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7586780491751140622}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.44, y: 0.1, z: 0.52}
-  m_Center: {x: 0, y: 0.06649906, z: 0}
 --- !u!64 &2863125696177425963
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1780,8 +1697,8 @@ GameObject:
   - component: {fileID: 5159427902156630692}
   - component: {fileID: 6162963766867974241}
   - component: {fileID: 6142003784412930360}
-  - component: {fileID: 834844704323815874}
   - component: {fileID: 5166555579360947360}
+  - component: {fileID: 5151553464884173225}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -1892,19 +1809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f0e0ec5187e1654ba6c1d312cba7e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &834844704323815874
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7586806754913568414}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.8, z: 0.5}
-  m_Center: {x: 0.0000002682209, y: 0.000000059604645, z: -0.2}
 --- !u!95 &5166555579360947360
 Animator:
   serializedVersion: 5
@@ -1926,6 +1830,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!135 &5151553464884173225
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7586806754913568414}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8592349816085802742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,7 +1854,6 @@ GameObject:
   - component: {fileID: 8586973946548805856}
   - component: {fileID: 8593816274942252084}
   - component: {fileID: 8604354074317963596}
-  - component: {fileID: 8634087399209501218}
   - component: {fileID: 4164806756140944851}
   m_Layer: 0
   m_Name: Globe (2)
@@ -2012,19 +1928,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8634087399209501218
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8592349816085802742}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.44, y: 0.1, z: 0.52}
-  m_Center: {x: 0, y: 0.06649906, z: 0}
 --- !u!64 &4164806756140944851
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2053,8 +1956,8 @@ GameObject:
   - component: {fileID: 6480249251746523484}
   - component: {fileID: 5472083483878464409}
   - component: {fileID: 5425509261362258624}
-  - component: {fileID: 1576953518907525690}
   - component: {fileID: 7701327927505087598}
+  - component: {fileID: 2251593096725637350}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -2165,19 +2068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f0e0ec5187e1654ba6c1d312cba7e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1576953518907525690
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8592376087839180134}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.8, z: 0.5}
-  m_Center: {x: 0.0000002682209, y: 0.000000059604645, z: -0.2}
 --- !u!95 &7701327927505087598
 Animator:
   serializedVersion: 5
@@ -2199,6 +2089,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!135 &2251593096725637350
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8592376087839180134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2136417024177253182
 PrefabInstance:
   m_ObjectHideFlags: 0

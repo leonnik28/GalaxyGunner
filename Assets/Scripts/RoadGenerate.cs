@@ -77,7 +77,7 @@ public class RoadGenerate : MonoBehaviour
 
     public Chunk FindNeedChunk(List<Chunk> otherChunksList)
     {
-        Chunk newChunk = otherChunksList[_oldChunkType - 1];
+        Chunk newChunk = otherChunksList[_chunkType - 1];
         return newChunk;
     }
 

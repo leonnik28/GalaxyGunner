@@ -10,10 +10,6 @@ public class Score : MonoBehaviour
     [SerializeField] private Transform _model;
     [SerializeField] private TextMeshProUGUI _textScore;
 
-#if UNITY_EDITOR
-    [SerializeField] private float _scoreDebug;
-#endif
-
     private event Action<float> OnPlayerMoved;
 
     private float _score;
@@ -51,6 +47,5 @@ public class Score : MonoBehaviour
     {
         _score = (int)(_model.position.z - _startPosition) / _scoreFactor;
         _textScore.text = "Score: " + _score;
-        _scoreDebug = _score;
     }
 }

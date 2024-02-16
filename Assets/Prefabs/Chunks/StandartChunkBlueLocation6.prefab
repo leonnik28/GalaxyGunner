@@ -11,16 +11,16 @@ GameObject:
   - component: {fileID: 1960236838419858252}
   - component: {fileID: 1960236838418563948}
   - component: {fileID: 1960236838417564076}
-  - component: {fileID: 1960236838421606860}
   - component: {fileID: 1960236838419470784}
   - component: {fileID: 1248844365533082281}
   - component: {fileID: 7175561714427056177}
+  - component: {fileID: 3556777401416582563}
   m_Layer: 0
   m_Name: lampost_lod1 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1960236838419858252
 Transform:
@@ -87,20 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1960236838421606860
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960236838419505004}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: f2ce1d49969bf3a48b3f6069bda5fb29, type: 3}
 --- !u!205 &1960236838419470784
 LODGroup:
   m_ObjectHideFlags: 0
@@ -148,6 +134,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02972ea415e2d554c9a5c8b589e06198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &3556777401416582563
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960236838419505004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 1, z: 6}
+  m_Center: {x: 0, y: 0, z: 3}
 --- !u!1 &2541319344839808443
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +165,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2541319344840188029
 Transform:
@@ -244,8 +243,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5113106, y: 4, z: 0.437534}
-  m_Center: {x: -0.000119775534, y: 2, z: 0}
+  m_Size: {x: 0.5, y: 4, z: 0.44}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &1201981406624014968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,15 +268,15 @@ GameObject:
   - component: {fileID: 3389782454216794155}
   - component: {fileID: 3389782454213926923}
   - component: {fileID: 3389782454214894283}
-  - component: {fileID: 3389782454210794155}
   - component: {fileID: 3389782454217194151}
   - component: {fileID: 631410832726220510}
+  - component: {fileID: 5860746639138558829}
   m_Layer: 0
   m_Name: lampost_lod1 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3389782454216794155
 Transform:
@@ -344,20 +343,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3389782454210794155
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3389782454217096203}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: f2ce1d49969bf3a48b3f6069bda5fb29, type: 3}
 --- !u!205 &3389782454217194151
 LODGroup:
   m_ObjectHideFlags: 0
@@ -393,6 +378,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02972ea415e2d554c9a5c8b589e06198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &5860746639138558829
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389782454217096203}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 1, z: 6}
+  m_Center: {x: 0, y: 0, z: 3}
 --- !u!1 &3629018696732186207
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +407,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3629018696732481151
 Transform:
@@ -494,7 +492,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3629018696732398595
 Transform:
@@ -577,7 +575,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3629018696732499323
 Transform:
@@ -660,7 +658,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3629018696732458391
 Transform:
@@ -744,7 +742,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3629018696732397525
 Transform:
@@ -840,7 +838,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3629018696732466961
 Transform:
@@ -911,7 +909,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3629018696732439023
 Transform:
@@ -974,7 +972,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3629018696732457103
 Transform:
@@ -1045,7 +1043,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3629018696732440129
 Transform:
@@ -1128,7 +1126,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3629018696732444973
 Transform:
@@ -1199,7 +1197,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3629018696732438191
 Transform:
@@ -1282,7 +1280,6 @@ GameObject:
   - component: {fileID: 8280253926815154882}
   - component: {fileID: 8071974985882274501}
   - component: {fileID: 1087648633080474197}
-  - component: {fileID: 1284474238623797443}
   - component: {fileID: 4386133672449136130}
   m_Layer: 0
   m_Name: UFO
@@ -1304,7 +1301,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 513400763057226445}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 130, z: 0}
 --- !u!33 &648025108335569192
 MeshFilter:
@@ -1403,18 +1400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02972ea415e2d554c9a5c8b589e06198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1284474238623797443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3754370821177441335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f0e0ec5187e1654ba6c1d312cba7e24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4386133672449136130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1459,8 +1444,8 @@ Transform:
   - {fileID: 3629018696732439023}
   - {fileID: 1960236838419858252}
   - {fileID: 3389782454216794155}
-  - {fileID: 4562679626977977997}
   - {fileID: 8326628185775262557}
+  - {fileID: 4562679626977977997}
   - {fileID: 2541319344840188029}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1491,15 +1476,15 @@ GameObject:
   - component: {fileID: 8326628185775262557}
   - component: {fileID: 8326628185774459773}
   - component: {fileID: 8326628185773361597}
-  - component: {fileID: 8326628185769015773}
   - component: {fileID: 8326628185775395281}
   - component: {fileID: 4885316317711203544}
+  - component: {fileID: 1789716846032287961}
   m_Layer: 0
   m_Name: lampost_lod1 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8326628185775262557
 Transform:
@@ -1514,7 +1499,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 513400763057226445}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &8326628185774459773
 MeshFilter:
@@ -1566,20 +1551,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8326628185769015773
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8326628185775298429}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: f2ce1d49969bf3a48b3f6069bda5fb29, type: 3}
 --- !u!205 &8326628185775395281
 LODGroup:
   m_ObjectHideFlags: 0
@@ -1615,3 +1586,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02972ea415e2d554c9a5c8b589e06198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1789716846032287961
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8326628185775298429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 1, z: 6}
+  m_Center: {x: 0, y: 0, z: 3}

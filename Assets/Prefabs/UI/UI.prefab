@@ -6304,7 +6304,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5211658584020877416}
-  - component: {fileID: 5892198845452278681}
   - component: {fileID: 7899126917517620879}
   - component: {fileID: 8736698670861228811}
   - component: {fileID: 7347443159585388511}
@@ -6340,24 +6339,6 @@ RectTransform:
   m_AnchoredPosition: {x: 277, y: -419}
   m_SizeDelta: {x: 400, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5892198845452278681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516435241471281537}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 259e705bc7d53184f9f67edb60d52dfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useCustomText: 0
-  buttonTitle: TITLE
-  buttonDescription: DESCRIPTION
-  useCustomImage: 0
-  firstImage: {fileID: 21300000, guid: 6d62e8251d7836043a6f40e27ee5d646, type: 3}
-  secondImage: {fileID: 21300000, guid: af2402cf83e0cab45bcb554f452c9b74, type: 3}
 --- !u!114 &7899126917517620879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7663,7 +7644,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4476930242255234705}
-  - component: {fileID: 3744551161779918326}
   - component: {fileID: 377414437858120054}
   - component: {fileID: 8383093822983996595}
   - component: {fileID: 9126475109814126273}
@@ -7699,24 +7679,6 @@ RectTransform:
   m_AnchoredPosition: {x: 724, y: -419}
   m_SizeDelta: {x: 400, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3744551161779918326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655074254351086693}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 259e705bc7d53184f9f67edb60d52dfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useCustomText: 0
-  buttonTitle: TITLE
-  buttonDescription: DESCRIPTION
-  useCustomImage: 0
-  firstImage: {fileID: 21300000, guid: 6d62e8251d7836043a6f40e27ee5d646, type: 3}
-  secondImage: {fileID: 21300000, guid: af2402cf83e0cab45bcb554f452c9b74, type: 3}
 --- !u!114 &377414437858120054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38813,7 +38775,6 @@ GameObject:
   - component: {fileID: 8037753935391860347}
   - component: {fileID: 7871742901028488807}
   - component: {fileID: 8020238408647789723}
-  - component: {fileID: 8037205870698822321}
   - component: {fileID: 6025013796899861589}
   m_Layer: 5
   m_Name: Profile Button
@@ -38895,7 +38856,7 @@ MonoBehaviour:
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 8037205870698822321}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -38963,36 +38924,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8037205870698822321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7933468588921811499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &6025013796899861589
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -35,17 +35,6 @@ public class Movement : MonoBehaviour
     [SerializeField, Min(0)] private float _wallSlowdownDistance = 2f;
     [SerializeField, Min(0)] private float _wallDetectDistance = 1f;
 
-#if UNITY_EDITOR
-    [Header("Debug")]
-    [SerializeField] private float _surfaceAngle;
-    [SerializeField] private float _moveSpeedHorizontal;
-    [SerializeField] private float _moveSpeedForward;
-    [SerializeField] private bool _isGroundedDebug;
-    [SerializeField] private bool _isWallDebug;
-
-    private CharacterController _characterControllerDebug;
-#endif
-
     private CharacterController _characterController;
 
     private Vector3 _velocity;
@@ -114,18 +103,10 @@ public class Movement : MonoBehaviour
                 Time.fixedDeltaTime);
         }
 
-#if UNITY_EDITOR
-        _isGroundedDebug = _isGrounded;
-        _isWallDebug = _isWalled;
-#endif
-
         if (_isGrounded)
         {
             _surfaceNormal = groundHit.normal;
 
-#if UNITY_EDITOR
-            _surfaceAngle = Vector3.Angle(_surfaceNormal, Vector3.up);
-#endif
         }
     }
 
@@ -135,8 +116,6 @@ public class Movement : MonoBehaviour
 
         _moveDirection = (transform.forward * _forwardSpeed)
             + (transform.right * horizontalInput * _strafeSpeed);
-
-        _moveSpeedForward = _moveDirection.z;
 
         var projectedNormal = GetProjectedNormal(_moveDirection);
 
@@ -153,11 +132,6 @@ public class Movement : MonoBehaviour
         _velocity += CurrentState.GetFallVelocity() * Time.deltaTime;
 
         CurrentState.Move(_currentMoveVector, _velocity);
-
-#if UNITY_EDITOR
-        _moveSpeedHorizontal = _currentMoveVector.x;
-        _moveSpeedForward = _currentMoveVector.z;
-#endif
     }
 
     public void Jump()
@@ -231,15 +205,12 @@ public class Movement : MonoBehaviour
     public void ResetMovement(Vector3 oldPosition)
     {
         transform.position = oldPosition;
-        _moveSpeedForward = 0f;
         _currentMoveVector = Vector3.zero;
     }
 
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        _characterControllerDebug = GetComponent<CharacterController>();
-
         if (_wallSlowdownDistance <= _wallDetectDistance)
         {
             _wallSlowdownDistance = _wallDetectDistance + .1f;
