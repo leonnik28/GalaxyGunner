@@ -241,11 +241,6 @@ MonoBehaviour:
     m_Bits: 1
   _wallSlowdownDistance: 2
   _wallDetectDistance: 1
-  _surfaceAngle: 0
-  _moveSpeedHorizontal: 0
-  _moveSpeedForward: 0
-  _isGroundedDebug: 0
-  _isWallDebug: 0
 --- !u!54 &3328199789833353601
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -296,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 2150523655989698613}
+  _updateGameLevel: {fileID: 0}
   _radius: 0.7
 --- !u!114 &1806299356
 MonoBehaviour:
@@ -369,7 +365,7 @@ MonoBehaviour:
     FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 50
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -549,6 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movement: {fileID: 142549639063389462}
+  _handsAnimator: {fileID: 6489141444433675413}
 --- !u!114 &6028188200470662167
 MonoBehaviour:
   m_ObjectHideFlags: 0
