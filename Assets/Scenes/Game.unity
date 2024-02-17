@@ -176,7 +176,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &489958329
 Transform:
@@ -437,7 +437,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1491298540
 Transform:
@@ -695,31 +695,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1415674796}
-    - target: {fileID: 7854344466780383157, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7854344466780383157, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7854344466780383157, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7854344466780383157, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7854344466780383157, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7855106695877766743, guid: 742a83276767ed249a5b867594715ccf,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -735,42 +710,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7856399612464806183, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856399612464806183, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856399612464806183, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856399612464806183, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856399612464806183, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7962124745390340930, guid: 742a83276767ed249a5b867594715ccf,
         type: 3}
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 8037597569551466191, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 8037205870698822321, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 742a83276767ed249a5b867594715ccf, type: 3}
 --- !u!114 &1813967095 stripped
@@ -1327,6 +1271,16 @@ PrefabInstance:
       propertyPath: _inventory
       value: 
       objectReference: {fileID: 1813967095}
+    - target: {fileID: 142549639063389462, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+        type: 3}
+      propertyPath: _strafeSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 142549639063389462, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+        type: 3}
+      propertyPath: _forwardSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 561842716418655205, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
       propertyPath: m_RootOrder
@@ -1418,6 +1372,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UIMovement
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375440754665712577, guid: 2e79735b69ac57d4baec5268697d60ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1375440754665712589, guid: 2e79735b69ac57d4baec5268697d60ee,
         type: 3}
