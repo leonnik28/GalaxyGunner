@@ -78,7 +78,10 @@ public class UpdateGameLevel : MonoBehaviour
         Time.timeScale = 1;
 
         await Task.Delay(_emptyChunkDeletionTime);
-        emptyChunk.gameObject.SetActive(false);
+        if (emptyChunk)
+        {
+            emptyChunk.gameObject.SetActive(false);
+        }
     }
 
     public void ExitReliveUI()

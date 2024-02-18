@@ -121,6 +121,11 @@ public class RoadGenerate : MonoBehaviour
         for (int i = 0; i < _roadChunksCount; i++)
         {
             Chunk chunk = _chunksPool.GetChunk(_chunkType, true);
+            chunk.TryGetComponent<UpdateChunk>(out UpdateChunk updateChunk);
+            if (updateChunk != null)
+            {
+                updateChunk.UpdateChunkObjects();
+            }
 
             chunk.transform.position = Vector3.forward * (i + 1) * _offset;
             _roadChunksQueue.Enqueue(chunk);
