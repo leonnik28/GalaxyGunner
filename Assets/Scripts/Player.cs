@@ -7,8 +7,14 @@ public class Player : MonoBehaviour
     [SerializeField] Animator _handsAnimator;
 
     private Vector2 _inputVector;
+    private AudioSource _gameMusic;
     private float _inputScaleVector = 5f / 6f;
     private bool _gameIsStart = false;
+
+    private void Awake()
+    {
+        _gameMusic = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -22,11 +28,40 @@ public class Player : MonoBehaviour
     {
         _gameIsStart = true;
         _handsAnimator.SetTrigger("StartAnimation");
+        SetMusic(true);
     }
 
     public void GameStop()
     {
         _gameIsStart = false;
+        SetMusic(false);
+    }
+
+    public void SetMusic(bool play, bool atFirst = true)
+    {
+        if(atFirst)
+        {
+            if (play)
+            {
+                _gameMusic.Play();
+                _gameMusic.mute = false;
+            }
+            else
+            {
+                _gameMusic.Stop();
+            }
+        }
+        else
+        {
+            if (play)
+            {
+                _gameMusic.mute = false;
+            }
+            else
+            {
+                _gameMusic.mute = true;
+            }
+        }
     }
 
     private void OnMove(InputValue value)

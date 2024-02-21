@@ -5,11 +5,11 @@ using UnityEngine.UI;
 namespace Michsky.UI.Shift
 {
     [ExecuteInEditMode]
-    public class UIElementSound : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
+    public class UIElementSound : MonoBehaviour, IPointerClickHandler
     {
         [Header("Resources")]
-        public UIManager UIManagerAsset;
-        public AudioSource audioObject;
+        [SerializeField] private UIManager _uIManagerAsset;
+        [SerializeField] private AudioSource _audioObject;
 
         [Header("Custom SFX")]
         public AudioClip hoverSFX;
@@ -24,29 +24,17 @@ namespace Michsky.UI.Shift
 
         void OnEnable()
         {
-            if (UIManagerAsset == null)
+            if (_uIManagerAsset == null)
             {
-                UIManagerAsset = Resources.Load<UIManager>("Shift UI Manager");
+                _uIManagerAsset = Resources.Load<UIManager>("Shift UI Manager");
             }
 
-            if (Application.isPlaying == true && audioObject == null)
+            if (Application.isPlaying == true && _audioObject == null)
             {
               //  audioObject = GameObject.Find("UI Audio").GetComponent<AudioSource>();
             }
 
             if (checkForInteraction == true) { sourceButton = gameObject.GetComponent<Button>(); }
-        }
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            if (checkForInteraction == true && sourceButton != null && sourceButton.interactable == false)
-                return;
-
-            if (enableHoverSound == true)
-            {
-                if (hoverSFX == null) { audioObject.PlayOneShot(UIManagerAsset.hoverSound); }
-                else { audioObject.PlayOneShot(hoverSFX); }
-            }
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -56,8 +44,8 @@ namespace Michsky.UI.Shift
 
             if (enableClickSound == true)
             {
-                if (clickSFX == null) { audioObject.PlayOneShot(UIManagerAsset.clickSound); }
-                else { audioObject.PlayOneShot(clickSFX); }
+                if (clickSFX == null) { _audioObject.PlayOneShot(_uIManagerAsset.clickSound); }
+                else { _audioObject.PlayOneShot(clickSFX); }
             }
         }
     }

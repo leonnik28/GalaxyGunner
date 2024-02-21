@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Shotgun
   _damage: 10
-  _distance: 3
-  _rateOfFire: 1500
+  _distance: 4
+  _rateOfFire: 1700
   _gunTransform: {fileID: 449219517181779858, guid: 58199db575f12874b91796fe9ab41bc7,
     type: 3}
   _cost: 50

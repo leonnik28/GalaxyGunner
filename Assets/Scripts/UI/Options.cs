@@ -25,6 +25,7 @@ public class Options : MonoBehaviour
 
     private async void Start()
     {
+        Application.targetFrameRate = 60;
         _storageService = new StorageService();
         await UpdateOptionsOnStart();
     }
@@ -37,7 +38,7 @@ public class Options : MonoBehaviour
 
     public async void SetTargetFps()
     {
-        int targetFPS = 30;
+        int targetFPS = 60;
 
         switch (_fpsDropdown.value)
         {
@@ -92,7 +93,7 @@ public class Options : MonoBehaviour
 
     private void SetFps()
     {
-        int targetFPS = 30;
+        int targetFPS = 60;
 
         switch (_value.FpsValue)
         {

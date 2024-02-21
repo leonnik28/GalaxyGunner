@@ -8,6 +8,7 @@ public class GunSpawn : MonoBehaviour
 {
     public Gun Gun => _gun;
     public Animator GunAnimator => _gunAnimator;
+    public AudioSource GunAudioSource => _gunAudioSource;
 
     [SerializeField] private Inventory _inventory;
     [SerializeField] private GunPool _gunPool;
@@ -16,6 +17,7 @@ public class GunSpawn : MonoBehaviour
 
     private Gun _gun;
     private Animator _gunAnimator;
+    private AudioSource _gunAudioSource;
     private GameObject _spawnedGun;
 
     private void Awake()
@@ -28,6 +30,7 @@ public class GunSpawn : MonoBehaviour
         await LoadCurrentGun();
         _spawnedGun = Instantiate(_gun.GunTransform.gameObject, _gun.Position, _gun.Rotation, transform);
         _gunAnimator = _spawnedGun.GetComponent<Animator>();
+        _gunAudioSource = _spawnedGun.GetComponent<AudioSource>();
     }
 
     public void ChooseGun()
@@ -51,6 +54,7 @@ public class GunSpawn : MonoBehaviour
             Destroy(_spawnedGun);
             _spawnedGun = null;
             _gunAnimator = null;
+            _gunAudioSource = null;
         }
     }
 }

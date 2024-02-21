@@ -22,6 +22,7 @@ public class UpdateGameLevel : MonoBehaviour
     [SerializeField] private Movement _movement;
     [SerializeField] private CinemachineVirtualCamera _uiVirtualCamera;
     [SerializeField] private GunSpawn _gunSpawn;
+    [SerializeField] private Shooting _shooting;
     [SerializeField] private Animator _runAnimator;
 
     [Header("UI Elements")]
@@ -62,6 +63,8 @@ public class UpdateGameLevel : MonoBehaviour
         {
             OpenDeahtUI();
         }
+
+        _player.SetMusic(false, false);
         Time.timeScale = 0;
     }
 
@@ -75,6 +78,7 @@ public class UpdateGameLevel : MonoBehaviour
         _movementUI.SetActive(true);
 
         GameReset();
+        _player.SetMusic(true, false);
         Time.timeScale = 1;
 
         await Task.Delay(_emptyChunkDeletionTime);
@@ -115,6 +119,7 @@ public class UpdateGameLevel : MonoBehaviour
         _player.GameStop();
         _roadGenerate.StartGame();
         _gunSpawn.DeleteGun();
+        _shooting.GameStop();
 
         _movement.ResetMovement(_updatedPlayerPosition);
         _runAnimator.Play("StayHandsAnimation");

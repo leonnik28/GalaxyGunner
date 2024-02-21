@@ -29,6 +29,11 @@ public class Shooting : MonoBehaviour
         _gameIsStart = true;
     }
 
+    public void GameStop()
+    {
+        _gameIsStart = false;
+    }
+
     private void TryShoot(Ray ray)
     {
         if (Physics.Raycast(ray, out RaycastHit hit, _gun.Distance))
@@ -47,14 +52,15 @@ public class Shooting : MonoBehaviour
             {
                 StartFire();
                 damageable.GetDamage(_gun.Damage);
+                await Task.Delay(_gun.RateOfFire);
             }
             else if (hit.transform.TryGetComponent(out ITargetToOpenDoor openDoor))
             {
                 StartFire();
                 openDoor.GetOpenDoor();
+                await Task.Delay(_gun.RateOfFire);
             }
 
-            await Task.Delay(_gun.RateOfFire);
             _isDelayInProgress = false;
         }
     }
@@ -62,7 +68,7 @@ public class Shooting : MonoBehaviour
     private void StartFire()
     {
         _gunSpawn.GunAnimator.SetTrigger("StartFireAnimation");
-        //_gun.GunAudioSource.PlayOneShot(_gun.GunAudioSource.clip);
+        _gunSpawn.GunAudioSource.PlayOneShot(_gunSpawn.GunAudioSource.clip);
         _aim.ScaleAim();
     }
 }
