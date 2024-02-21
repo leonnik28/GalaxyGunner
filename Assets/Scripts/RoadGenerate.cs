@@ -18,9 +18,10 @@ public class RoadGenerate : MonoBehaviour
     private Queue<Chunk> _roadChunksQueue = new Queue<Chunk>();
 
     private int _oldRoadChunkIndex = 0;
-    private int _oldChunkType= 1;
     private int _index;
+    private int _oldChunkType= 1;
     private int _chunkType = 1;
+    private int _currentChunkType;
 
     private void Start()
     {
@@ -46,6 +47,7 @@ public class RoadGenerate : MonoBehaviour
             else
             {
                 chunk = _chunksPool.GetChunk(_chunkType, false);
+                _currentChunkType = _chunkType;
             }
 
             chunk.TryGetComponent<UpdateChunk>(out UpdateChunk updateChunk);
@@ -66,6 +68,7 @@ public class RoadGenerate : MonoBehaviour
                     newChunkType = Random.Range(1, 4);
                 } while (newChunkType == _chunkType || newChunkType == _oldChunkType);
 
+                _currentChunkType = _oldChunkType;
                 _oldChunkType = _chunkType;
                 _chunkType = newChunkType;
                 _index = _roadChunksCount;
@@ -77,7 +80,7 @@ public class RoadGenerate : MonoBehaviour
 
     public Chunk FindNeedChunk(List<Chunk> otherChunksList)
     {
-        Chunk newChunk = otherChunksList[_chunkType - 1];
+        Chunk newChunk = otherChunksList[_currentChunkType - 1];
         return newChunk;
     }
 
@@ -118,6 +121,11 @@ public class RoadGenerate : MonoBehaviour
         for (int i = 0; i < _roadChunksCount; i++)
         {
             Chunk chunk = _chunksPool.GetChunk(_chunkType, true);
+            chunk.TryGetComponent<UpdateChunk>(out UpdateChunk updateChunk);
+            if (updateChunk != null)
+            {
+                updateChunk.UpdateChunkObjects();
+            }
 
             chunk.transform.position = Vector3.forward * (i + 1) * _offset;
             _roadChunksQueue.Enqueue(chunk);

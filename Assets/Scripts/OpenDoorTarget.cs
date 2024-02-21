@@ -14,11 +14,11 @@ public class OpenDoorTarget : MonoBehaviour, ITargetToOpenDoor
         _animator = GetComponent<Animator>();
         if(_isLeft)
         {
-            _animator.SetBool("DeathObjectLeft", true);
+            _animator.SetTrigger("DeathObjectLeft");
         }
         else
         {
-            _animator.SetBool("DeathObjectRight", true);
+            _animator.SetTrigger("DeathObjectRight");
         }
 
         _openDoorAnimator.SetBool("OpenDoor", true);

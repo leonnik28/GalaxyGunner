@@ -176,7 +176,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &489958329
 Transform:
@@ -437,7 +437,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1491298540
 Transform:
@@ -580,6 +580,11 @@ PrefabInstance:
       propertyPath: _musics.Array.data[0]
       value: 
       objectReference: {fileID: 4285803391307028501}
+    - target: {fileID: 398283124676857425, guid: 742a83276767ed249a5b867594715ccf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -81.00012
+      objectReference: {fileID: 0}
     - target: {fileID: 5510795909098836206, guid: 742a83276767ed249a5b867594715ccf,
         type: 3}
       propertyPath: m_Pivot.x
@@ -765,12 +770,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 8037597569551466191, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 8037205870698822321, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 742a83276767ed249a5b867594715ccf, type: 3}
 --- !u!114 &1813967095 stripped
@@ -863,6 +862,11 @@ PrefabInstance:
     - target: {fileID: 3897433887627929524, guid: 71c25e8a326c2844eb79bfe22dca9866,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078057101138483151, guid: 71c25e8a326c2844eb79bfe22dca9866,
+        type: 3}
+      propertyPath: m_UseColorTemperature
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7757844988147372622, guid: 71c25e8a326c2844eb79bfe22dca9866,
@@ -1327,6 +1331,16 @@ PrefabInstance:
       propertyPath: _inventory
       value: 
       objectReference: {fileID: 1813967095}
+    - target: {fileID: 142549639063389462, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+        type: 3}
+      propertyPath: _strafeSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 142549639063389462, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+        type: 3}
+      propertyPath: _forwardSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 561842716418655205, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
       propertyPath: m_RootOrder
@@ -1418,6 +1432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UIMovement
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375440754665712577, guid: 2e79735b69ac57d4baec5268697d60ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1375440754665712589, guid: 2e79735b69ac57d4baec5268697d60ee,
         type: 3}
