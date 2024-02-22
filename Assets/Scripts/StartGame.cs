@@ -51,13 +51,16 @@ public class StartGame : MonoBehaviour
     {
         if (_mainUiInputSystemModule.enabled) {
             _mainUiInputSystemModule.enabled = false;
+
+            _gunSpawn.Spawn();
             await Task.Delay(_timeDelayExitMainUI);
+
             _mainUI.SetActive(false);
             _virtualCameraUI.gameObject.SetActive(false);
             _movementUI.SetActive(true);
 
             ChangeScreenMaterial();
-            _gunSpawn.Spawn();
+
             StartMove();
             _mainUiInputSystemModule.enabled = true;
         }

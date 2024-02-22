@@ -42,8 +42,11 @@ public class RoadGenerate : MonoBehaviour
             if (_index > 0)
             {
                 chunk = _chunksPool.GetChunk(_chunkType, true);
+                if (_index == 1)
+                {
+                    _currentChunkType = _chunkType;
+                }
                 _index--;
-                _currentChunkType = _oldChunkType;
             }
             else
             {
@@ -69,8 +72,8 @@ public class RoadGenerate : MonoBehaviour
                     newChunkType = Random.Range(1, 4);
                 } while (newChunkType == _chunkType || newChunkType == _oldChunkType);
 
-                _currentChunkType = newChunkType;
                 _oldChunkType = _chunkType;
+                _currentChunkType = _oldChunkType;
                 _chunkType = newChunkType;
                 _index = _roadChunksCount;
             }

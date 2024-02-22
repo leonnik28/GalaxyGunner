@@ -605,8 +605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 0}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1

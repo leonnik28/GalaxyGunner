@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 3981505228679359785}
   - component: {fileID: 3974836757412649469}
   - component: {fileID: 3963982235185450117}
-  - component: {fileID: 8765824616547860506}
+  - component: {fileID: 8508821143651336445}
   m_Layer: 0
   m_Name: Globe
   m_TagString: Untagged
@@ -281,8 +281,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8765824616547860506
-MeshCollider:
+--- !u!65 &8508821143651336445
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -291,10 +291,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 833b3db2968b5e64a90ccfc62174651e, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3986928260455811247
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +465,7 @@ GameObject:
   - component: {fileID: 4365030256472540610}
   - component: {fileID: 4394355405767373078}
   - component: {fileID: 4382128720007914606}
-  - component: {fileID: 8247464236001667313}
+  - component: {fileID: 4467123284109974708}
   m_Layer: 0
   m_Name: Globe (1)
   m_TagString: Untagged
@@ -540,8 +539,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8247464236001667313
-MeshCollider:
+--- !u!65 &4467123284109974708
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -550,10 +549,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 833b3db2968b5e64a90ccfc62174651e, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4361450555621810244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,7 +1398,7 @@ GameObject:
   - component: {fileID: 7592100594220540696}
   - component: {fileID: 7580928532494686156}
   - component: {fileID: 7574859385553748660}
-  - component: {fileID: 2863125696177425963}
+  - component: {fileID: 6065256407673757020}
   m_Layer: 0
   m_Name: Globe (3)
   m_TagString: Untagged
@@ -1474,8 +1472,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2863125696177425963
-MeshCollider:
+--- !u!65 &6065256407673757020
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1484,10 +1482,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 833b3db2968b5e64a90ccfc62174651e, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7586806754913568414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,7 +1656,7 @@ GameObject:
   - component: {fileID: 8586973946548805856}
   - component: {fileID: 8593816274942252084}
   - component: {fileID: 8604354074317963596}
-  - component: {fileID: 4164806756140944851}
+  - component: {fileID: 6392291483836970239}
   m_Layer: 0
   m_Name: Globe (2)
   m_TagString: Untagged
@@ -1733,8 +1730,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4164806756140944851
-MeshCollider:
+--- !u!65 &6392291483836970239
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1743,10 +1740,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 833b3db2968b5e64a90ccfc62174651e, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8592376087839180134
 GameObject:
   m_ObjectHideFlags: 0

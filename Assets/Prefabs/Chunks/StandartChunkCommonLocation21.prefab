@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 2375845207293306867}
   - component: {fileID: 2346625756978484007}
   - component: {fileID: 2358605954665350751}
-  - component: {fileID: 7935307644342291136}
+  - component: {fileID: 1024384459160672019}
   m_Layer: 0
   m_Name: Globe (2)
   m_TagString: Untagged
@@ -196,8 +196,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7935307644342291136
-MeshCollider:
+--- !u!65 &1024384459160672019
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -206,10 +206,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 833b3db2968b5e64a90ccfc62174651e, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2372831205464490613
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +540,7 @@ GameObject:
   - component: {fileID: 4626181750615952527}
   - component: {fileID: 4637351759854958683}
   - component: {fileID: 4643421175247072547}
-  - component: {fileID: 1068528661912953276}
+  - component: {fileID: 1631144277180797680}
   m_Layer: 0
   m_Name: Globe (1)
   m_TagString: Untagged
@@ -615,8 +614,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1068528661912953276
-MeshCollider:
+--- !u!65 &1631144277180797680
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -625,10 +624,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 833b3db2968b5e64a90ccfc62174651e, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4671168604403691304
 GameObject:
   m_ObjectHideFlags: 0

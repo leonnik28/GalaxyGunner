@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class OpenDoorTarget : MonoBehaviour, ITargetToOpenDoor
@@ -12,6 +11,7 @@ public class OpenDoorTarget : MonoBehaviour, ITargetToOpenDoor
     public void GetOpenDoor()
     {
         _animator = GetComponent<Animator>();
+
         if(_isLeft)
         {
             _animator.SetTrigger("DeathObjectLeft");

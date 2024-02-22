@@ -346,7 +346,6 @@ GameObject:
   - component: {fileID: 4394355405767373078}
   - component: {fileID: 4382128720007914606}
   - component: {fileID: 4353516383208515328}
-  - component: {fileID: 8247464236001667313}
   m_Layer: 0
   m_Name: Globe (1)
   m_TagString: Untagged
@@ -429,24 +428,10 @@ BoxCollider:
   m_GameObject: {fileID: 4361336055544957908}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.44, y: 0.1, z: 0.52}
-  m_Center: {x: 0, y: 0.06649906, z: 0}
---- !u!64 &8247464236001667313
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4361336055544957908}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 833b3db2968b5e64a90ccfc62174651e, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4361450555621810244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,7 +1166,6 @@ GameObject:
   - component: {fileID: 8593816274942252084}
   - component: {fileID: 8604354074317963596}
   - component: {fileID: 8634087399209501218}
-  - component: {fileID: 4164806756140944851}
   m_Layer: 0
   m_Name: Globe (2)
   m_TagString: Untagged
@@ -1264,24 +1248,10 @@ BoxCollider:
   m_GameObject: {fileID: 8592349816085802742}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.44, y: 0.1, z: 0.52}
-  m_Center: {x: 0, y: 0.06649906, z: 0}
---- !u!64 &4164806756140944851
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8592349816085802742}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 833b3db2968b5e64a90ccfc62174651e, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8592376087839180134
 GameObject:
   m_ObjectHideFlags: 0
