@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "770208165033",
+    "firebase_url": "https://galactic-gunner-default-rtdb.firebaseio.com",
+    "project_id": "galactic-gunner",
+    "storage_bucket": "galactic-gunner.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770208165033:android:23d825678627b657d38db8",
+        "android_client_info": {
+          "package_name": "com.LeonnikGames.GalacticGunner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnluk7MjBTlitMlMqSlAyiu6XTfUoFNTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

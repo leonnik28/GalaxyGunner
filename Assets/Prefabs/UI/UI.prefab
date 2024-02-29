@@ -843,7 +843,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -81}
+  m_AnchoredPosition: {x: 0, y: -81.00012}
   m_SizeDelta: {x: 0, y: -162}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7037433370933732585
@@ -1254,8 +1254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 0}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -2347,7 +2347,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.00012207031}
-  m_SizeDelta: {x: 0, y: -580.48004}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &607751965413049624
 CanvasRenderer:
@@ -2431,7 +2431,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4026,8 +4026,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -4053,7 +4053,11 @@ MonoBehaviour:
   _soundEffectsSwitchAnimator: {fileID: 3386545579540947337}
   _musics:
   - {fileID: 0}
-  _soundEffects: []
+  - {fileID: 244860230}
+  _soundEffects:
+  - {fileID: 8783942215861425304, guid: e053e8d9665f72f4abbf730eb4dde156, type: 3}
+  - {fileID: -8224758782977166205, guid: 3641b3f7e67a40348b23c59cf18de87d, type: 3}
+  - {fileID: -1407604710268104831, guid: 58199db575f12874b91796fe9ab41bc7, type: 3}
 --- !u!1 &1256816497317548492
 GameObject:
   m_ObjectHideFlags: 0
@@ -4745,8 +4749,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -4806,10 +4810,10 @@ RectTransform:
   m_Father: {fileID: 8891362771660996068}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280.625, y: -204.5}
-  m_SizeDelta: {x: 561.25, y: 35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7386441020225233958
 CanvasRenderer:
@@ -5161,8 +5165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 0}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -5325,8 +5329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -5465,8 +5469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -5719,7 +5723,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 5279270559523920806}
   toggleTransition: 1
   graphic: {fileID: 0}
   m_Group: {fileID: 0}
@@ -5738,7 +5742,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!114 &8649100776484028253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5751,8 +5755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 0}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -6033,8 +6037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -6192,8 +6196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 0}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -6848,8 +6852,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -7189,10 +7193,10 @@ RectTransform:
   m_Father: {fileID: 8891362771660996068}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280.625, y: -239}
-  m_SizeDelta: {x: 561.25, y: 30}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6180311634141911761
 CanvasRenderer:
@@ -7454,8 +7458,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 0}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -7585,10 +7589,10 @@ RectTransform:
   m_Father: {fileID: 604830921652830662}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 345.47012, y: -70}
-  m_SizeDelta: {x: 650.94025, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2555079647580668916
 CanvasRenderer:
@@ -8161,8 +8165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 0}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -8816,10 +8820,10 @@ RectTransform:
   m_Father: {fileID: 8891362771660996068}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280.625, y: -167.5}
-  m_SizeDelta: {x: 561.25, y: 35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5636318626080802589
 CanvasRenderer:
@@ -10835,9 +10839,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 280, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1276243230900176181
 CanvasRenderer:
@@ -12621,8 +12625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 0}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 0
@@ -14379,7 +14383,7 @@ MonoBehaviour:
   m_Placeholder: {fileID: 0}
   m_ItemText: {fileID: 4613324705940764923}
   m_ItemImage: {fileID: 0}
-  m_Value: 0
+  m_Value: 1
   m_Options:
     m_Options:
     - m_Text: 30
@@ -15156,10 +15160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b1bb62d49420f48aca20680a836376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gunList:
-  - {fileID: 11400000, guid: ca8a7a8d7746f014989c6368ff5c0353, type: 2}
-  - {fileID: 11400000, guid: 448f8959e55996d40920d9c952e8efe8, type: 2}
-  - {fileID: 11400000, guid: e84ce7ed643a23240a068a29e85d3778, type: 2}
+  _gameSession: {fileID: 0}
 --- !u!114 &1602476435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16171,8 +16172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -17132,8 +17133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 0}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -18397,8 +18398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -18806,8 +18807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 0}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 0
@@ -20076,8 +20077,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -20758,8 +20759,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 0}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -21004,7 +21005,6 @@ GameObject:
   - component: {fileID: 7856894394658335489}
   - component: {fileID: 8037597569551466191}
   - component: {fileID: 8037753935391860347}
-  - component: {fileID: 7871742901028488807}
   - component: {fileID: 8020238408647789723}
   - component: {fileID: 6025013796899861589}
   m_Layer: 5
@@ -21114,25 +21114,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
   enableClickSound: 1
   checkForInteraction: 1
---- !u!225 &7871742901028488807
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7933468588921811499}
-  m_Enabled: 0
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!95 &8020238408647789723
 Animator:
   serializedVersion: 5
@@ -21817,6 +21805,7 @@ GameObject:
   - component: {fileID: 2657649395168314366}
   - component: {fileID: 93382887}
   - component: {fileID: 93382888}
+  - component: {fileID: 244860230}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -21966,6 +21955,102 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!82 &244860230
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7962124745390340930}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e1cecedcdd1e3304bb84a8fdb9efa1f4, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.375
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7967976126516733341
 GameObject:
   m_ObjectHideFlags: 0
@@ -24146,8 +24231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 0}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -25009,7 +25094,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 7487835707070087646}
   toggleTransition: 1
   graphic: {fileID: 0}
   m_Group: {fileID: 0}
@@ -25028,7 +25113,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!114 &3056585937627864982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25041,8 +25126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 0}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
@@ -25464,8 +25549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
-  audioObject: {fileID: 0}
+  _uIManagerAsset: {fileID: 0}
+  _audioObject: {fileID: 0}
   hoverSFX: {fileID: 0}
   clickSFX: {fileID: 0}
   enableHoverSound: 1
