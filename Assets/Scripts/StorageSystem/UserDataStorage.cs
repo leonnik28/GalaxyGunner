@@ -21,7 +21,7 @@ public class UserDataStorage : MonoBehaviour
         public string id;
         public int credits;
         public string profileImage;
-        public List<string> gunNames;
+        public List<int> gunIndex;
     }
 
     private DatabaseReference _databaseReference;

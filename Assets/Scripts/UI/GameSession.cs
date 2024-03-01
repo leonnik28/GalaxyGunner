@@ -1,5 +1,7 @@
 using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -11,8 +13,8 @@ public class GameSession : MonoBehaviour
     public event Action<SaveData> OnUserDataLoaded;
 
     [SerializeField] private GameObject _mainUI;
-    [SerializeField] private GameObject _gameUI;
-    [SerializeField] private GameObject _currentUI;
+    [SerializeField] private GameObject _connectionUI;
+    [SerializeField] private GameObject _errorUI;
 
     [SerializeField] private TMP_InputField _usernameInputField;
     [SerializeField] private Button _submitButton;
@@ -32,12 +34,31 @@ public class GameSession : MonoBehaviour
 
     private async void Start()
     {
-        _userId = PlayGamesPlatform.Instance.localUser.id;
+        var tcs = new TaskCompletionSource<bool>();
+        PlayGamesPlatform.Instance.Authenticate(success =>
+        {
+            if (success == SignInStatus.Success)
+            {
+                _userId = PlayGamesPlatform.Instance.localUser.id;
+                tcs.SetResult(true);
+            }
+            else
+            {
+                _errorUI.SetActive(true);
+                tcs.SetResult(false);
+            }
+        });
+
+        if (!await tcs.Task)
+        {
+            return;
+        }
+
         var saveData = await _userDataStorage.LoadGame(_userId);
 
         if (string.IsNullOrEmpty(saveData.username))
         {
-            _currentUI.SetActive(true);
+            _connectionUI.SetActive(true);
         }
         else
         {
@@ -65,8 +86,6 @@ public class GameSession : MonoBehaviour
 
     private async void PromptForUsername()
     {
-        SaveData currentSaveData = new SaveData();
-
         string username = _usernameInputField.text;
         if (string.IsNullOrEmpty(username))
         {
@@ -75,12 +94,15 @@ public class GameSession : MonoBehaviour
         }
 
         int credits = 0;
-        string gunName = "Pistol";
+        int gunIndex = 0;
 
-        currentSaveData.id = _userId;
-        currentSaveData.username = username;
-        currentSaveData.credits = credits;
-        //currentSaveData.gunNames.Add(gunName);
+        SaveData currentSaveData = new SaveData
+        {
+            id = _userId,
+            username = username,
+            credits = credits,
+            gunIndex = new List<int> { gunIndex }
+        };
 
         await _userDataStorage.SaveGame(currentSaveData);
         OnUserDataLoaded?.Invoke(currentSaveData);
@@ -89,7 +111,7 @@ public class GameSession : MonoBehaviour
     private async void DisableUI()
     {
         await Task.Delay(1000);
-        _gameUI.SetActive(false);
+        _connectionUI.SetActive(false);
         _mainUI.SetActive(true);
     }
 }

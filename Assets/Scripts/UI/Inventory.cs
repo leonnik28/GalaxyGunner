@@ -6,6 +6,7 @@ using UnityEngine;
 using static UserDataStorage;
 using UnityEngine.Profiling;
 using System.Linq;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -13,7 +14,10 @@ public class Inventory : MonoBehaviour
 
     public event Action<Gun> OnGunChanged;
 
+    [SerializeField] private List<GameObject> _gunUIList;
     [SerializeField] private GameSession _gameSession;
+    [SerializeField] private GameObject _gunTab;
+    [SerializeField] private GunPool _gunPool;
 
     private List<Gun> _gunList;
     private Gun _gun;
@@ -21,6 +25,7 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         _gameSession.OnUserDataLoaded += HandleUserDataLoaded;
+        _gunList = new List<Gun>();
     }
 
     public void ChooseGun(int index)
@@ -31,18 +36,21 @@ public class Inventory : MonoBehaviour
 
     private void HandleUserDataLoaded(SaveData saveData)
     {
-        foreach (var gunData in saveData.gunNames)
+        foreach (var gunIndex in saveData.gunIndex)
         {
-            Gun gun = FindGun(gunData);
+            Gun gun = _gunPool.GetGun(gunIndex);
             if (gun != null)
             {
+                GameObject gunObject = Instantiate(_gunUIList[gunIndex], _gunTab.transform);
+                Button buttonGun = gunObject.GetComponent<Button>();
+                buttonGun.onClick.AddListener(() => ChooseGun(gunIndex));
                 _gunList.Add(gun);
             }
         }
     }
 
-    private Gun FindGun(string name)
+    private Gun FindGun(int index)
     {
-        return _gunList.FirstOrDefault(gun => gun.Name == name);
+        return _gunList.FirstOrDefault(gun => gun.Index == index);
     }
 }

@@ -33,13 +33,13 @@ public class ProfileData : MonoBehaviour
 
         if (saveData.profileImage != "")
         {
-            _gameSession.LoadProfileImage(saveData.profileImage, sprite =>
+            /*_gameSession.LoadProfileImage(saveData.profileImage, sprite =>
             {
                 if (sprite != null)
                 {
                     _profileImage.sprite = sprite;
                 }
-            });
+            });*/
         }
     }
 }

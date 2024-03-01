@@ -6,11 +6,11 @@ public class GunPool : MonoBehaviour
 {
     [SerializeField] private List<Gun> _gunList;
 
-    public Gun GetGun(string gunName)
+    public Gun GetGun(int gunIndex)
     {
         foreach (Gun gun in _gunList)
         {
-            if(gun.name == gunName)
+            if(gun.Index == gunIndex)
             {
                 return gun;
             }

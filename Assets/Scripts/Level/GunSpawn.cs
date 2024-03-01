@@ -38,13 +38,13 @@ public class GunSpawn : MonoBehaviour
         _gun = _inventory.Gun;
         _inventory.gameObject.SetActive(false);
 
-        _storageService.SaveAsync("currentGun", _gun.Name);
+        _storageService.SaveAsync("currentGun", _gun.Index);
     }
 
     public async Task LoadCurrentGun()
     { 
-        string gunName = await _storageService.LoadAsync<string>("currentGun");
-        _gun = _gunPool.GetGun(gunName);
+        int gunIndex = await _storageService.LoadAsync<int>("currentGun");
+        _gun = _gunPool.GetGun(gunIndex);
     }
 
     public void DeleteGun()
