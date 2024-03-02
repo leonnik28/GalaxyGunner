@@ -18,4 +18,9 @@ public class GunPool : MonoBehaviour
 
         return null;
     }
+
+    public int GetCountGuns()
+    {
+        return _gunList.Count;
+    }
 }

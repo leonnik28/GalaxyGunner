@@ -2,22 +2,9 @@ using UnityEngine;
 
 public class Chunk : MonoBehaviour
 {
-    [SerializeField] private bool _isStartChunk;
+    public bool IsEndChunk => _isEndChunk;
+    public bool IsSpecialChunk => _isSpecialChunk;
+
     [SerializeField] private bool _isEndChunk;
     [SerializeField] private bool _isSpecialChunk;
-
-    public bool CheckChunkToStartChunk()
-    {
-        return _isStartChunk;
-    }
-
-    public bool CheckChunkToEndChunk()
-    {
-        return _isEndChunk;
-    }
-
-    public bool CheckChunkToSpecialChunk()
-    {
-        return _isSpecialChunk;
-    }
 }

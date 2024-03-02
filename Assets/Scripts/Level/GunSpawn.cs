@@ -10,7 +10,7 @@ public class GunSpawn : MonoBehaviour
     public Animator GunAnimator => _gunAnimator;
     public AudioSource GunAudioSource => _gunAudioSource;
 
-    [SerializeField] private Inventory _inventory;
+    [SerializeField] private GunInventory _gunInventory;
     [SerializeField] private GunPool _gunPool;
 
     private IStorageService _storageService;
@@ -35,8 +35,8 @@ public class GunSpawn : MonoBehaviour
 
     public void ChooseGun()
     {
-        _gun = _inventory.Gun;
-        _inventory.gameObject.SetActive(false);
+        _gun = _gunInventory.Gun;
+        _gunInventory.gameObject.SetActive(false);
 
         _storageService.SaveAsync("currentGun", _gun.Index);
     }

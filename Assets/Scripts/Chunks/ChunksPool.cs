@@ -111,7 +111,7 @@ public class ChunksPool : MonoBehaviour
     {
         Chunk chunk = chunks[UnityEngine.Random.Range(0, chunks.Count)];
 
-        if (chunk.gameObject.activeSelf || chunk.CheckChunkToStartChunk() || chunk.CheckChunkToEndChunk() || chunk.CheckChunkToSpecialChunk())
+        if (chunk.gameObject.activeSelf || chunk.IsEndChunk || chunk.IsSpecialChunk)
         {
             return GetStandartChunk(chunks);
         }

@@ -63,7 +63,7 @@ public class RoadGenerate : MonoBehaviour
             chunk.transform.position = Vector3.forward * _offset * (currentRoadChunkIndex + _roadChunksCount);
             _roadChunksQueue.Enqueue(chunk);
 
-            if (chunk.CheckChunkToStartChunk() || chunk.CheckChunkToEndChunk())
+            if (chunk.IsEndChunk)
             {
                 int newChunkType;
 
