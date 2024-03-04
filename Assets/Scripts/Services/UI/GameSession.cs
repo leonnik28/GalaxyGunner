@@ -63,7 +63,6 @@ public class GameSession : MonoBehaviour
         }
         else
         {
-            _usernameInputField.text = saveData.username;
             OnUserDataLoaded?.Invoke(saveData);
             _mainUI.SetActive(true);
         }
@@ -83,6 +82,26 @@ public class GameSession : MonoBehaviour
                 callback(null);
             }
         }));
+    }
+
+    public async void SaveGame(int credits = 0, string image = null, int gunIndex = 0)
+    {
+        var saveData = await _userDataStorage.LoadGame(_userId);
+        if (credits != 0)
+        {
+            saveData.credits = credits;
+        }
+        if (image != null)
+        {
+            saveData.profileImage = image;
+        }
+        if (gunIndex != 0)
+        {
+            saveData.gunIndex.Add(gunIndex);
+        }
+
+        await _userDataStorage.SaveGame(saveData);
+        OnUserDataLoaded?.Invoke(saveData);
     }
 
     private async void PromptForUsername()

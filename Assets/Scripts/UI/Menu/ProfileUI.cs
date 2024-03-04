@@ -13,7 +13,7 @@ public class ProfileUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _credits;
     [SerializeField] private Image _profileImage;
 
-    private void Awake()
+    private void OnEnable()
     {
         _username.text = _profileData.Username;
         if (_id != null)

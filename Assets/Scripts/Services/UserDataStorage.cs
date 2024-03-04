@@ -1,15 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Threading.Tasks;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
-using UnityEngine.SocialPlatforms;
-using GooglePlayGames.BasicApi.SavedGame;
-using System;
-using UnityEngine.UI;
 using Firebase.Database;
-using Firebase.Storage;
-using System.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.Networking;
 
 public class UserDataStorage : MonoBehaviour

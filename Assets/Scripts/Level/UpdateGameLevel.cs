@@ -31,15 +31,18 @@ public class UpdateGameLevel : MonoBehaviour
     [SerializeField] private GameObject _movementUI;
     [SerializeField] private GameObject _mainUI;
     [SerializeField] private TextMeshProUGUI _finalScoreText;
+    [SerializeField] private TextMeshProUGUI _finalCreditText;
 
     [Header("Game Settings")]
     [SerializeField] private int _playerHealthIndex = 1;
     [SerializeField] private int _emptyChunkDeletionTime = 3000;
     [SerializeField] private int _gameResetDelay = 200;
     [SerializeField] private Score _score;
+    [SerializeField] private Credits _credits;
 
     private Vector3 _updatedPlayerPosition;
     private bool _isGameActive = true;
+    private int _creditsFactor = 10;
 
     private InputSystemUIInputModule _deathUiInputSystemModule;
 
@@ -105,7 +108,12 @@ public class UpdateGameLevel : MonoBehaviour
     private void OpenDeahtUI()
     {
         _deathUI.SetActive(true);
+        int currentChangedCredits = _score.CurrentScore / _creditsFactor;
+
         _finalScoreText.text = "Score: " + _score.CurrentScore.ToString();
+        _finalCreditText.text = "Credits: " + currentChangedCredits.ToString();
+
+        _credits.ChangeCredits(currentChangedCredits, true);
     }
 
     private async void GameReset()
