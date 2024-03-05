@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a843d8d2ff0808a4891eaf3744291b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 6
+  _health: 10
   _isDestroyed: 1
 --- !u!114 &2060671718913844691
 MonoBehaviour:
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a843d8d2ff0808a4891eaf3744291b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 6
+  _health: 10
   _isDestroyed: 1
 --- !u!114 &8958565007300120239
 MonoBehaviour:
@@ -1168,7 +1168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737cd0057fa196a47af6cddce0350ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isStartChunk: 0
   _isEndChunk: 0
   _isSpecialChunk: 1
 --- !u!114 &1471600994311741121

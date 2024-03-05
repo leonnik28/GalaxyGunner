@@ -11,6 +11,9 @@
         maven {
             url (unityProjectPath + "/Assets/GeneratedLocalRepo/GooglePlayGames/com.google.play.games/Editor/m2repository") // Assets/GooglePlayGames/com.google.play.games/Editor/GooglePlayGamesPluginDependencies.xml:11
         }
+        maven {
+            url "https://maven.google.com/" // Assets/YandexMobileAds/Editor/YandexMobileadsDependencies.xml:7, Assets/YandexMobileAds/Editor/YandexMobileadsDependencies.xml:12
+        }
         mavenLocal()
         mavenCentral()
     }
@@ -22,6 +25,7 @@ apply plugin: 'com.android.library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 // Android Resolver Dependencies Start
+    implementation 'androidx.lifecycle:lifecycle-process:2.4.1' // Assets/YandexMobileAds/Editor/YandexMobileadsDependencies.xml:12
     implementation 'com.google.android.gms:play-services-base:18.3.0' // Assets/Firebase/Editor/DatabaseDependencies.xml:17
     implementation 'com.google.firebase:firebase-analytics:21.5.0' // Assets/Firebase/Editor/StorageDependencies.xml:15
     implementation 'com.google.firebase:firebase-analytics-unity:11.7.0' // Assets/Firebase/Editor/AnalyticsDependencies.xml:18
@@ -40,6 +44,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:20.3.0' // Assets/Firebase/Editor/StorageDependencies.xml:13
     implementation 'com.google.firebase:firebase-storage-unity:11.7.0' // Assets/Firebase/Editor/StorageDependencies.xml:20
     implementation 'com.google.games:gpgs-plugin-support:0.11.01' // Assets/GooglePlayGames/com.google.play.games/Editor/GooglePlayGamesPluginDependencies.xml:11
+    implementation 'com.yandex.android:mobileads:6.4.0' // Assets/YandexMobileAds/Editor/YandexMobileadsDependencies.xml:7
 // Android Resolver Dependencies End
 **DEPS**}
 

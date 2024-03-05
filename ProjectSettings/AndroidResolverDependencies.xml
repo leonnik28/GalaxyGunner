@@ -1,5 +1,6 @@
 <dependencies>
   <packages>
+    <package>androidx.lifecycle:lifecycle-process:2.4.1</package>
     <package>com.google.android.gms:play-services-base:18.3.0</package>
     <package>com.google.firebase:firebase-analytics:21.5.0</package>
     <package>com.google.firebase:firebase-analytics-unity:11.7.0</package>
@@ -18,6 +19,7 @@
     <package>com.google.firebase:firebase-storage:20.3.0</package>
     <package>com.google.firebase:firebase-storage-unity:11.7.0</package>
     <package>com.google.games:gpgs-plugin-support:0.11.01</package>
+    <package>com.yandex.android:mobileads:6.4.0</package>
   </packages>
   <files>
     <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-analytics-unity/11.7.0/firebase-analytics-unity-11.7.0.aar</file>

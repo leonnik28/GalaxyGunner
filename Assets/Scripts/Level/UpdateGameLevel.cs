@@ -24,6 +24,8 @@ public class UpdateGameLevel : MonoBehaviour
     [SerializeField] private GunSpawn _gunSpawn;
     [SerializeField] private Shooting _shooting;
     [SerializeField] private Animator _runAnimator;
+    [SerializeField] private Score _score;
+    [SerializeField] private Credits _credits;
 
     [Header("UI Elements")]
     [SerializeField] private GameObject _deathUI;
@@ -37,12 +39,10 @@ public class UpdateGameLevel : MonoBehaviour
     [SerializeField] private int _playerHealthIndex = 1;
     [SerializeField] private int _emptyChunkDeletionTime = 3000;
     [SerializeField] private int _gameResetDelay = 200;
-    [SerializeField] private Score _score;
-    [SerializeField] private Credits _credits;
+    [SerializeField] private int _creditsFactor = 21;
 
     private Vector3 _updatedPlayerPosition;
     private bool _isGameActive = true;
-    private int _creditsFactor = 10;
 
     private InputSystemUIInputModule _deathUiInputSystemModule;
 
