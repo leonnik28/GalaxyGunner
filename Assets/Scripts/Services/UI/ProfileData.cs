@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,6 +13,9 @@ public class ProfileData : MonoBehaviour
     public string Credits => _credits;
     public Image ProfileImage => _profileImage;
 
+    public Action OnProfileDataChanged;
+
+    private Avatars _avatars;
     private GameSession _gameSession;
 
     private string _username;
@@ -22,6 +26,7 @@ public class ProfileData : MonoBehaviour
     private void Awake()
     {
         _gameSession = GetComponent<GameSession>();
+        _avatars = GetComponent<Avatars>();
         _gameSession.OnUserDataLoaded += HandleUserDataLoaded;
     }
 
@@ -29,17 +34,9 @@ public class ProfileData : MonoBehaviour
     {
         _username = saveData.username;
         _id = saveData.id;
+        _profileImage = _avatars.GetAvatar(saveData.avatarIndex);
         _credits = saveData.credits.ToString();
 
-        if (saveData.profileImage != "")
-        {
-            /*_gameSession.LoadProfileImage(saveData.profileImage, sprite =>
-            {
-                if (sprite != null)
-                {
-                    _profileImage.sprite = sprite;
-                }
-            });*/
-        }
+        OnProfileDataChanged?.Invoke();
     }
 }

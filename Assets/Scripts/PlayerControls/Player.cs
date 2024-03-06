@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public AudioSource GameMusic => _gameMusic;
+
     [SerializeField] private Movement _movement;
     [SerializeField] Animator _handsAnimator;
 
@@ -28,27 +30,29 @@ public class Player : MonoBehaviour
     {
         _gameIsStart = true;
         _handsAnimator.SetTrigger("StartAnimation");
-        SetMusic(true);
+        if (!_gameMusic.mute)
+        {
+            SetMusic(true);
+        }
     }
 
     public void GameStop()
     {
         _gameIsStart = false;
-        SetMusic(false);
     }
 
-    public void SetMusic(bool play, bool atFirst = true)
+    public void SetMusic(bool play, bool isFirstTime = true)
     {
-        if(atFirst)
+        if(isFirstTime)
         {
             if (play)
             {
                 _gameMusic.Play();
-                _gameMusic.mute = false;
             }
             else
             {
                 _gameMusic.Stop();
+                _gameMusic.mute = false;
             }
         }
         else
