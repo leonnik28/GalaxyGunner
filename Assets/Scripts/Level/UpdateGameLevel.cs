@@ -16,14 +16,22 @@ public class UpdateGameLevel : MonoBehaviour
     [SerializeField] private GameObject _screen;
     [SerializeField] private Material _screenMaterial;
 
-    [Header("Game Components")]
+    [Header("Gameplay Components")]
     [SerializeField] private RoadGenerate _roadGenerate;
-    [SerializeField] private Player _player;
-    [SerializeField] private Movement _movement;
     [SerializeField] private CinemachineVirtualCamera _uiVirtualCamera;
     [SerializeField] private GunSpawn _gunSpawn;
+    [SerializeField] private Score _score;
+
+    [Header("Player Controls")]
+    [SerializeField] private Player _player;
+    [SerializeField] private Movement _movement;
     [SerializeField] private Shooting _shooting;
     [SerializeField] private Animator _runAnimator;
+
+    [Header("Services Components")]
+    [SerializeField] private GameSession _gameSession;
+    [SerializeField] private TopScore _topScore;
+    [SerializeField] private Credits _credits;
 
     [Header("UI Elements")]
     [SerializeField] private GameObject _deathUI;
@@ -37,19 +45,15 @@ public class UpdateGameLevel : MonoBehaviour
     [SerializeField] private int _playerHealthIndex = 1;
     [SerializeField] private int _emptyChunkDeletionTime = 3000;
     [SerializeField] private int _gameResetDelay = 200;
-    [SerializeField] private Score _score;
-    [SerializeField] private Credits _credits;
+    [SerializeField] private int _creditsFactor = 21;
 
     private Vector3 _updatedPlayerPosition;
     private bool _isGameActive = true;
-    private int _creditsFactor = 10;
-
-    private InputSystemUIInputModule _deathUiInputSystemModule;
+    private bool _isMusicMute;
 
     private void Start()
     {
         _updatedPlayerPosition = _model.transform.position;
-        _deathUiInputSystemModule = _deathUI.GetComponent<InputSystemUIInputModule>();
     }
 
     public void GameOver()
@@ -67,7 +71,8 @@ public class UpdateGameLevel : MonoBehaviour
             OpenDeahtUI();
         }
 
-        _player.SetMusic(false, false);
+        SetMusic();
+
         Time.timeScale = 0;
     }
 
@@ -81,7 +86,12 @@ public class UpdateGameLevel : MonoBehaviour
         _movementUI.SetActive(true);
 
         GameReset();
-        _player.SetMusic(true, false);
+
+        if (!_isMusicMute)
+        {
+            _player.SetMusic(true, false);
+        }
+
         Time.timeScale = 1;
 
         await Task.Delay(_emptyChunkDeletionTime);
@@ -113,7 +123,27 @@ public class UpdateGameLevel : MonoBehaviour
         _finalScoreText.text = "Score: " + _score.CurrentScore.ToString();
         _finalCreditText.text = "Credits: " + currentChangedCredits.ToString();
 
-        _credits.ChangeCredits(currentChangedCredits, true);
+        if (_score.CurrentScore > _topScore.CurrentTopScore)
+        {
+            ChangeTopScore(currentChangedCredits);
+        }
+        else
+        {
+            _credits.ChangeCredits(currentChangedCredits, true);
+        }
+    }
+
+    private void SetMusic()
+    {
+        if (_player.GameMusic.mute)
+        {
+            _isMusicMute = true;
+        }
+        else
+        {
+            _isMusicMute = false;
+            _player.SetMusic(false, false);
+        }
     }
 
     private async void GameReset()
@@ -125,6 +155,10 @@ public class UpdateGameLevel : MonoBehaviour
     private void UpdateWorld()
     {
         _player.GameStop();
+        if (!_isMusicMute)
+        {
+            _player.SetMusic(false);
+        }
         _roadGenerate.StartGame();
         _gunSpawn.DeleteGun();
         _shooting.GameStop();
@@ -139,6 +173,12 @@ public class UpdateGameLevel : MonoBehaviour
 
         _playerHealthIndex = 1;
         Time.timeScale = 1;
+    }
+
+    private void ChangeTopScore(int currentCredits)
+    {
+        _credits.ChangeCredits(currentCredits);
+        _gameSession.SaveGame(credits: _credits.CurrentCredits, topScore: _score.CurrentScore);
     }
 
     private void ChangeScreenMaterial()

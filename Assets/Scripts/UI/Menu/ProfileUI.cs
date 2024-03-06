@@ -13,6 +13,11 @@ public class ProfileUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _credits;
     [SerializeField] private Image _profileImage;
 
+    private void Awake()
+    {
+        _profileData.OnProfileDataChanged += ChangeProfile;
+    }
+
     private void OnEnable()
     {
         _username.text = _profileData.Username;
@@ -24,6 +29,15 @@ public class ProfileUI : MonoBehaviour
         {
             _credits.text = "Credits: " + _profileData.Credits;
         }
-        _profileImage = _profileData.ProfileImage;
+        _profileImage.sprite = _profileData.ProfileImage.sprite;
+    }
+
+    private void ChangeProfile()
+    {
+        if (_credits != null)
+        {
+            _credits.text = "Credits: " + _profileData.Credits;
+        }
+        _profileImage.sprite = _profileData.ProfileImage.sprite;
     }
 }
