@@ -17,6 +17,7 @@ public class UserDataStorage : MonoBehaviour
         public string id;
         public int credits;
         public string profileImage;
+        public int topScore;
         public List<int> gunIndex;
     }
 

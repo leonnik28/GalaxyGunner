@@ -83,7 +83,7 @@ public class GameSession : MonoBehaviour
         }));
     }
 
-    public async void SaveGame(int credits = 0, string image = null, int gunIndex = 0)
+    public async void SaveGame(int credits = 0, string image = null, int topScore = 0, int gunIndex = 0)
     {
         var saveData = await _userDataStorage.LoadGame(_userId);
         if (credits != 0)
@@ -93,6 +93,10 @@ public class GameSession : MonoBehaviour
         if (image != null)
         {
             saveData.profileImage = image;
+        }
+        if (topScore != 0)
+        {
+            saveData.topScore = topScore;
         }
         if (gunIndex != 0)
         {
@@ -113,6 +117,7 @@ public class GameSession : MonoBehaviour
         }
 
         int credits = 0;
+        int topScore = 0;
         int gunIndex = 0;
 
         SaveData currentSaveData = new SaveData
@@ -120,6 +125,7 @@ public class GameSession : MonoBehaviour
             id = _userId,
             username = username,
             credits = credits,
+            topScore = topScore,
             gunIndex = new List<int> { gunIndex }
         };
 

@@ -16,15 +16,21 @@ public class UpdateGameLevel : MonoBehaviour
     [SerializeField] private GameObject _screen;
     [SerializeField] private Material _screenMaterial;
 
-    [Header("Game Components")]
+    [Header("Gameplay Components")]
     [SerializeField] private RoadGenerate _roadGenerate;
-    [SerializeField] private Player _player;
-    [SerializeField] private Movement _movement;
     [SerializeField] private CinemachineVirtualCamera _uiVirtualCamera;
     [SerializeField] private GunSpawn _gunSpawn;
+    [SerializeField] private Score _score;
+
+    [Header("Player Controls")]
+    [SerializeField] private Player _player;
+    [SerializeField] private Movement _movement;
     [SerializeField] private Shooting _shooting;
     [SerializeField] private Animator _runAnimator;
-    [SerializeField] private Score _score;
+
+    [Header("Services Components")]
+    [SerializeField] private GameSession _gameSession;
+    [SerializeField] private TopScore _topScore;
     [SerializeField] private Credits _credits;
 
     [Header("UI Elements")]
@@ -117,7 +123,14 @@ public class UpdateGameLevel : MonoBehaviour
         _finalScoreText.text = "Score: " + _score.CurrentScore.ToString();
         _finalCreditText.text = "Credits: " + currentChangedCredits.ToString();
 
-        _credits.ChangeCredits(currentChangedCredits, true);
+        if (_score.CurrentScore > _topScore.CurrentTopScore)
+        {
+            ChangeTopScore(currentChangedCredits);
+        }
+        else
+        {
+            _credits.ChangeCredits(currentChangedCredits, true);
+        }
     }
 
     private void SetMusic()
@@ -160,6 +173,12 @@ public class UpdateGameLevel : MonoBehaviour
 
         _playerHealthIndex = 1;
         Time.timeScale = 1;
+    }
+
+    private void ChangeTopScore(int currentCredits)
+    {
+        _credits.ChangeCredits(currentCredits);
+        _gameSession.SaveGame(credits: _credits.CurrentCredits, topScore: _score.CurrentScore);
     }
 
     private void ChangeScreenMaterial()
