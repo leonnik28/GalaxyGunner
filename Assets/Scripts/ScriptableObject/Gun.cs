@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Gun", menuName = "Gun", order = 51)]
 public class Gun : ScriptableObject
 {
+    public int Index => _index;
     public string Name => _name;
     public float Damage => _damage;
     public float Distance => _distance;
@@ -14,6 +15,7 @@ public class Gun : ScriptableObject
     public Vector3 Position => _position;
     public Quaternion Rotation => _rotation;
 
+    [SerializeField] private int _index;
     [SerializeField] private string _name;
     [SerializeField] private float _damage;
     [SerializeField] private float _distance;

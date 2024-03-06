@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7eef0fef44f4640acb3d1e9fa6aa3d, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
+  _index: 2
   _name: Shotgun
   _damage: 10
-  _distance: 3
-  _rateOfFire: 1500
+  _distance: 4
+  _rateOfFire: 1700
   _gunTransform: {fileID: 449219517181779858, guid: 58199db575f12874b91796fe9ab41bc7,
     type: 3}
-  _cost: 50
+  _cost: 500
   _position: {x: 0, y: 1.2, z: 1.37}
   _rotation: {x: -0.7372773, y: 0, z: 0, w: 0.6755902}

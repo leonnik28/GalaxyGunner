@@ -223,8 +223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _forwardSpeed: 5
-  _strafeSpeed: 13
-  _forwardAcceleration: 7
+  _strafeSpeed: 7
+  _forwardAcceleration: 5
   _strafeAcceleration: 45
   _fallMultiplier: 1.98
   _jumpHeight: 2.75
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2df933a66778247a568d0f0a37f632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inventory: {fileID: 0}
+  _gunInventory: {fileID: 0}
   _gunPool: {fileID: 0}
 --- !u!1 &3328199789063860210
 GameObject:
@@ -635,8 +635,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3f98f660bd1a94649bfe6f7b37102a6e, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
