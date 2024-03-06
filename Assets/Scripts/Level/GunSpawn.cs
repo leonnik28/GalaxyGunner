@@ -36,9 +36,11 @@ public class GunSpawn : MonoBehaviour
     public void ChooseGun()
     {
         _gun = _gunInventory.Gun;
-        _gunInventory.gameObject.SetActive(false);
 
-        _storageService.SaveAsync("currentGun", _gun.Index);
+        if (_gun != null)
+        {
+            _storageService.SaveAsync("currentGun", _gun.Index);
+        }
     }
 
     public async Task LoadCurrentGun()

@@ -20,11 +20,13 @@ public class GameSession : MonoBehaviour
     [SerializeField] private Button _submitButton;
 
     private UserDataStorage _userDataStorage;
+    private Avatars _avatars;
     private string _userId;
 
     private void Awake()
     {
         _userDataStorage = gameObject.GetComponent<UserDataStorage>();
+        _avatars = gameObject.GetComponent<Avatars>();
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
 
@@ -34,7 +36,8 @@ public class GameSession : MonoBehaviour
 
     private async void Start()
     {
-        var tcs = new TaskCompletionSource<bool>();
+        _userId = PlayGamesPlatform.Instance.localUser.id;
+        /*var tcs = new TaskCompletionSource<bool>();
         PlayGamesPlatform.Instance.Authenticate(success =>
         {
             if (success == SignInStatus.Success)
@@ -53,7 +56,7 @@ public class GameSession : MonoBehaviour
         {
             return;
         }
-        
+        */
         var saveData = await _userDataStorage.LoadGame(_userId);
 
         if (string.IsNullOrEmpty(saveData.username))
@@ -67,36 +70,25 @@ public class GameSession : MonoBehaviour
         }
     }
 
-    public void LoadProfileImage(string imageUrl, Action<Sprite> callback)
-    {
-        StartCoroutine(_userDataStorage.LoadProfileImage(imageUrl, texture =>
-        {
-            if (texture != null)
-            {
-                var sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
-                callback(sprite);
-            }
-            else
-            {
-                callback(null);
-            }
-        }));
-    }
-
-    public async void SaveGame(int credits = 0, string image = null, int topScore = 0, int gunIndex = 0)
+    public async void SaveGame(int credits = 0, int topScore = 0, int avatarIndex = -1, int gunIndex = 0)
     {
         var saveData = await _userDataStorage.LoadGame(_userId);
+        if (string.IsNullOrEmpty(saveData.username))
+        {
+            return;
+        }
+
         if (credits != 0)
         {
             saveData.credits = credits;
         }
-        if (image != null)
-        {
-            saveData.profileImage = image;
-        }
         if (topScore != 0)
         {
             saveData.topScore = topScore;
+        }
+        if (avatarIndex != -1)
+        {
+            saveData.avatarIndex = avatarIndex;
         }
         if (gunIndex != 0)
         {
@@ -126,6 +118,7 @@ public class GameSession : MonoBehaviour
             username = username,
             credits = credits,
             topScore = topScore,
+            avatarIndex = _avatars.CurrentIndexAvatar,
             gunIndex = new List<int> { gunIndex }
         };
 
