@@ -34,8 +34,7 @@ public class GameSession : MonoBehaviour
 
     private async void Start()
     {
-        _userId = PlayGamesPlatform.Instance.localUser.id;
-        /*var tcs = new TaskCompletionSource<bool>();
+        var tcs = new TaskCompletionSource<bool>();
         PlayGamesPlatform.Instance.Authenticate(success =>
         {
             if (success == SignInStatus.Success)
@@ -53,8 +52,8 @@ public class GameSession : MonoBehaviour
         if (!await tcs.Task)
         {
             return;
-        }*/
-
+        }
+        
         var saveData = await _userDataStorage.LoadGame(_userId);
 
         if (string.IsNullOrEmpty(saveData.username))

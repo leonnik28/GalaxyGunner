@@ -43,13 +43,11 @@ public class UpdateGameLevel : MonoBehaviour
 
     private Vector3 _updatedPlayerPosition;
     private bool _isGameActive = true;
-
-    private InputSystemUIInputModule _deathUiInputSystemModule;
+    private bool _isMusicMute;
 
     private void Start()
     {
         _updatedPlayerPosition = _model.transform.position;
-        _deathUiInputSystemModule = _deathUI.GetComponent<InputSystemUIInputModule>();
     }
 
     public void GameOver()
@@ -67,7 +65,8 @@ public class UpdateGameLevel : MonoBehaviour
             OpenDeahtUI();
         }
 
-        _player.SetMusic(false, false);
+        SetMusic();
+
         Time.timeScale = 0;
     }
 
@@ -81,7 +80,12 @@ public class UpdateGameLevel : MonoBehaviour
         _movementUI.SetActive(true);
 
         GameReset();
-        _player.SetMusic(true, false);
+
+        if (!_isMusicMute)
+        {
+            _player.SetMusic(true, false);
+        }
+
         Time.timeScale = 1;
 
         await Task.Delay(_emptyChunkDeletionTime);
@@ -116,6 +120,19 @@ public class UpdateGameLevel : MonoBehaviour
         _credits.ChangeCredits(currentChangedCredits, true);
     }
 
+    private void SetMusic()
+    {
+        if (_player.GameMusic.mute)
+        {
+            _isMusicMute = true;
+        }
+        else
+        {
+            _isMusicMute = false;
+            _player.SetMusic(false, false);
+        }
+    }
+
     private async void GameReset()
     {
         await Task.Delay(_gameResetDelay);
@@ -125,6 +142,10 @@ public class UpdateGameLevel : MonoBehaviour
     private void UpdateWorld()
     {
         _player.GameStop();
+        if (!_isMusicMute)
+        {
+            _player.SetMusic(false);
+        }
         _roadGenerate.StartGame();
         _gunSpawn.DeleteGun();
         _shooting.GameStop();

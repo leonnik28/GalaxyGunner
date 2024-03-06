@@ -453,6 +453,8 @@ MonoBehaviour:
   _gunSpawn: {fileID: 1578603323}
   _shooting: {fileID: 4285803391307028499}
   _runAnimator: {fileID: 1578603329}
+  _score: {fileID: 1319560420}
+  _credits: {fileID: 1774168920}
   _deathUI: {fileID: 160739032}
   _reliveUI: {fileID: 1021082660}
   _movementUI: {fileID: 2057210126}
@@ -462,8 +464,7 @@ MonoBehaviour:
   _playerHealthIndex: 1
   _emptyChunkDeletionTime: 3000
   _gameResetDelay: 1000
-  _score: {fileID: 1319560420}
-  _credits: {fileID: 1774168920}
+  _creditsFactor: 21
 --- !u!1 &1491298539
 GameObject:
   m_ObjectHideFlags: 3
@@ -1683,16 +1684,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1768194797}
+      objectReference: {fileID: 1415674797}
     - target: {fileID: 4007129907693159718, guid: cd907b323bc888b4787a004c9a8e4eea,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowRewardedAdOnGame
+      value: Relive
       objectReference: {fileID: 0}
     - target: {fileID: 4007129907693159718, guid: cd907b323bc888b4787a004c9a8e4eea,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: YandexAds, Assembly-CSharp
+      value: UpdateGameLevel, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8100504665436432113, guid: cd907b323bc888b4787a004c9a8e4eea,
         type: 3}
