@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static UserDataStorage;
+using Google;
 
 public class GameSession : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class GameSession : MonoBehaviour
     private async void Start()
     {
         _userId = PlayGamesPlatform.Instance.localUser.id;
-        /*var tcs = new TaskCompletionSource<bool>();
+        var tcs = new TaskCompletionSource<bool>();
         PlayGamesPlatform.Instance.Authenticate(success =>
         {
             if (success == SignInStatus.Success)
@@ -56,7 +57,7 @@ public class GameSession : MonoBehaviour
         {
             return;
         }
-        */
+        
         var saveData = await _userDataStorage.LoadGame(_userId);
 
         if (string.IsNullOrEmpty(saveData.username))
@@ -67,6 +68,37 @@ public class GameSession : MonoBehaviour
         {
             OnUserDataLoaded?.Invoke(saveData);
             _mainUI.SetActive(true);
+        }
+    }
+
+    public async void SignInGoogle()
+    {
+        var tcs = new TaskCompletionSource<bool>();
+        PlayGamesPlatform.Instance.Authenticate(success =>
+        {
+            if (success == SignInStatus.Success)
+            {
+                _userId = PlayGamesPlatform.Instance.localUser.id;
+                tcs.SetResult(true);
+            }
+            else
+            {
+                _mainUI.SetActive(false);
+                _errorUI.SetActive(true);
+                tcs.SetResult(false);
+            }
+        });
+
+        var saveData = await _userDataStorage.LoadGame(_userId);
+
+        if (string.IsNullOrEmpty(saveData.username))
+        {
+            _mainUI.SetActive(false);
+            _connectionUI.SetActive(true);
+        }
+        else
+        {
+            OnUserDataLoaded?.Invoke(saveData);
         }
     }
 
