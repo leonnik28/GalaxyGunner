@@ -1467,6 +1467,7 @@ GameObject:
   - component: {fileID: 5760461024314512103}
   - component: {fileID: 7076909606725024176}
   - component: {fileID: 1067750437969338085}
+  - component: {fileID: 797878959}
   m_Layer: 5
   m_Name: Leaderboard Button
   m_TagString: Untagged
@@ -1589,6 +1590,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &797878959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720738315764916398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioObject: {fileID: 0}
 --- !u!1 &774783359729828602
 GameObject:
   m_ObjectHideFlags: 0
@@ -3744,13 +3758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
   _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!114 &712782131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3772,10 +3780,17 @@ MonoBehaviour:
   _musics:
   - {fileID: 0}
   - {fileID: 244860230}
+  - {fileID: 0}
   _soundEffects:
   - {fileID: 8783942215861425304, guid: e053e8d9665f72f4abbf730eb4dde156, type: 3}
   - {fileID: -8224758782977166205, guid: 3641b3f7e67a40348b23c59cf18de87d, type: 3}
   - {fileID: -1407604710268104831, guid: 58199db575f12874b91796fe9ab41bc7, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 4902901541833779786, guid: 79df9a99f215ba54e809f9911153de18, type: 3}
+  - {fileID: 2088143993527894526, guid: 36678e8be6c05e54086f704250934f64, type: 3}
+  - {fileID: 5889017586168321598, guid: 5be40794af909b7449341fa062f14ef0, type: 3}
 --- !u!1 &1256816497317548492
 GameObject:
   m_ObjectHideFlags: 0
@@ -4467,13 +4482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
   _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!95 &7347443159585388511
 Animator:
   serializedVersion: 5
@@ -4924,13 +4933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
   _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!95 &4322405084621454206
 Animator:
   serializedVersion: 5
@@ -5076,13 +5079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
   _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!95 &9126475109814126273
 Animator:
   serializedVersion: 5
@@ -5250,7 +5247,6 @@ GameObject:
   - component: {fileID: 4851813551959293365}
   - component: {fileID: 7855929630213841459}
   - component: {fileID: 2789964553364109452}
-  - component: {fileID: 8649100776484028253}
   - component: {fileID: 5279270559523920806}
   m_Layer: 5
   m_Name: Sound Effects Button
@@ -5350,25 +5346,6 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   m_IsOn: 1
---- !u!114 &8649100776484028253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704982459503525995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 0}
-  _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!114 &5279270559523920806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5644,13 +5621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
   _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!95 &3222807222431167813
 Animator:
   serializedVersion: 5
@@ -6347,13 +6318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
   _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!95 &7519106888138038664
 Animator:
   serializedVersion: 5
@@ -6874,13 +6839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
   _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!114 &1789214445338530581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7581,13 +7540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
   _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!95 &7315287626346515199
 Animator:
   serializedVersion: 5
@@ -11936,7 +11889,6 @@ GameObject:
   - component: {fileID: 6509813060754596722}
   - component: {fileID: 7901937195556145097}
   - component: {fileID: 6094297405844726311}
-  - component: {fileID: 2588678318992327343}
   - component: {fileID: 8597121441384135730}
   - component: {fileID: 78897636012681229}
   m_Layer: 5
@@ -12021,25 +11973,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2588678318992327343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4456906611229269179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 0}
-  _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 0
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!114 &8597121441384135730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12362,6 +12295,7 @@ GameObject:
   - component: {fileID: 362182564455991681}
   - component: {fileID: 8351895639955058125}
   - component: {fileID: 4606754882925291642}
+  - component: {fileID: 1565497186}
   m_Layer: 5
   m_Name: Main Profile Button
   m_TagString: Untagged
@@ -12484,6 +12418,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1565497186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595557704512231553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioObject: {fileID: 0}
 --- !u!1 &4666008109150903668
 GameObject:
   m_ObjectHideFlags: 0
@@ -15457,7 +15404,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 966651719726210094}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameSession, Assembly-CSharp
+        m_MethodName: SignInGoogle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5735907084624633837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15470,13 +15429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
   _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!1 &6415926082852468448
 GameObject:
   m_ObjectHideFlags: 0
@@ -17420,13 +17373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
   _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!114 &3931044078283469021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17732,7 +17679,6 @@ GameObject:
   - component: {fileID: 2920450535296918129}
   - component: {fileID: 6138476144381208497}
   - component: {fileID: 6065297803178168233}
-  - component: {fileID: 2557071267335569844}
   - component: {fileID: 4386208221502826518}
   - component: {fileID: 3386545579540947337}
   m_Layer: 5
@@ -17817,25 +17763,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2557071267335569844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7528664259337251370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 0}
-  _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 0
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!114 &4386208221502826518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19040,13 +18967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
   _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!95 &7673585085202830487
 Animator:
   serializedVersion: 5
@@ -19859,13 +19780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
   _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!95 &8020238408647789723
 Animator:
   serializedVersion: 5
@@ -21192,6 +21107,7 @@ GameObject:
   - component: {fileID: 7728803193951005786}
   - component: {fileID: 7175134664854211095}
   - component: {fileID: 3704666694337652894}
+  - component: {fileID: 916683220}
   m_Layer: 5
   m_Name: Achievements Button
   m_TagString: Untagged
@@ -21314,6 +21230,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &916683220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8147855872089677804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioObject: {fileID: 0}
 --- !u!1 &8178132155590907529
 GameObject:
   m_ObjectHideFlags: 0
@@ -22922,13 +22851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 0}
   _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!114 &3458416108098754178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23705,7 +23628,6 @@ GameObject:
   - component: {fileID: 2067667926669622833}
   - component: {fileID: 6706851605191782709}
   - component: {fileID: 1593183167398083877}
-  - component: {fileID: 3056585937627864982}
   - component: {fileID: 7487835707070087646}
   m_Layer: 5
   m_Name: Music Button
@@ -23805,25 +23727,6 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   m_IsOn: 1
---- !u!114 &3056585937627864982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8796585009440439347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 0}
-  _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!114 &7487835707070087646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24252,13 +24155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uIManagerAsset: {fileID: 11400000, guid: ed935159a86a1be4cbc1c44848b24daf, type: 2}
   _audioObject: {fileID: 0}
-  hoverSFX: {fileID: 0}
-  clickSFX: {fileID: 0}
-  enableHoverSound: 1
-  enableClickSound: 1
-  checkForInteraction: 1
 --- !u!95 &1715318757254290701
 Animator:
   serializedVersion: 5
