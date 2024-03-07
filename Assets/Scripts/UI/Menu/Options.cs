@@ -27,7 +27,7 @@ public class Options : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         _storageService = new StorageService();
-        await UpdateOptionsOnStart();
+        await UpdateOptions(true);
     }
 
     public async void OpenOptions()
@@ -79,46 +79,23 @@ public class Options : MonoBehaviour
         _storageService.SaveAsync("options", _value);
     }
 
-    private async Task UpdateOptionsOnStart()
+    private async Task UpdateOptions(bool isStart = false)
     {
         var options = await _storageService.LoadAsync<OptionsValue>("options");
         _fpsDropdown.value = options.FpsValue;
         _musicToggle.isOn = options.Music;
         _soundEffectsToggle.isOn = options.SoundEffects;
 
-        SetFps();
-        SetMusic();
-        SetSoundEffects();
-    }
-
-    private void SetFps()
-    {
-        int targetFPS = 60;
-
-        switch (_value.FpsValue)
+        if (isStart)
         {
-            case 0:
-                targetFPS = 30;
-                break;
-            case 1:
-                targetFPS = 60;
-                break;
-            case 2:
-                targetFPS = 90;
-                break;
+            SetFps();
         }
-
-        Application.targetFrameRate = targetFPS;
-    }
-
-    private void SetMusic()
-    {
-        UpdateAudio(_musics, _value.Music);
-    }
-
-    private void SetSoundEffects()
-    {
-        UpdateAudio(_soundEffects, _value.SoundEffects);
+        else
+        {
+            SetTargetFps();
+        }
+        SetMusic(false);
+        SetSoundEffects(false);
     }
 
     private void UpdateAudio(List<AudioSource> audioList, bool isAudio)
@@ -127,18 +104,6 @@ public class Options : MonoBehaviour
         {
             audio.mute = !isAudio;
         }
-    }
-
-    private async Task UpdateOptions()
-    {
-        var options = await _storageService.LoadAsync<OptionsValue>("options");
-        _fpsDropdown.value = options.FpsValue;
-        _musicToggle.isOn = options.Music;
-        _soundEffectsToggle.isOn = options.SoundEffects;
-
-        SetTargetFps();
-        SetMusic(false);
-        SetSoundEffects(false);
     }
 
     private void AnimateSwitch(Toggle toggle, Animator switchAnimator, bool isChange)
@@ -165,6 +130,26 @@ public class Options : MonoBehaviour
                 switchAnimator.Play("Switch Off State");
             }
         }
+    }
+
+    private void SetFps()
+    {
+        int targetFPS = 60;
+
+        switch (_value.FpsValue)
+        {
+            case 0:
+                targetFPS = 30;
+                break;
+            case 1:
+                targetFPS = 60;
+                break;
+            case 2:
+                targetFPS = 90;
+                break;
+        }
+
+        Application.targetFrameRate = targetFPS;
     }
 
     private struct OptionsValue
