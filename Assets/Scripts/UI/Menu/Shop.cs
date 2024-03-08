@@ -5,6 +5,7 @@ using TMPro;
 public class Shop : MonoBehaviour
 {
     public Action OnExitClicked;
+    public Action<string> OnGunBuy;
 
     [SerializeField] private GameSession _gameSession;
 
@@ -53,6 +54,7 @@ public class Shop : MonoBehaviour
         _gameSession.SaveGame(credits: _credits.CurrentCredits, gunIndex: _gunInventory.Gun.Index);
         _purchaseUI.SetActive(false);
         _gameUIController.DisableGameUI();
+        OnGunBuy?.Invoke(_gunInventory.Gun.Name);
         OnExitClicked?.Invoke();
     }
 

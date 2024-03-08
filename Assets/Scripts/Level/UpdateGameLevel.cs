@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
@@ -8,6 +9,8 @@ using UnityEngine.InputSystem.UI;
 public class UpdateGameLevel : MonoBehaviour
 {
     public bool IsGameActive => _isGameActive;
+
+    public event Action OnChangeTopScore;
 
     [SerializeField] private List<Chunk> _emptyChunksList;
 
@@ -179,6 +182,7 @@ public class UpdateGameLevel : MonoBehaviour
     {
         _credits.ChangeCredits(currentCredits);
         _gameSession.SaveGame(credits: _credits.CurrentCredits, topScore: _score.CurrentScore);
+        OnChangeTopScore?.Invoke();
     }
 
     private void ChangeScreenMaterial()

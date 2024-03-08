@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,6 +8,8 @@ using static UserDataStorage;
 public class TopScore : MonoBehaviour
 {
     public int CurrentTopScore => _topScore;
+
+    public event Action OnTopScoreChange;
 
     [SerializeField] private GameSession _gameSession;
     [SerializeField] private Score score;

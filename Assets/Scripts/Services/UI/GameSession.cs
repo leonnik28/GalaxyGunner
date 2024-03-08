@@ -12,6 +12,7 @@ using Google;
 public class GameSession : MonoBehaviour
 {
     public event Action<SaveData> OnUserDataLoaded;
+    public event Action OnSuccessLogin;
 
     [SerializeField] private GameObject _mainUI;
     [SerializeField] private GameObject _connectionUI;
@@ -38,13 +39,14 @@ public class GameSession : MonoBehaviour
     private async void Start()
     {
         _userId = PlayGamesPlatform.Instance.localUser.id;
-        var tcs = new TaskCompletionSource<bool>();
+        /*var tcs = new TaskCompletionSource<bool>();
         PlayGamesPlatform.Instance.Authenticate(success =>
         {
             if (success == SignInStatus.Success)
             {
                 _userId = PlayGamesPlatform.Instance.localUser.id;
                 tcs.SetResult(true);
+                OnSuccessLogin?.Invoke();
             }
             else
             {
@@ -56,7 +58,7 @@ public class GameSession : MonoBehaviour
         if (!await tcs.Task)
         {
             return;
-        }
+        }*/
         
         var saveData = await _userDataStorage.LoadGame(_userId);
 

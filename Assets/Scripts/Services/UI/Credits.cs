@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 using static UserDataStorage;
 
 public class Credits : MonoBehaviour
 {
     public int CurrentCredits => _credits;
+
+    public event Action <int, string> OnChangeCredits;
 
     [SerializeField] private GameSession _gameSession;
 
@@ -20,6 +23,15 @@ public class Credits : MonoBehaviour
         if (save)
         {
             _gameSession.SaveGame(_credits);
+        }
+
+        if (amount > 0)
+        {
+            OnChangeCredits?.Invoke(amount, "+");
+        }
+        else
+        {
+            OnChangeCredits?.Invoke(amount, "");
         }
     }
 
