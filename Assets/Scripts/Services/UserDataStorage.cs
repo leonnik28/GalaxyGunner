@@ -1,12 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GooglePlayGames;
-using GooglePlayGames.BasicApi;
 using Firebase.Database;
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class UserDataStorage : MonoBehaviour
 {
@@ -51,7 +48,6 @@ public class UserDataStorage : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No data exists for the given user ID");
             return default(SaveData);
         }
     }

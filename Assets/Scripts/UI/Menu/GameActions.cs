@@ -6,20 +6,33 @@ using UnityEngine;
 public class GameActions : MonoBehaviour
 {
     [SerializeField] private GameSession _gameSession;
-    [SerializeField] private Credits _credits;
     [SerializeField] private UpdateGameLevel _updateGameLevel;
-    [SerializeField] private TopScore _topScore;
     [SerializeField] private Shop _shop;
 
     [SerializeField] private GameObject _actionObject;
     [SerializeField] private GameObject _actionList;
 
+    private Credits _credits;
+
+    private List<GameObject> _gameActionList;
+
     private void Awake()
     {
+        _gameActionList = new List<GameObject>();
+        _credits = _gameSession.GetComponent<Credits>();
+
         _gameSession.OnSuccessLogin += SuccessCreatedAccount;
         _credits.OnChangeCredits += CreditsChange;
         _updateGameLevel.OnChangeTopScore += TopScoreChange;
         _shop.OnGunBuy += NewGunBuy;
+    }
+
+    private void OnEnable()
+    {
+        if(_gameActionList.Count >= 9) {
+            Destroy(_gameActionList[0].gameObject);
+            _gameActionList.Remove(_gameActionList[0]);
+        }
     }
 
     private void SuccessCreatedAccount()
@@ -34,9 +47,9 @@ public class GameActions : MonoBehaviour
         CreateActionObject(currentText);
     }
 
-    private void TopScoreChange()
+    private void TopScoreChange(int topScore)
     {
-        string currentText = "New top score: " + _topScore.CurrentTopScore.ToString();
+        string currentText = "New top score: " + topScore.ToString();
         CreateActionObject(currentText);
     }
 
@@ -51,5 +64,6 @@ public class GameActions : MonoBehaviour
         GameObject actionObject = Instantiate(_actionObject, _actionList.transform);
         TextMeshProUGUI textAction = actionObject.GetComponentInChildren<TextMeshProUGUI>();
         textAction.text = currentText;
+        _gameActionList.Add(actionObject);
     }
 }

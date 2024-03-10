@@ -8,6 +8,7 @@ public class Shop : MonoBehaviour
     public Action<string> OnGunBuy;
 
     [SerializeField] private GameSession _gameSession;
+    [SerializeField] private Achievements _achievements;
 
     [SerializeField] private GameUIController _gameUIController;
     [SerializeField] private GameObject _purchaseUI;
@@ -55,6 +56,11 @@ public class Shop : MonoBehaviour
         _purchaseUI.SetActive(false);
         _gameUIController.DisableGameUI();
         OnGunBuy?.Invoke(_gunInventory.Gun.Name);
+        if(_gunInventory.Gun.Index == 2)
+        {
+            string achievementId = "CgkIyvTP6NIPEAIQAA";
+            _achievements.UpdateAchivement(achievementId);
+        }
         OnExitClicked?.Invoke();
     }
 

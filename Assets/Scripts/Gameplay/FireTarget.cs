@@ -26,6 +26,10 @@ public class FireTarget : MonoBehaviour, IDamageable
         {
             if (_isDestroyed)
             {
+                if (transform.TryGetComponent(out ILargeSphere largeSphere))
+                {
+                    largeSphere.KillLargeSphere();
+                }
                 gameObject.SetActive(false);
                 UpdateHealth();
             }

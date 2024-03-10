@@ -1,7 +1,9 @@
+using GooglePlayGames;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 using YandexMobileAds;
 using YandexMobileAds.Base;
@@ -10,6 +12,7 @@ public class YandexAds : MonoBehaviour
 {
     [SerializeField] private Credits _credits;
     [SerializeField] private UpdateGameLevel _updateGameLevel;
+    [SerializeField] private Achievements _achievements;
 
     private RewardedAdLoader _rewardedAdLoader;
     private RewardedAd _rewardedAd;
@@ -82,6 +85,10 @@ public class YandexAds : MonoBehaviour
     private void HandleRewardedOnGame(object sender, Reward args)
     {
         _updateGameLevel.Relive();
+
+        string achievementId = "CgkIyvTP6NIPEAIQAw";
+        _achievements.UpdateAchivement(achievementId);
+
         _rewardedAd.OnRewarded -= HandleRewardedOnGame;
     }
 

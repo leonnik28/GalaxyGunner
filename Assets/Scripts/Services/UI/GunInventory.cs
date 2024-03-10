@@ -15,7 +15,6 @@ public class GunInventory : MonoBehaviour
     [SerializeField] private List<GameObject> _gunUIList;
 
     [SerializeField] private GameSession _gameSession;
-    [SerializeField] private GunPool _gunPool;
 
     [SerializeField] private GameObject _shopTab;
     [SerializeField] private GameObject _inventoryTab;
@@ -24,12 +23,14 @@ public class GunInventory : MonoBehaviour
     private List<Gun> _gunInventoryList;
     private Gun _gun;
     private GameObject _currentGunObject;
+    private GunPool _gunPool;
 
     private Credits _credits;
 
     private void Start()
     {
-        _credits = GetComponent<Credits>();
+        _credits = _gameSession.GetComponent<Credits>();
+        _gunPool = _gameSession.GetComponent<GunPool>();
 
         _gameSession.OnUserDataLoaded += LoadGuns;
 

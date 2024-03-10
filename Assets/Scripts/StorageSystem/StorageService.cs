@@ -24,7 +24,10 @@ public class StorageService : IStorageService
     public async Task<T> LoadAsync<T>(string key)
     {
         string path = BuildPath(key);
-        if (!File.Exists(path)) throw new FileNotFoundException($"File with key {key} does not exist");
+        if (!File.Exists(path))
+        {
+            return default(T);
+        }
 
         using (var fileRead = new StreamReader(path))
         {

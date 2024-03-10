@@ -19,19 +19,22 @@ public class Credits : MonoBehaviour
 
     public void ChangeCredits(int amount, bool save = false)
     {
-        _credits += amount;
-        if (save)
+        if (amount != 0)
         {
-            _gameSession.SaveGame(_credits);
-        }
+            _credits += amount;
+            if (save)
+            {
+                _gameSession.SaveGame(_credits);
+            }
 
-        if (amount > 0)
-        {
-            OnChangeCredits?.Invoke(amount, "+");
-        }
-        else
-        {
-            OnChangeCredits?.Invoke(amount, "");
+            if (amount > 0)
+            {
+                OnChangeCredits?.Invoke(amount, "+");
+            }
+            else
+            {
+                OnChangeCredits?.Invoke(amount, "");
+            }
         }
     }
 

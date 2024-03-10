@@ -10,7 +10,7 @@ public class UpdateGameLevel : MonoBehaviour
 {
     public bool IsGameActive => _isGameActive;
 
-    public event Action OnChangeTopScore;
+    public event Action <int> OnChangeTopScore;
 
     [SerializeField] private List<Chunk> _emptyChunksList;
 
@@ -35,6 +35,7 @@ public class UpdateGameLevel : MonoBehaviour
     [SerializeField] private GameSession _gameSession;
     [SerializeField] private TopScore _topScore;
     [SerializeField] private Credits _credits;
+    [SerializeField] private Achievements _achievements;
 
     [Header("UI Elements")]
     [SerializeField] private GameObject _deathUI;
@@ -182,7 +183,12 @@ public class UpdateGameLevel : MonoBehaviour
     {
         _credits.ChangeCredits(currentCredits);
         _gameSession.SaveGame(credits: _credits.CurrentCredits, topScore: _score.CurrentScore);
-        OnChangeTopScore?.Invoke();
+        OnChangeTopScore?.Invoke(_score.CurrentScore);
+        if(_score.CurrentScore >= 10000)
+        {
+            string achievementId = "CgkIyvTP6NIPEAIQBA";
+            _achievements.UpdateAchivement(achievementId);
+        }
     }
 
     private void ChangeScreenMaterial()

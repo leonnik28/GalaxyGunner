@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using static UserDataStorage;
 
 public class TopScore : MonoBehaviour
@@ -13,18 +14,26 @@ public class TopScore : MonoBehaviour
 
     [SerializeField] private GameSession _gameSession;
     [SerializeField] private Score score;
-    [SerializeField] private TextMeshProUGUI _topScoreText;
 
     private int _topScore;
+    private string _leaderboardId = "CgkIyvTP6NIPEAIQBQ";
 
     private void Start()
     {
         _gameSession.OnUserDataLoaded += LoadTopScore;
+        OnTopScoreChange += UpdateLeaderboard;
     }
 
     private void LoadTopScore(SaveData saveData)
     {
         _topScore = saveData.topScore;
-        _topScoreText.text = _topScore.ToString();
+    }
+
+    private void UpdateLeaderboard()
+    {
+        if (_topScore >= 10000)
+        {
+            Social.ReportScore(_topScore, _leaderboardId, success => { });
+        }
     }
 }

@@ -47,6 +47,11 @@ public class GunSpawn : MonoBehaviour
     { 
         int gunIndex = await _storageService.LoadAsync<int>("currentGun");
         _gun = _gunPool.GetGun(gunIndex);
+
+        if (_gun == null)
+        {
+            _gun = _gunPool.GetGun(0);
+        }
     }
 
     public void DeleteGun()

@@ -8,6 +8,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UserDataStorage;
 using Google;
+using UnityEditor;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameSession : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class GameSession : MonoBehaviour
     [SerializeField] private GameObject _mainUI;
     [SerializeField] private GameObject _connectionUI;
     [SerializeField] private GameObject _errorUI;
+
+    [SerializeField] private Achievements _achievements;
 
     [SerializeField] private TMP_InputField _usernameInputField;
     [SerializeField] private Button _submitButton;
@@ -33,13 +37,11 @@ public class GameSession : MonoBehaviour
         PlayGamesPlatform.Activate();
 
         _submitButton.onClick.AddListener(PromptForUsername);
-        _submitButton.onClick.AddListener(DisableUI);
     }
 
     private async void Start()
     {
-        _userId = PlayGamesPlatform.Instance.localUser.id;
-        /*var tcs = new TaskCompletionSource<bool>();
+        var tcs = new TaskCompletionSource<bool>();
         PlayGamesPlatform.Instance.Authenticate(success =>
         {
             if (success == SignInStatus.Success)
@@ -47,6 +49,8 @@ public class GameSession : MonoBehaviour
                 _userId = PlayGamesPlatform.Instance.localUser.id;
                 tcs.SetResult(true);
                 OnSuccessLogin?.Invoke();
+                string achievementId = "CgkIyvTP6NIPEAIQAg";
+                _achievements.UpdateAchivement(achievementId);
             }
             else
             {
@@ -58,8 +62,8 @@ public class GameSession : MonoBehaviour
         if (!await tcs.Task)
         {
             return;
-        }*/
-        
+        }
+
         var saveData = await _userDataStorage.LoadGame(_userId);
 
         if (string.IsNullOrEmpty(saveData.username))
@@ -138,7 +142,6 @@ public class GameSession : MonoBehaviour
         string username = _usernameInputField.text;
         if (string.IsNullOrEmpty(username))
         {
-            Debug.LogError("Username is required");
             return;
         }
 
@@ -158,6 +161,8 @@ public class GameSession : MonoBehaviour
 
         await _userDataStorage.SaveGame(currentSaveData);
         OnUserDataLoaded?.Invoke(currentSaveData);
+
+        DisableUI();
     }
 
     private async void DisableUI()
