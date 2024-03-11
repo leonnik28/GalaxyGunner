@@ -7,9 +7,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static UserDataStorage;
-using Google;
-using UnityEditor;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class GameSession : MonoBehaviour
 {
@@ -49,8 +46,6 @@ public class GameSession : MonoBehaviour
                 _userId = PlayGamesPlatform.Instance.localUser.id;
                 tcs.SetResult(true);
                 OnSuccessLogin?.Invoke();
-                string achievementId = "CgkIyvTP6NIPEAIQAg";
-                _achievements.UpdateAchivement(achievementId);
             }
             else
             {
@@ -58,7 +53,7 @@ public class GameSession : MonoBehaviour
                 tcs.SetResult(false);
             }
         });
-
+        
         if (!await tcs.Task)
         {
             return;
@@ -67,13 +62,15 @@ public class GameSession : MonoBehaviour
         var saveData = await _userDataStorage.LoadGame(_userId);
 
         if (string.IsNullOrEmpty(saveData.username))
-        {
+        {           
             _connectionUI.SetActive(true);
         }
         else
         {
             OnUserDataLoaded?.Invoke(saveData);
             _mainUI.SetActive(true);
+            string achievementId = "CgkIyvTP6NIPEAIQAg";
+            _achievements.UpdateAchivement(achievementId);
         }
     }
 
