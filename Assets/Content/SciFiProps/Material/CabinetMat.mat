@@ -26,7 +26,6 @@ Material:
   - _EMISSION
   - _NORMALMAP
   - _OCCLUSIONMAP
-  - _PARALLAXMAP
   - _RECEIVE_SHADOWS_OFF
   - _SPECULARHIGHLIGHTS_OFF
   m_InvalidKeywords: []

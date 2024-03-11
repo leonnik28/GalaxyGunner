@@ -1138,6 +1138,71 @@ PrefabInstance:
       propertyPath: _audioObject
       value: 
       objectReference: {fileID: 396718289}
+    - target: {fileID: 7854344466780383157, guid: 742a83276767ed249a5b867594715ccf,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854344466780383157, guid: 742a83276767ed249a5b867594715ccf,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854344466780383157, guid: 742a83276767ed249a5b867594715ccf,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854344466780383157, guid: 742a83276767ed249a5b867594715ccf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854344466780383157, guid: 742a83276767ed249a5b867594715ccf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855106695877766743, guid: 742a83276767ed249a5b867594715ccf,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855106695877766743, guid: 742a83276767ed249a5b867594715ccf,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855106695877766743, guid: 742a83276767ed249a5b867594715ccf,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856399612464806183, guid: 742a83276767ed249a5b867594715ccf,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856399612464806183, guid: 742a83276767ed249a5b867594715ccf,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856399612464806183, guid: 742a83276767ed249a5b867594715ccf,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856399612464806183, guid: 742a83276767ed249a5b867594715ccf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7856399612464806183, guid: 742a83276767ed249a5b867594715ccf,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7932871587104866789, guid: 742a83276767ed249a5b867594715ccf,
         type: 3}
       propertyPath: _gunInventory
