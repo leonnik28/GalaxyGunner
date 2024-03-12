@@ -7,7 +7,8 @@ using static UserDataStorage;
 
 public class GunInventory : MonoBehaviour
 {
-    public Gun Gun => _gun;
+    public Gun GunInShop => _gunInShop;
+    public Gun GunInInventory => _gunInInventory;
     public GameObject GunObject => _currentGunObject;
 
     public event Action<Gun> OnGunChanged;
@@ -15,21 +16,23 @@ public class GunInventory : MonoBehaviour
     [SerializeField] private List<GameObject> _gunUIList;
 
     [SerializeField] private GameSession _gameSession;
-    [SerializeField] private GunPool _gunPool;
 
     [SerializeField] private GameObject _shopTab;
     [SerializeField] private GameObject _inventoryTab;
 
     private List<Gun> _gunShopList;
     private List<Gun> _gunInventoryList;
-    private Gun _gun;
+    private Gun _gunInShop;
+    private Gun _gunInInventory;
     private GameObject _currentGunObject;
+    private GunPool _gunPool;
 
     private Credits _credits;
 
     private void Start()
     {
-        _credits = GetComponent<Credits>();
+        _credits = _gameSession.GetComponent<Credits>();
+        _gunPool = _gameSession.GetComponent<GunPool>();
 
         _gameSession.OnUserDataLoaded += LoadGuns;
 
@@ -69,7 +72,7 @@ public class GunInventory : MonoBehaviour
         Gun gun = _gunPool.GetGun(gunIndex);
         if (gun != null)
         {
-            InstantiateGun(gunIndex, _inventoryTab, _gunInventoryList, gun);
+            InstantiateGun(gunIndex, _inventoryTab, _gunInventoryList, gun, false);
         }
     }
 
@@ -83,23 +86,31 @@ public class GunInventory : MonoBehaviour
 
             if (!isGunInInventory)
             {
-                InstantiateGun(index, _shopTab, _gunShopList, gun);
+                InstantiateGun(index, _shopTab, _gunShopList, gun, true);
             }
         }
     }
 
-    private void InstantiateGun(int gunIndex, GameObject tab, List<Gun> gunList, Gun gun)
+    private void InstantiateGun(int gunIndex, GameObject tab, List<Gun> gunList, Gun gun, bool isShop)
     {
         GameObject gunObject = Instantiate(_gunUIList[gunIndex], tab.transform);
         Button buttonGun = gunObject.GetComponent<Button>();
-        buttonGun.onClick.AddListener(() => ChooseGun(gun, gunObject));
+        buttonGun.onClick.AddListener(() => ChooseGun(gun, gunObject, isShop));
         gunList.Add(gun);
     }
 
-    private void ChooseGun(Gun gun, GameObject gunObject)
+    private void ChooseGun(Gun gun, GameObject gunObject, bool isShop)
     {
-        _gun = gun;
+        if (isShop)
+        {
+            _gunInShop = gun;
+        }
+        else
+        {
+            _gunInInventory = gun;
+        }
+        
         _currentGunObject = gunObject;
-        OnGunChanged?.Invoke(_gun);
+        OnGunChanged?.Invoke(gun);
     }
 }

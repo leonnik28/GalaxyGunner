@@ -447,6 +447,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &979662380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 828127341664518838, guid: 742a83276767ed249a5b867594715ccf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1696018997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1021082660 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2913684718803275866, guid: cd907b323bc888b4787a004c9a8e4eea,
@@ -595,6 +601,7 @@ MonoBehaviour:
   _model: {fileID: 42180764}
   _screen: {fileID: 15275490}
   _screenMaterial: {fileID: 2100000, guid: d54a159eecca89e479312ee205e71f11, type: 2}
+  _joystick: {fileID: 1788105720}
   _roadGenerate: {fileID: 1415674795}
   _uiVirtualCamera: {fileID: 489958330}
   _gunSpawn: {fileID: 1578603323}
@@ -606,6 +613,7 @@ MonoBehaviour:
   _gameSession: {fileID: 1774168913}
   _topScore: {fileID: 1774168921}
   _credits: {fileID: 1774168920}
+  _achievements: {fileID: 1774168924}
   _deathUI: {fileID: 160739032}
   _reliveUI: {fileID: 1021082660}
   _movementUI: {fileID: 2057210126}
@@ -616,6 +624,18 @@ MonoBehaviour:
   _emptyChunkDeletionTime: 3000
   _gameResetDelay: 1000
   _creditsFactor: 21
+--- !u!114 &1426815019 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 220580600, guid: 742a83276767ed249a5b867594715ccf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1696018997}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b398b2c245080e449228b5b44311a43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1491298539
 GameObject:
   m_ObjectHideFlags: 3
@@ -731,7 +751,7 @@ PrefabInstance:
     - target: {fileID: 1145624007968467996, guid: de098e5b52366ab42a9eee8991fe7a63,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1145624007968467996, guid: de098e5b52366ab42a9eee8991fe7a63,
         type: 3}
@@ -895,6 +915,10 @@ PrefabInstance:
       propertyPath: _gameSession
       value: 
       objectReference: {fileID: 1774168913}
+    - target: {fileID: 220580600, guid: 742a83276767ed249a5b867594715ccf, type: 3}
+      propertyPath: _achievements
+      value: 
+      objectReference: {fileID: 1774168924}
     - target: {fileID: 712782131, guid: 742a83276767ed249a5b867594715ccf, type: 3}
       propertyPath: _musics.Array.data[0]
       value: 
@@ -940,11 +964,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1768194797}
-    - target: {fileID: 1363442347104738818, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: _profileData
-      value: 
-      objectReference: {fileID: 1774168916}
     - target: {fileID: 1493091683689143408, guid: 742a83276767ed249a5b867594715ccf,
         type: 3}
       propertyPath: _audioObject
@@ -1155,6 +1174,11 @@ PrefabInstance:
       propertyPath: _audioObject
       value: 
       objectReference: {fileID: 396718289}
+    - target: {fileID: 8852341556553655865, guid: 742a83276767ed249a5b867594715ccf,
+        type: 3}
+      propertyPath: _audioObject
+      value: 
+      objectReference: {fileID: 396718289}
     - target: {fileID: 9001433325168946231, guid: 742a83276767ed249a5b867594715ccf,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1211,6 +1235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _credits: {fileID: 1774168920}
   _updateGameLevel: {fileID: 1415674797}
+  _achievements: {fileID: 1774168924}
 --- !u!4 &1768194798
 Transform:
   m_ObjectHideFlags: 0
@@ -1243,6 +1268,8 @@ GameObject:
   - component: {fileID: 1774168919}
   - component: {fileID: 1774168918}
   - component: {fileID: 1774168922}
+  - component: {fileID: 1774168923}
+  - component: {fileID: 1774168924}
   m_Layer: 0
   m_Name: GameSession
   m_TagString: Untagged
@@ -1265,6 +1292,7 @@ MonoBehaviour:
   _mainUI: {fileID: 244860223}
   _connectionUI: {fileID: 1967035410}
   _errorUI: {fileID: 1190906618}
+  _achievements: {fileID: 1774168924}
   _usernameInputField: {fileID: 1269514365}
   _submitButton: {fileID: 1744723595}
 --- !u!114 &1774168914
@@ -1320,8 +1348,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunList:
   - {fileID: 11400000, guid: ca8a7a8d7746f014989c6368ff5c0353, type: 2}
-  - {fileID: 11400000, guid: 448f8959e55996d40920d9c952e8efe8, type: 2}
   - {fileID: 11400000, guid: e84ce7ed643a23240a068a29e85d3778, type: 2}
+  - {fileID: 11400000, guid: 448f8959e55996d40920d9c952e8efe8, type: 2}
 --- !u!114 &1774168919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,10 +1364,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunUIList:
   - {fileID: 855601451956845170, guid: 36678e8be6c05e54086f704250934f64, type: 3}
-  - {fileID: 6958640615419421857, guid: 79df9a99f215ba54e809f9911153de18, type: 3}
   - {fileID: 5420778048208063727, guid: 5be40794af909b7449341fa062f14ef0, type: 3}
+  - {fileID: 6958640615419421857, guid: 79df9a99f215ba54e809f9911153de18, type: 3}
   _gameSession: {fileID: 1774168913}
-  _gunPool: {fileID: 1774168918}
   _shopTab: {fileID: 275691965}
   _inventoryTab: {fileID: 83285469}
 --- !u!114 &1774168920
@@ -1369,7 +1396,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameSession: {fileID: 1774168913}
   score: {fileID: 1319560420}
-  _topScoreText: {fileID: 1790647155}
 --- !u!114 &1774168922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1390,18 +1416,42 @@ MonoBehaviour:
   _gameSession: {fileID: 1774168913}
   _avatarGroup: {fileID: 1142063169}
   _avatarsUI: {fileID: 144576910}
---- !u!114 &1790647155 stripped
+--- !u!114 &1774168923
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 839513945738688708, guid: 742a83276767ed249a5b867594715ccf,
-    type: 3}
-  m_PrefabInstance: {fileID: 1696018997}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1774168912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: c6ddde21e618e0d4994ed51b37acef34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameSession: {fileID: 1774168913}
+  _updateGameLevel: {fileID: 1415674797}
+  _shop: {fileID: 1426815019}
+  _actionObject: {fileID: 7676609513646908293, guid: 6277a31274ad0d146ac943d91c1445bc,
+    type: 3}
+  _actionList: {fileID: 979662380}
+--- !u!114 &1774168924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774168912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516504c53c1ac6c4d9bf8aae250ebe48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1788105720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1094456679266649169, guid: 2e79735b69ac57d4baec5268697d60ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 8315827733096896906}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1967035410 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8382191884035189905, guid: 2082aab84fceeef40ab59358956bfe02,
@@ -1528,7 +1578,7 @@ PrefabInstance:
     - target: {fileID: 9150576992358176560, guid: 2082aab84fceeef40ab59358956bfe02,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9150576992358176560, guid: 2082aab84fceeef40ab59358956bfe02,
         type: 3}
@@ -1642,7 +1692,7 @@ PrefabInstance:
     - target: {fileID: 3083950315123691749, guid: 7607e5774a2ffa144aee5df3185b15af,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3083950315123691749, guid: 7607e5774a2ffa144aee5df3185b15af,
         type: 3}
@@ -1798,7 +1848,7 @@ PrefabInstance:
     - target: {fileID: 8276667996499561968, guid: 1b837158eb76f7a46a1bae6e7e57174c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8276667996499561968, guid: 1b837158eb76f7a46a1bae6e7e57174c,
         type: 3}
@@ -2093,7 +2143,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1415674797}
+      objectReference: {fileID: 1768194797}
     - target: {fileID: 8100504665436432113, guid: cd907b323bc888b4787a004c9a8e4eea,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2107,7 +2157,7 @@ PrefabInstance:
     - target: {fileID: 8100504665436432113, guid: cd907b323bc888b4787a004c9a8e4eea,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8100504665436432113, guid: cd907b323bc888b4787a004c9a8e4eea,
         type: 3}
@@ -2276,6 +2326,11 @@ PrefabInstance:
       propertyPath: _aim
       value: 
       objectReference: {fileID: 433405438}
+    - target: {fileID: 1700223304218117558, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+        type: 3}
+      propertyPath: _updateGameLevel
+      value: 
+      objectReference: {fileID: 1415674797}
     - target: {fileID: 7553194361211170073, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
       propertyPath: _updateGameLevel

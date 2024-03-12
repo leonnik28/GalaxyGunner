@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 public class Shooting : MonoBehaviour
 {
     [SerializeField] private GunSpawn _gunSpawn;
+    [SerializeField] private UpdateGameLevel _updateGameLevel;
     [SerializeField] private Aim _aim;
 
     private Camera _camera;
@@ -15,7 +16,7 @@ public class Shooting : MonoBehaviour
 
     private void Update()
     {
-        if (_gameIsStart)
+        if (_gameIsStart && _updateGameLevel.IsGameActive)
         {
             Ray ray = _camera.ViewportPointToRay(Vector2.one / 2);
             TryShoot(ray);

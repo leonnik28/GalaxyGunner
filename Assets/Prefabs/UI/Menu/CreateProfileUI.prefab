@@ -1035,7 +1035,6 @@ GameObject:
   - component: {fileID: 183758077921152245}
   - component: {fileID: 238411218900833190}
   - component: {fileID: 7589224901599940845}
-  - component: {fileID: 6327678649036674827}
   - component: {fileID: 5417982282591683869}
   m_Layer: 5
   m_Name: InputField
@@ -1187,19 +1186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fieldTrigger: {fileID: 9027940169119588525}
---- !u!114 &6327678649036674827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4681059442577263321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fad88e459dfc77c4dbcbaff69c5e05a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioObject: {fileID: 0}
 --- !u!95 &5417982282591683869
 Animator:
   serializedVersion: 5

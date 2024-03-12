@@ -11,6 +11,7 @@ public class ProfileData : MonoBehaviour
     public string Username => _username;
     public string Id => _id;
     public string Credits => _credits;
+    public string TopScore => _topScore;
     public Image ProfileImage => _profileImage;
 
     public Action OnProfileDataChanged;
@@ -21,6 +22,7 @@ public class ProfileData : MonoBehaviour
     private string _username;
     private string _id;
     private string _credits;
+    private string _topScore;
     private Image _profileImage;
 
     private void Awake()
@@ -36,6 +38,7 @@ public class ProfileData : MonoBehaviour
         _id = saveData.id;
         _profileImage = _avatars.GetAvatar(saveData.avatarIndex);
         _credits = saveData.credits.ToString();
+        _topScore = saveData.topScore.ToString();
 
         OnProfileDataChanged?.Invoke();
     }

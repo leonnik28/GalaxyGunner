@@ -11,6 +11,7 @@ public class ProfileUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _username;
     [SerializeField] private TextMeshProUGUI _id;
     [SerializeField] private TextMeshProUGUI _credits;
+    [SerializeField] private TextMeshProUGUI _topScore;
     [SerializeField] private Image _profileImage;
 
     private void Awake()
@@ -29,6 +30,10 @@ public class ProfileUI : MonoBehaviour
         {
             _credits.text = "Credits: " + _profileData.Credits;
         }
+        if (_topScore != null)
+        {
+            _topScore.text = "Top score: " + _profileData.TopScore;
+        }
         _profileImage.sprite = _profileData.ProfileImage.sprite;
     }
 
@@ -37,6 +42,10 @@ public class ProfileUI : MonoBehaviour
         if (_credits != null)
         {
             _credits.text = "Credits: " + _profileData.Credits;
+        }
+        if (_topScore != null)
+        {
+            _topScore.text = "Top score: " + _profileData.TopScore;
         }
         _profileImage.sprite = _profileData.ProfileImage.sprite;
     }

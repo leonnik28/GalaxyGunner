@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
@@ -9,12 +10,15 @@ public class UpdateGameLevel : MonoBehaviour
 {
     public bool IsGameActive => _isGameActive;
 
+    public event Action <int> OnChangeTopScore;
+
     [SerializeField] private List<Chunk> _emptyChunksList;
 
     [Header("Game Objects")]
     [SerializeField] private GameObject _model;
     [SerializeField] private GameObject _screen;
     [SerializeField] private Material _screenMaterial;
+    [SerializeField] private GameObject _joystick;
 
     [Header("Gameplay Components")]
     [SerializeField] private RoadGenerate _roadGenerate;
@@ -32,6 +36,7 @@ public class UpdateGameLevel : MonoBehaviour
     [SerializeField] private GameSession _gameSession;
     [SerializeField] private TopScore _topScore;
     [SerializeField] private Credits _credits;
+    [SerializeField] private Achievements _achievements;
 
     [Header("UI Elements")]
     [SerializeField] private GameObject _deathUI;
@@ -179,6 +184,12 @@ public class UpdateGameLevel : MonoBehaviour
     {
         _credits.ChangeCredits(currentCredits);
         _gameSession.SaveGame(credits: _credits.CurrentCredits, topScore: _score.CurrentScore);
+        OnChangeTopScore?.Invoke(_score.CurrentScore);
+        if(_score.CurrentScore >= 10000)
+        {
+            string achievementId = "CgkIyvTP6NIPEAIQBA";
+            _achievements.UpdateAchivement(achievementId);
+        }
     }
 
     private void ChangeScreenMaterial()
