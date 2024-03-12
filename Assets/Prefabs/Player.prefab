@@ -572,6 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunSpawn: {fileID: 1806299356}
+  _updateGameLevel: {fileID: 0}
   _aim: {fileID: 0}
 --- !u!114 &5560846068583626431
 MonoBehaviour:

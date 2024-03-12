@@ -18,6 +18,7 @@ public class UpdateGameLevel : MonoBehaviour
     [SerializeField] private GameObject _model;
     [SerializeField] private GameObject _screen;
     [SerializeField] private Material _screenMaterial;
+    [SerializeField] private GameObject _joystick;
 
     [Header("Gameplay Components")]
     [SerializeField] private RoadGenerate _roadGenerate;

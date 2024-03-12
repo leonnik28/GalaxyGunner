@@ -601,6 +601,7 @@ MonoBehaviour:
   _model: {fileID: 42180764}
   _screen: {fileID: 15275490}
   _screenMaterial: {fileID: 2100000, guid: d54a159eecca89e479312ee205e71f11, type: 2}
+  _joystick: {fileID: 1788105720}
   _roadGenerate: {fileID: 1415674795}
   _uiVirtualCamera: {fileID: 489958330}
   _gunSpawn: {fileID: 1578603323}
@@ -1138,71 +1139,6 @@ PrefabInstance:
       propertyPath: _audioObject
       value: 
       objectReference: {fileID: 396718289}
-    - target: {fileID: 7854344466780383157, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7854344466780383157, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7854344466780383157, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7854344466780383157, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7854344466780383157, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7855106695877766743, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7855106695877766743, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7855106695877766743, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856399612464806183, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856399612464806183, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856399612464806183, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856399612464806183, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7856399612464806183, guid: 742a83276767ed249a5b867594715ccf,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7932871587104866789, guid: 742a83276767ed249a5b867594715ccf,
         type: 3}
       propertyPath: _gunInventory
@@ -1510,6 +1446,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 516504c53c1ac6c4d9bf8aae250ebe48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1788105720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1094456679266649169, guid: 2e79735b69ac57d4baec5268697d60ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 8315827733096896906}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1967035410 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8382191884035189905, guid: 2082aab84fceeef40ab59358956bfe02,
@@ -2384,6 +2326,11 @@ PrefabInstance:
       propertyPath: _aim
       value: 
       objectReference: {fileID: 433405438}
+    - target: {fileID: 1700223304218117558, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+        type: 3}
+      propertyPath: _updateGameLevel
+      value: 
+      objectReference: {fileID: 1415674797}
     - target: {fileID: 7553194361211170073, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
       propertyPath: _updateGameLevel

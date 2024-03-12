@@ -35,7 +35,7 @@ public class GunSpawn : MonoBehaviour
 
     public void ChooseGun()
     {
-        _gun = _gunInventory.Gun;
+        _gun = _gunInventory.GunInInventory;
 
         if (_gun != null)
         {

@@ -32,7 +32,7 @@ public class Shop : MonoBehaviour
 
     public void BuyGun()
     {
-        Gun selectedGun = _gunInventory.Gun;
+        Gun selectedGun = _gunInventory.GunInShop;
         if (selectedGun != null && selectedGun.Cost <= _credits.CurrentCredits)
         {
             _gunToPurchase = _gunInventory.GunObject;
@@ -51,12 +51,12 @@ public class Shop : MonoBehaviour
 
     public void ConfirmBuy()
     {
-        _credits.ChangeCredits(-_gunInventory.Gun.Cost);
-        _gameSession.SaveGame(credits: _credits.CurrentCredits, gunIndex: _gunInventory.Gun.Index);
+        _credits.ChangeCredits(-_gunInventory.GunInShop.Cost);
+        _gameSession.SaveGame(credits: _credits.CurrentCredits, gunIndex: _gunInventory.GunInShop.Index);
         _purchaseUI.SetActive(false);
         _gameUIController.DisableGameUI();
-        OnGunBuy?.Invoke(_gunInventory.Gun.Name);
-        if(_gunInventory.Gun.Index == 2)
+        OnGunBuy?.Invoke(_gunInventory.GunInShop.Name);
+        if(_gunInventory.GunInShop.Index == 2)
         {
             string achievementId = "CgkIyvTP6NIPEAIQAA";
             _achievements.UpdateAchivement(achievementId);
