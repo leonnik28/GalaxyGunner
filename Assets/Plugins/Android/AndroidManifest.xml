@@ -11,4 +11,9 @@
     <!--This was added by the AnalyticsFixPropertyRemover. If you want to prevent the generation of this, have "AnalyticsFixPropertyRemover" included in a comment-->
     <property tools:node="removeAll" />
   </application>
+  <queries>
+    <package android:name="com.google.android.gms" />
+    <package android:name="com.android.vending" />
+    <package android:name="com.google.android.play.games" />
+  </queries>
 </manifest>

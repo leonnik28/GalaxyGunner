@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GooglePlayGames;
-using Firebase.Database;
+using GooglePlayGames.BasicApi;
+using GooglePlayGames.BasicApi.SavedGame;
 using UnityEngine;
 
 public class UserDataStorage : MonoBehaviour
@@ -18,37 +19,90 @@ public class UserDataStorage : MonoBehaviour
         public List<int> gunIndex;
     }
 
-    private DatabaseReference _databaseReference;
-
-    private void Awake()
-    {
-        _databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
-    }
-
-    public void SaveUsername(string username)
+    public async Task SaveUsername(string username)
     {
         string userId = PlayGamesPlatform.Instance.localUser.id;
-        _databaseReference.Child("users").Child(userId).Child("username").SetValueAsync(username);
+        SaveData saveData = new SaveData { username = username, id = userId };
+        await SaveGame(saveData);
     }
 
     public async Task SaveGame(SaveData saveData)
     {
+        string filename = $"savedata_{saveData.id}";
+        ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+        var game = await OpenSavedGame(savedGameClient, filename);
         string json = JsonUtility.ToJson(saveData);
-        await _databaseReference.Child("users").Child(saveData.id).SetRawJsonValueAsync(json);
+        byte[] data = System.Text.Encoding.UTF8.GetBytes(json);
+        SavedGameMetadataUpdate.Builder builder = new SavedGameMetadataUpdate.Builder();
+        SavedGameMetadataUpdate updatedMetadata = builder.Build();
+        await WriteSavedGame(savedGameClient, game, updatedMetadata, data);
+    }
+
+    private Task<ISavedGameMetadata> OpenSavedGame(ISavedGameClient savedGameClient, string filename)
+    {
+        var tcs = new TaskCompletionSource<ISavedGameMetadata>();
+        savedGameClient.OpenWithAutomaticConflictResolution(filename, DataSource.ReadCacheOrNetwork, ConflictResolutionStrategy.UseLongestPlaytime, (status, game) => {
+            if (status == SavedGameRequestStatus.Success)
+            {
+                tcs.SetResult(game);
+            }
+            else
+            {
+                tcs.SetResult(null);
+            }
+        });
+        return tcs.Task;
+    }
+
+    private Task WriteSavedGame(ISavedGameClient savedGameClient, ISavedGameMetadata game, SavedGameMetadataUpdate updatedMetadata, byte[] data)
+    {
+        var tcs = new TaskCompletionSource<bool>();
+        savedGameClient.CommitUpdate(game, updatedMetadata, data, (status, updatedGame) => {
+            if (status == SavedGameRequestStatus.Success)
+            {
+                tcs.SetResult(true);
+            }
+            else
+            {
+                tcs.SetResult(false);
+            }
+        });
+        return tcs.Task;
     }
 
     public async Task<SaveData> LoadGame(string userId)
     {
-        var dataSnapshot = await _databaseReference.Child("users").Child(userId).GetValueAsync();
-        if (dataSnapshot.Exists)
-        {
-            string json = dataSnapshot.GetRawJsonValue();
-            SaveData loadedData = JsonUtility.FromJson<SaveData>(json);
-            return loadedData;
-        }
-        else
+        string filename = $"savedata_{userId}";
+        ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+        if (savedGameClient == null)
         {
             return default(SaveData);
         }
+        var game = await OpenSavedGame(savedGameClient, filename);
+        var data = await ReadSavedGame(savedGameClient, game);
+        if (data == null || data.Length == 0)
+        {
+            return default(SaveData);
+        }
+        string json = System.Text.Encoding.UTF8.GetString(data);
+        SaveData loadedData = JsonUtility.FromJson<SaveData>(json);
+        return loadedData;
+    }
+
+
+    private Task<byte[]> ReadSavedGame(ISavedGameClient savedGameClient, ISavedGameMetadata game)
+    {
+        var tcs = new TaskCompletionSource<byte[]>();
+        savedGameClient.ReadBinaryData(game, (status, data) => {
+            if (status == SavedGameRequestStatus.Success)
+            {
+                tcs.SetResult(data);
+            }
+            else
+            {
+                tcs.SetResult(null);
+            }
+        });
+        return tcs.Task;
     }
 }
