@@ -45,7 +45,6 @@ public class GameSession : MonoBehaviour
             {
                 _userId = PlayGamesPlatform.Instance.localUser.id;
                 tcs.SetResult(true);
-                Debug.Log("1");
                 OnSuccessLogin?.Invoke();
             }
             else
