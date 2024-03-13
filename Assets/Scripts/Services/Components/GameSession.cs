@@ -38,14 +38,14 @@ public class GameSession : MonoBehaviour
 
     private async void Start()
     {
-        _userId = PlayGamesPlatform.Instance.localUser.id;
-        /*var tcs = new TaskCompletionSource<bool>();
+        var tcs = new TaskCompletionSource<bool>();
         PlayGamesPlatform.Instance.Authenticate(success =>
         {
             if (success == SignInStatus.Success)
             {
                 _userId = PlayGamesPlatform.Instance.localUser.id;
                 tcs.SetResult(true);
+                Debug.Log("1");
                 OnSuccessLogin?.Invoke();
             }
             else
@@ -54,16 +54,15 @@ public class GameSession : MonoBehaviour
                 tcs.SetResult(false);
             }
         });
-        
+
         if (!await tcs.Task)
         {
             return;
-        }*/
+        }
 
         var saveData = await _userDataStorage.LoadGame(_userId);
-
         if (string.IsNullOrEmpty(saveData.username))
-        {           
+        {
             _connectionUI.SetActive(true);
         }
         else
