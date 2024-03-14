@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using GooglePlayGames.BasicApi.SavedGame;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class UserDataStorage : MonoBehaviour
@@ -17,13 +18,6 @@ public class UserDataStorage : MonoBehaviour
         public int topScore;
         public int avatarIndex;
         public List<int> gunIndex;
-    }
-
-    public async Task SaveUsername(string username)
-    {
-        string userId = PlayGamesPlatform.Instance.localUser.id;
-        SaveData saveData = new SaveData { username = username, id = userId };
-        await SaveGame(saveData);
     }
 
     public async Task SaveGame(SaveData saveData)

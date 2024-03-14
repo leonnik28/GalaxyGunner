@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static UserDataStorage;
@@ -30,6 +27,7 @@ public class ProfileData : MonoBehaviour
         _gameSession = GetComponent<GameSession>();
         _avatars = GetComponent<Avatars>();
         _gameSession.OnUserDataLoaded += HandleUserDataLoaded;
+        _avatars.AvatarChanged += ChangeAvatar;
     }
 
     private void HandleUserDataLoaded(SaveData saveData)
@@ -40,6 +38,12 @@ public class ProfileData : MonoBehaviour
         _credits = saveData.credits.ToString();
         _topScore = saveData.topScore.ToString();
 
+        OnProfileDataChanged?.Invoke();
+    }
+
+    private void ChangeAvatar()
+    {
+        _profileImage = _avatars.GetAvatar(_avatars.CurrentIndexAvatar);
         OnProfileDataChanged?.Invoke();
     }
 }

@@ -18,12 +18,15 @@ public class YandexAds : MonoBehaviour
     private RewardedAd _rewardedAd;
     private string _adUnitId = "R-M-6526269-1";
 
+    private GameSession _gameSession;
     private int _countCreditsForShow = 5;
 
     private void Awake()
     {
         SetupLoader();
         RequestRewardedAd();
+
+        _gameSession = _credits.gameObject.GetComponent<GameSession>();
     }
 
     public void ShowRewardedAdOnMenu()
@@ -35,12 +38,13 @@ public class YandexAds : MonoBehaviour
         }
     }
 
-    public void ShowRewardedAdOnGame()
+    public async void ShowRewardedAdOnGame()
     {
         if (_rewardedAd != null)
         {
             _rewardedAd.OnRewarded += HandleRewardedOnGame;
             _rewardedAd.Show();
+            await _gameSession.SaveGame();
         }
     }
 

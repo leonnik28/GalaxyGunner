@@ -49,10 +49,11 @@ public class Shop : MonoBehaviour
         OnExitClicked?.Invoke();
     }
 
-    public void ConfirmBuy()
+    public async void ConfirmBuy()
     {
         _credits.ChangeCredits(-_gunInventory.GunInShop.Cost);
-        _gameSession.SaveGame(credits: _credits.CurrentCredits, gunIndex: _gunInventory.GunInShop.Index);
+        await _gameSession.SaveGame(credits: _credits.CurrentCredits, gunIndex: _gunInventory.GunInShop.Index);
+        await _gameSession.SaveGame();
         _purchaseUI.SetActive(false);
         _gameUIController.DisableGameUI();
         OnGunBuy?.Invoke(_gunInventory.GunInShop.Name);

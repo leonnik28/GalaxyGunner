@@ -18,6 +18,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] private GameObject _errorUI;
 
     [SerializeField] private Achievements _achievements;
+    [SerializeField] private StorageService _storageService;
 
     [SerializeField] private TMP_InputField _usernameInputField;
     [SerializeField] private Button _submitButton;
@@ -25,9 +26,12 @@ public class GameSession : MonoBehaviour
     private UserDataStorage _userDataStorage;
     private Avatars _avatars;
     private string _userId;
+    private string _saveDataName = "saveData";
 
     private void Awake()
     {
+        _storageService = new StorageService();
+
         _userDataStorage = gameObject.GetComponent<UserDataStorage>();
         _avatars = gameObject.GetComponent<Avatars>();
         PlayGamesPlatform.DebugLogEnabled = true;
@@ -66,47 +70,35 @@ public class GameSession : MonoBehaviour
         }
         else
         {
+            var saveDataLocal = await _storageService.LoadAsync<SaveData>(_saveDataName);
+            if(!saveData.Equals(saveDataLocal))
+            {
+                saveData = saveDataLocal;
+            }
             OnUserDataLoaded?.Invoke(saveData);
             _mainUI.SetActive(true);
             string achievementId = "CgkIyvTP6NIPEAIQAg";
             _achievements.UpdateAchivement(achievementId);
+            await SaveGame();
         }
     }
 
-    public async void SignInGoogle()
+    private async void OnApplicationPause(bool pause)
     {
-        var tcs = new TaskCompletionSource<bool>();
-        PlayGamesPlatform.Instance.Authenticate(success =>
+        if (pause)
         {
-            if (success == SignInStatus.Success)
-            {
-                _userId = PlayGamesPlatform.Instance.localUser.id;
-                tcs.SetResult(true);
-            }
-            else
-            {
-                _mainUI.SetActive(false);
-                _errorUI.SetActive(true);
-                tcs.SetResult(false);
-            }
-        });
-
-        var saveData = await _userDataStorage.LoadGame(_userId);
-
-        if (string.IsNullOrEmpty(saveData.username))
-        {
-            _mainUI.SetActive(false);
-            _connectionUI.SetActive(true);
-        }
-        else
-        {
-            OnUserDataLoaded?.Invoke(saveData);
+            await SaveGame();
         }
     }
 
-    public async void SaveGame(int credits = 0, int topScore = 0, int avatarIndex = -1, int gunIndex = 0)
+    private async void OnApplicationQuit()
     {
-        var saveData = await _userDataStorage.LoadGame(_userId);
+        await SaveGame();
+    }
+
+    public async Task SaveGame(int credits = 0, int topScore = 0, int avatarIndex = -1, int gunIndex = 0)
+    {
+        var saveData = await _storageService.LoadAsync<SaveData>(_saveDataName);
         if (string.IsNullOrEmpty(saveData.username))
         {
             return;
@@ -129,8 +121,16 @@ public class GameSession : MonoBehaviour
             saveData.gunIndex.Add(gunIndex);
         }
 
-        await _userDataStorage.SaveGame(saveData);
+        await _storageService.SaveAsync(_saveDataName, saveData);
         OnUserDataLoaded?.Invoke(saveData);
+
+        await _userDataStorage.SaveGame(saveData);
+    }
+
+    public async Task SaveGame()
+    {
+        var saveData = await _storageService.LoadAsync<SaveData>(_saveDataName);
+        await _userDataStorage.SaveGame(saveData);
     }
 
     private async void PromptForUsername()
@@ -155,10 +155,11 @@ public class GameSession : MonoBehaviour
             gunIndex = new List<int> { gunIndex }
         };
 
-        await _userDataStorage.SaveGame(currentSaveData);
+        await _storageService.SaveAsync(_saveDataName, currentSaveData);
         OnUserDataLoaded?.Invoke(currentSaveData);
 
         DisableUI();
+        await _userDataStorage.SaveGame(currentSaveData);
     }
 
     private async void DisableUI()

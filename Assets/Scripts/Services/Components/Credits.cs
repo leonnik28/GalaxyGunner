@@ -17,14 +17,14 @@ public class Credits : MonoBehaviour
         _gameSession.OnUserDataLoaded += LoadCredits;
     }
 
-    public void ChangeCredits(int amount, bool save = false)
+    public async void ChangeCredits(int amount, bool save = false)
     {
         if (amount != 0)
         {
             _credits += amount;
             if (save)
             {
-                _gameSession.SaveGame(_credits);
+                await _gameSession.SaveGame(_credits);
             }
 
             if (amount > 0)
@@ -35,6 +35,8 @@ public class Credits : MonoBehaviour
             {
                 OnChangeCredits?.Invoke(amount, "");
             }
+
+            await _gameSession.SaveGame();
         }
     }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,15 +9,20 @@ public class Avatars : MonoBehaviour
 {
     public int CurrentIndexAvatar => _currentIndexAvatar;
 
+    public Action AvatarChanged;
+
     [SerializeField] private List<GameObject> _avatars;
     [SerializeField] private GameSession _gameSession;
     [SerializeField] private GameObject _avatarGroup;
     [SerializeField] private GameObject _avatarsUI;
 
     private int _currentIndexAvatar;
+    private bool _isChangeAvatar = false;
 
     private void Start()
     {
+        _gameSession.OnUserDataLoaded += LoadIndex;
+
         foreach (var avatar in _avatars)
         {
             GameObject avatarObject = Instantiate(avatar, _avatarGroup.transform);
@@ -27,14 +33,20 @@ public class Avatars : MonoBehaviour
 
     public void OpenAvatarsUI()
     {
-        _avatarsUI.SetActive(true);
+        if (!_isChangeAvatar)
+        {
+            _avatarsUI.SetActive(true);
+        }
     }
 
-    public void ChangeAvatar(int index)
+    public async void ChangeAvatar(int index)
     {
+        _isChangeAvatar = true;
         _currentIndexAvatar = index;
-        _gameSession.SaveGame(avatarIndex:  _currentIndexAvatar);
+        AvatarChanged?.Invoke();
         _avatarsUI.SetActive(false);
+        await _gameSession.SaveGame(avatarIndex:  _currentIndexAvatar);
+        _isChangeAvatar = false;
     }
 
     public Image GetAvatar(int index)

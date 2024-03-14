@@ -180,10 +180,10 @@ public class UpdateGameLevel : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    private void ChangeTopScore(int currentCredits)
+    private async void ChangeTopScore(int currentCredits)
     {
         _credits.ChangeCredits(currentCredits);
-        _gameSession.SaveGame(credits: _credits.CurrentCredits, topScore: _score.CurrentScore);
+        await _gameSession.SaveGame(credits: _credits.CurrentCredits, topScore: _score.CurrentScore);
         OnChangeTopScore?.Invoke(_score.CurrentScore);
         if(_score.CurrentScore >= 10000)
         {
