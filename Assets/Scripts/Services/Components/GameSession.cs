@@ -64,7 +64,7 @@ public class GameSession : MonoBehaviour
         }
 
         var saveData = await _userDataStorage.LoadGame(_userId);
-        if (string.IsNullOrEmpty(saveData.username))
+        if (saveData.Equals(null) || string.IsNullOrEmpty(saveData.username))
         {
             _connectionUI.SetActive(true);
         }

@@ -27,6 +27,10 @@ public class UserDataStorage : MonoBehaviour
         var game = await OpenSavedGame(savedGameClient, filename);
         string json = JsonUtility.ToJson(saveData);
         byte[] data = System.Text.Encoding.UTF8.GetBytes(json);
+        if (data == null || data.Length == 0)
+        {
+            return;
+        }
         SavedGameMetadataUpdate.Builder builder = new SavedGameMetadataUpdate.Builder();
         SavedGameMetadataUpdate updatedMetadata = builder.Build();
         await WriteSavedGame(savedGameClient, game, updatedMetadata, data);
@@ -73,6 +77,10 @@ public class UserDataStorage : MonoBehaviour
             return default(SaveData);
         }
         var game = await OpenSavedGame(savedGameClient, filename);
+        if(game == null)
+        {
+            return default(SaveData);
+        }
         var data = await ReadSavedGame(savedGameClient, game);
         if (data == null || data.Length == 0)
         {

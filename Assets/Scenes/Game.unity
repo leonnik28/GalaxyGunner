@@ -1779,11 +1779,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ErrorUI
       objectReference: {fileID: 0}
-    - target: {fileID: 8785952231476116412, guid: 7607e5774a2ffa144aee5df3185b15af,
-        type: 3}
-      propertyPath: _audioObject
-      value: 
-      objectReference: {fileID: 1720060269}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7607e5774a2ffa144aee5df3185b15af, type: 3}
 --- !u!1 &2547064728267334566
