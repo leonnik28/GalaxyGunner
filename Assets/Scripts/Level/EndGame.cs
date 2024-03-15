@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EndGame : MonoBehaviour
@@ -15,7 +12,7 @@ public class EndGame : MonoBehaviour
 
         if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit, _radius) && _updateGameLevel.IsGameActive)
         {
-            if(hit.transform.TryGetComponent(out IWall wall))
+            if (hit.transform.TryGetComponent(out IWall _))
             {
                 _updateGameLevel.GameOver();
             }
@@ -24,7 +21,7 @@ public class EndGame : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.TryGetComponent(out IGameOverTrigger wall) && _updateGameLevel.IsGameActive)
+        if (other.transform.TryGetComponent(out IGameOverTrigger _) && _updateGameLevel.IsGameActive)
         {
             _updateGameLevel.GameOver();
         }
@@ -32,7 +29,7 @@ public class EndGame : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.TryGetComponent(out IGameOverTrigger wall) && _updateGameLevel.IsGameActive)
+        if (other.transform.TryGetComponent(out IGameOverTrigger _) && _updateGameLevel.IsGameActive)
         {
             _updateGameLevel.GameOver();
         }

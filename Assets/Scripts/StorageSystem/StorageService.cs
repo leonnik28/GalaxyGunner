@@ -1,12 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using System.IO;
 using System.Threading.Tasks;
-using UnityEngine.InputSystem;
-using UnityEngine.Purchasing.MiniJSON;
 
 public class StorageService : IStorageService
 {
@@ -26,7 +21,7 @@ public class StorageService : IStorageService
         string path = BuildPath(key);
         if (!File.Exists(path))
         {
-            return default(T);
+            return default;
         }
 
         using (var fileRead = new StreamReader(path))

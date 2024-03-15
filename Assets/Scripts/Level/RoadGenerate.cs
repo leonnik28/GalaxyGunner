@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class RoadGenerate : MonoBehaviour
@@ -32,7 +30,7 @@ public class RoadGenerate : MonoBehaviour
     {
         int currentRoadChunkIndex = (int)(_traveledDistance.Distance / _offset);
 
-        if(_oldRoadChunkIndex != currentRoadChunkIndex) 
+        if (_oldRoadChunkIndex != currentRoadChunkIndex) 
         {
             Chunk oldChunk = _roadChunksQueue.Dequeue();
             _chunksPool.ReturnChunk(oldChunk);
@@ -55,12 +53,12 @@ public class RoadGenerate : MonoBehaviour
             }
 
             chunk.TryGetComponent<UpdateChunk>(out UpdateChunk updateChunk);
-            if(updateChunk != null)
+            if (updateChunk != null)
             {
                 updateChunk.UpdateChunkObjects();
             }
 
-            chunk.transform.position = Vector3.forward * _offset * (currentRoadChunkIndex + _roadChunksCount);
+            chunk.transform.position = Vector3.forward * (_offset * (currentRoadChunkIndex + _roadChunksCount));
             _roadChunksQueue.Enqueue(chunk);
 
             if (chunk.IsEndChunk)
@@ -113,7 +111,7 @@ public class RoadGenerate : MonoBehaviour
         _oldRoadChunkIndex = 0;
         _currentChunkType = _chunkType;
 
-        while(_roadChunksQueue.Count > 0)
+        while (_roadChunksQueue.Count > 0)
         {
             Chunk chunk = _roadChunksQueue.Dequeue();
             _chunksPool.ReturnChunk(chunk);
@@ -132,7 +130,7 @@ public class RoadGenerate : MonoBehaviour
                 updateChunk.UpdateChunkObjects();
             }
 
-            chunk.transform.position = Vector3.forward * (i + 1) * _offset;
+            chunk.transform.position = Vector3.forward * ((i + 1) * _offset);
             _roadChunksQueue.Enqueue(chunk);
         }
         

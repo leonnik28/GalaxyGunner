@@ -1,24 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
 public class Aim : MonoBehaviour
 {
     [SerializeField] private GameObject _aimExtern;
-    [SerializeField] private float _scaleCount = 1.0f;
     [SerializeField] private GunSpawn _gunSpawn;
 
-    private float _fireRateScaleFactor = 2000f;
-    private Vector3 _oldTransformScale;
+    [SerializeField] private float _scaleCount = 1.0f;
 
-    private void Start()
-    {
-        _oldTransformScale = transform.localScale;
-    }
+    private readonly float _fireRateScaleFactor = 2000f;
 
     public void ScaleAim()
     {
-        _aimExtern.transform.DOScale(transform.localScale * _scaleCount, (float)_gunSpawn.Gun.RateOfFire / _fireRateScaleFactor).SetLoops(2, LoopType.Yoyo).SetUpdate(true);
+        _aimExtern.transform.DOScale(transform.localScale * _scaleCount, _gunSpawn.Gun.RateOfFire / _fireRateScaleFactor).SetLoops(2, LoopType.Yoyo).SetUpdate(true);
     }
 }

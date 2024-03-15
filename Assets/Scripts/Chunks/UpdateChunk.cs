@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UpdateChunk : MonoBehaviour
@@ -19,7 +17,7 @@ public class UpdateChunk : MonoBehaviour
             if (gameObject != null)
             {
                 gameObject.SetActive(true);
-                gameObject.TryGetComponent<FireTarget>(out FireTarget fireTarget);
+                gameObject.TryGetComponent(out FireTarget fireTarget);
                 if (fireTarget != null)
                 {
                     fireTarget.UpdateHealth();

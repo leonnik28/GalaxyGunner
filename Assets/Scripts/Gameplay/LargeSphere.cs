@@ -4,7 +4,7 @@ using UnityEngine.SocialPlatforms;
 
 public class LargeSphere : MonoBehaviour, ILargeSphere
 {
-    private string _achievementId = "CgkIyvTP6NIPEAIQAQ";
+    private readonly string _achievementId = "CgkIyvTP6NIPEAIQAQ";
 
     public void KillLargeSphere()
     {

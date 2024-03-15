@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class GunSpawn : MonoBehaviour
 {
@@ -19,6 +16,8 @@ public class GunSpawn : MonoBehaviour
     private Animator _gunAnimator;
     private AudioSource _gunAudioSource;
     private GameObject _spawnedGun;
+
+    private readonly string _gunFilename = "currentGun";
 
     private void Awake()
     {
@@ -39,13 +38,13 @@ public class GunSpawn : MonoBehaviour
 
         if (_gun != null)
         {
-            _storageService.SaveAsync("currentGun", _gun.Index);
+            _storageService.SaveAsync(_gunFilename, _gun.Index);
         }
     }
 
     public async Task LoadCurrentGun()
     { 
-        int gunIndex = await _storageService.LoadAsync<int>("currentGun");
+        int gunIndex = await _storageService.LoadAsync<int>(_gunFilename);
         _gun = _gunPool.GetGun(gunIndex);
 
         if (_gun == null)

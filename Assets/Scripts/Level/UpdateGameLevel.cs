@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.UI;
 
 public class UpdateGameLevel : MonoBehaviour
 {
@@ -64,6 +63,7 @@ public class UpdateGameLevel : MonoBehaviour
     public void GameOver()
     {
         _isGameActive = false;
+        _joystick.gameObject.SetActive(false);
         _movementUI.SetActive(false);
 
         if (_playerHealthIndex >= 1)
@@ -185,7 +185,7 @@ public class UpdateGameLevel : MonoBehaviour
         _credits.ChangeCredits(currentCredits);
         await _gameSession.SaveGame(credits: _credits.CurrentCredits, topScore: _score.CurrentScore);
         OnChangeTopScore?.Invoke(_score.CurrentScore);
-        if(_score.CurrentScore >= 10000)
+        if (_score.CurrentScore >= 10000)
         {
             string achievementId = "CgkIyvTP6NIPEAIQBA";
             _achievements.UpdateAchivement(achievementId);

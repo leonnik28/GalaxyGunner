@@ -10,8 +10,9 @@ public class Player : MonoBehaviour
 
     private Vector2 _inputVector;
     private AudioSource _gameMusic;
-    private float _inputScaleVector = 5f / 6f;
     private bool _gameIsStart = false;
+
+    private readonly float _inputScaleVector = 5f / 6f;
 
     private void Awake()
     {
@@ -43,7 +44,7 @@ public class Player : MonoBehaviour
 
     public void SetMusic(bool play, bool isFirstTime = true)
     {
-        if(isFirstTime)
+        if (isFirstTime)
         {
             if (play)
             {

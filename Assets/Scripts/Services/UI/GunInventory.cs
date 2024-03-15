@@ -27,11 +27,8 @@ public class GunInventory : MonoBehaviour
     private GameObject _currentGunObject;
     private GunPool _gunPool;
 
-    private Credits _credits;
-
     private void Start()
     {
-        _credits = _gameSession.GetComponent<Credits>();
         _gunPool = _gameSession.GetComponent<GunPool>();
 
         _gameSession.OnUserDataLoaded += LoadGuns;

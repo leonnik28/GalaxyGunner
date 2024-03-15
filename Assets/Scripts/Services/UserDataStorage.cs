@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using GooglePlayGames.BasicApi.SavedGame;
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class UserDataStorage : MonoBehaviour
@@ -23,14 +22,22 @@ public class UserDataStorage : MonoBehaviour
     public async Task SaveGame(SaveData saveData)
     {
         string filename = $"savedata_{saveData.id}";
+
         ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
+        if (savedGameClient == null)
+        {
+            return;
+        }
+
         var game = await OpenSavedGame(savedGameClient, filename);
         string json = JsonUtility.ToJson(saveData);
+
         byte[] data = System.Text.Encoding.UTF8.GetBytes(json);
         if (data == null || data.Length == 0)
         {
             return;
         }
+
         SavedGameMetadataUpdate.Builder builder = new SavedGameMetadataUpdate.Builder();
         SavedGameMetadataUpdate updatedMetadata = builder.Build();
         await WriteSavedGame(savedGameClient, game, updatedMetadata, data);
@@ -71,21 +78,25 @@ public class UserDataStorage : MonoBehaviour
     public async Task<SaveData> LoadGame(string userId)
     {
         string filename = $"savedata_{userId}";
+
         ISavedGameClient savedGameClient = PlayGamesPlatform.Instance.SavedGame;
         if (savedGameClient == null)
         {
-            return default(SaveData);
+            return default;
         }
+
         var game = await OpenSavedGame(savedGameClient, filename);
-        if(game == null)
+        if (game == null)
         {
-            return default(SaveData);
+            return default;
         }
+
         var data = await ReadSavedGame(savedGameClient, game);
         if (data == null || data.Length == 0)
         {
-            return default(SaveData);
+            return default;
         }
+
         string json = System.Text.Encoding.UTF8.GetString(data);
         SaveData loadedData = JsonUtility.FromJson<SaveData>(json);
         return loadedData;

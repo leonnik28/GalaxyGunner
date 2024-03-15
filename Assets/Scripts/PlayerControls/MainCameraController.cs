@@ -1,7 +1,5 @@
 using UnityEngine;
 using Cinemachine;
-using UnityEngine.InputSystem;
-using DG.Tweening;
 
 public class MainCameraController : MonoBehaviour
 {
@@ -20,7 +18,8 @@ public class MainCameraController : MonoBehaviour
 
     private Vector3 _lastPlayerPosition;
     private float _originalTilt;
-    private float _fieldOfViewScaleFactor = 800f;
+
+    private readonly float _fieldOfViewScaleFactor = 800f;
 
     private void Start()
     {

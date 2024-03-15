@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +11,7 @@ public class Avatars : MonoBehaviour
     public Action AvatarChanged;
 
     [SerializeField] private List<GameObject> _avatars;
+
     [SerializeField] private GameSession _gameSession;
     [SerializeField] private GameObject _avatarGroup;
     [SerializeField] private GameObject _avatarsUI;
@@ -53,7 +53,7 @@ public class Avatars : MonoBehaviour
     {
         for (int i = 0;  i < _avatars.Count; i++)
         {
-            if(i == index)
+            if (i == index)
             {
                 return _avatars[i].GetComponent<Image>();
             }

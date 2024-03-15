@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +9,7 @@ public class GunPool : MonoBehaviour
     {
         foreach (Gun gun in _gunList)
         {
-            if(gun.Index == gunIndex)
+            if (gun.Index == gunIndex)
             {
                 return gun;
             }

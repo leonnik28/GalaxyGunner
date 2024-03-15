@@ -26,7 +26,8 @@ public class GameSession : MonoBehaviour
     private UserDataStorage _userDataStorage;
     private Avatars _avatars;
     private string _userId;
-    private string _saveDataName = "saveData";
+
+    private readonly string _saveDataName = "saveData";
 
     private void Awake()
     {
@@ -42,7 +43,8 @@ public class GameSession : MonoBehaviour
 
     private async void Start()
     {
-        var tcs = new TaskCompletionSource<bool>();
+        _userId = PlayGamesPlatform.Instance.localUser.id;
+        /*var tcs = new TaskCompletionSource<bool>();
         PlayGamesPlatform.Instance.Authenticate(success =>
         {
             if (success == SignInStatus.Success)
@@ -61,7 +63,7 @@ public class GameSession : MonoBehaviour
         if (!await tcs.Task)
         {
             return;
-        }
+        }*/
 
         var saveData = await _userDataStorage.LoadGame(_userId);
         if (saveData.Equals(null) || string.IsNullOrEmpty(saveData.username))
@@ -71,7 +73,7 @@ public class GameSession : MonoBehaviour
         else
         {
             var saveDataLocal = await _storageService.LoadAsync<SaveData>(_saveDataName);
-            if(!saveData.Equals(saveDataLocal))
+            if(!saveData.Equals(saveDataLocal) && (saveData.id == saveDataLocal.id))
             {
                 saveData = saveDataLocal;
             }

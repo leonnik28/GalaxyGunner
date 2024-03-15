@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -29,7 +28,7 @@ public class GameActions : MonoBehaviour
 
     private void OnEnable()
     {
-        if(_gameActionList.Count >= 9) {
+        if (_gameActionList.Count >= 9) {
             Destroy(_gameActionList[0].gameObject);
             _gameActionList.Remove(_gameActionList[0]);
         }

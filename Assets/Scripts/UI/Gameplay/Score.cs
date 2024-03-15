@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -16,7 +15,7 @@ public class Score : MonoBehaviour
     private float _startPosition;
     private float _lastPosition;
 
-    private int _scoreFactor = 1;
+    private readonly int _scoreFactor = 1;
 
     private void Start()
     {

@@ -1,9 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using static UserDataStorage;
 
 public class TopScore : MonoBehaviour
@@ -16,7 +12,9 @@ public class TopScore : MonoBehaviour
     [SerializeField] private Score score;
 
     private int _topScore;
-    private string _leaderboardId = "CgkIyvTP6NIPEAIQBQ";
+
+    private readonly string _leaderboardId = "CgkIyvTP6NIPEAIQBQ";
+    private readonly int _minimalScoreLeaderboard = 10000;
 
     private void Start()
     {
@@ -31,7 +29,7 @@ public class TopScore : MonoBehaviour
 
     private void UpdateLeaderboard()
     {
-        if (_topScore >= 10000)
+        if (_topScore >= _minimalScoreLeaderboard)
         {
             Social.ReportScore(_topScore, _leaderboardId, success => { });
         }

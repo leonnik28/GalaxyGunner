@@ -10,19 +10,19 @@ public class FireTarget : MonoBehaviour, IDamageable
 
     private void Awake()
     {
+        _animator = GetComponent<Animator>();
         _maxHealth = _health;
     }
 
     public void GetDamage(float damage)
     {
-        _animator = GetComponent<Animator>();
         if (_animator != null)
         {
             _animator.SetTrigger("GetDamage");
         }
         
         _health -= damage;
-        if( _health <= 0)
+        if (_health <= 0)
         {
             if (_isDestroyed)
             {

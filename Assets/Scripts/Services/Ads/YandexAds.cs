@@ -1,10 +1,5 @@
-using GooglePlayGames;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
-using UnityEngine.UI;
 using YandexMobileAds;
 using YandexMobileAds.Base;
 
@@ -16,10 +11,11 @@ public class YandexAds : MonoBehaviour
 
     private RewardedAdLoader _rewardedAdLoader;
     private RewardedAd _rewardedAd;
-    private string _adUnitId = "R-M-6526269-1";
 
     private GameSession _gameSession;
-    private int _countCreditsForShow = 5;
+
+    private readonly string _adUnitId = "R-M-6526269-1";
+    private readonly int _countCreditsForShow = 5;
 
     private void Awake()
     {

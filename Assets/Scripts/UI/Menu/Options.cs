@@ -23,6 +23,8 @@ public class Options : MonoBehaviour
     private IStorageService _storageService;
     private OptionsValue _value;
 
+    private readonly string _optionsFilename = "options";
+
     private async void Start()
     {
         Application.targetFrameRate = 60;
@@ -56,7 +58,7 @@ public class Options : MonoBehaviour
         Application.targetFrameRate = targetFPS;
 
         _value.FpsValue = _fpsDropdown.value;
-        await _storageService.SaveAsync("options", _value);
+        await _storageService.SaveAsync(_optionsFilename, _value);
     }
 
     public void SetMusic(bool isChange)
@@ -66,7 +68,7 @@ public class Options : MonoBehaviour
         AnimateSwitch(_musicToggle, _musicSwitchAnimator, isChange);
 
         _value.Music = isMusic;
-        _storageService.SaveAsync("options", _value);
+        _storageService.SaveAsync(_optionsFilename, _value);
     }
 
     public void SetSoundEffects(bool isChange)
@@ -76,12 +78,12 @@ public class Options : MonoBehaviour
         AnimateSwitch(_soundEffectsToggle, _soundEffectsSwitchAnimator, isChange);
 
         _value.SoundEffects = isSoundEffects;
-        _storageService.SaveAsync("options", _value);
+        _storageService.SaveAsync(_optionsFilename, _value);
     }
 
     private async Task UpdateOptions(bool isStart = false)
     {
-        var options = await _storageService.LoadAsync<OptionsValue>("options");
+        var options = await _storageService.LoadAsync<OptionsValue>(_optionsFilename);
         _fpsDropdown.value = options.FpsValue;
         _musicToggle.isOn = options.Music;
         _soundEffectsToggle.isOn = options.SoundEffects;
