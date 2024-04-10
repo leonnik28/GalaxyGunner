@@ -28,7 +28,6 @@ public class StorageService : IStorageService
         {
             var json = await fileRead.ReadToEndAsync();
             var data = JsonConvert.DeserializeObject<T>(json);
-
             return data;
         }
     }

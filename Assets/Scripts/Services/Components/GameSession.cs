@@ -28,6 +28,7 @@ public class GameSession : MonoBehaviour
     private string _userId;
 
     private readonly string _saveDataName = "saveData";
+    private readonly int _timeToDisable = 1000;
 
     private void Awake()
     {
@@ -43,8 +44,7 @@ public class GameSession : MonoBehaviour
 
     private async void Start()
     {
-        _userId = PlayGamesPlatform.Instance.localUser.id;
-        /*var tcs = new TaskCompletionSource<bool>();
+        var tcs = new TaskCompletionSource<bool>();
         PlayGamesPlatform.Instance.Authenticate(success =>
         {
             if (success == SignInStatus.Success)
@@ -55,16 +55,21 @@ public class GameSession : MonoBehaviour
             }
             else
             {
-                _errorUI.SetActive(true);
                 tcs.SetResult(false);
             }
         });
 
         if (!await tcs.Task)
         {
+            _errorUI.SetActive(true);
             return;
-        }*/
+        }
 
+        LoadingUserData();
+    }
+
+    private async void LoadingUserData()
+    {
         var saveData = await _userDataStorage.LoadGame(_userId);
         if (saveData.Equals(null) || string.IsNullOrEmpty(saveData.username))
         {
@@ -73,29 +78,21 @@ public class GameSession : MonoBehaviour
         else
         {
             var saveDataLocal = await _storageService.LoadAsync<SaveData>(_saveDataName);
-            if(!saveData.Equals(saveDataLocal) && (saveData.id == saveDataLocal.id))
+            if (!saveData.Equals(saveDataLocal) && (saveData.id == saveDataLocal.id))
             {
                 saveData = saveDataLocal;
             }
+            else
+            {
+                await _storageService.SaveAsync(_saveDataName, saveData);
+            }
+
             OnUserDataLoaded?.Invoke(saveData);
             _mainUI.SetActive(true);
             string achievementId = "CgkIyvTP6NIPEAIQAg";
             _achievements.UpdateAchivement(achievementId);
             await SaveGame();
         }
-    }
-
-    private async void OnApplicationPause(bool pause)
-    {
-        if (pause)
-        {
-            await SaveGame();
-        }
-    }
-
-    private async void OnApplicationQuit()
-    {
-        await SaveGame();
     }
 
     public async Task SaveGame(int credits = 0, int topScore = 0, int avatarIndex = -1, int gunIndex = 0)
@@ -125,7 +122,6 @@ public class GameSession : MonoBehaviour
 
         await _storageService.SaveAsync(_saveDataName, saveData);
         OnUserDataLoaded?.Invoke(saveData);
-
         await _userDataStorage.SaveGame(saveData);
     }
 
@@ -166,7 +162,7 @@ public class GameSession : MonoBehaviour
 
     private async void DisableUI()
     {
-        await Task.Delay(1000);
+        await Task.Delay(_timeToDisable);
         _connectionUI.SetActive(false);
         _mainUI.SetActive(true);
     }
