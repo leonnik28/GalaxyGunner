@@ -36,7 +36,10 @@ public class Credits : MonoBehaviour
                 OnChangeCredits?.Invoke(amount, "");
             }
 
-            await _gameSession.SaveGame();
+            if (_gameSession.OnLoginToGoogleGames)
+            {
+                await _gameSession.SaveGame();
+            }
         }
     }
 

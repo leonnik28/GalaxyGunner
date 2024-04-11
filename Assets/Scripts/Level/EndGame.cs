@@ -17,6 +17,11 @@ public class EndGame : MonoBehaviour
                 _updateGameLevel.GameOver();
             }
         }
+
+        if (transform.position.y < -5.0 && _updateGameLevel.IsGameActive)
+        {
+            _updateGameLevel.GameOver();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

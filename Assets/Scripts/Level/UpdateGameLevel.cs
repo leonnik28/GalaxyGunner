@@ -60,13 +60,13 @@ public class UpdateGameLevel : MonoBehaviour
         _updatedPlayerPosition = _model.transform.position;
     }
 
-    public void GameOver()
+    public void GameOver(bool isReload = true)
     {
         _isGameActive = false;
         _joystick.gameObject.SetActive(false);
         _movementUI.SetActive(false);
 
-        if (_playerHealthIndex >= 1)
+        if (_playerHealthIndex >= 1 && isReload)
         {
             _playerHealthIndex--;
             _reliveUI.SetActive(true);
@@ -184,11 +184,15 @@ public class UpdateGameLevel : MonoBehaviour
     {
         _credits.ChangeCredits(currentCredits);
         await _gameSession.SaveGame(credits: _credits.CurrentCredits, topScore: _score.CurrentScore);
-        OnChangeTopScore?.Invoke(_score.CurrentScore);
-        if (_score.CurrentScore >= 10000)
+
+        if (_gameSession.OnLoginToGoogleGames)
         {
-            string achievementId = "CgkIyvTP6NIPEAIQBA";
-            _achievements.UpdateAchivement(achievementId);
+            OnChangeTopScore?.Invoke(_score.CurrentScore);
+            if (_score.CurrentScore >= 10000)
+            {
+                string achievementId = "CgkIyvTP6NIPEAIQBA";
+                _achievements.UpdateAchivement(achievementId);
+            }
         }
     }
 

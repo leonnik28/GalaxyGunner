@@ -40,7 +40,11 @@ public class YandexAds : MonoBehaviour
         {
             _rewardedAd.OnRewarded += HandleRewardedOnGame;
             _rewardedAd.Show();
-            await _gameSession.SaveGame();
+
+            if (_gameSession.OnLoginToGoogleGames)
+            {
+                await _gameSession.SaveGame();
+            }
         }
     }
 
@@ -86,8 +90,11 @@ public class YandexAds : MonoBehaviour
     {
         _updateGameLevel.Relive();
 
-        string achievementId = "CgkIyvTP6NIPEAIQAw";
-        _achievements.UpdateAchivement(achievementId);
+        if (_gameSession.OnLoginToGoogleGames)
+        {
+            string achievementId = "CgkIyvTP6NIPEAIQAw";
+            _achievements.UpdateAchivement(achievementId);
+        }
 
         _rewardedAd.OnRewarded -= HandleRewardedOnGame;
     }

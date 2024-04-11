@@ -1,5 +1,4 @@
 using GooglePlayGames;
-using GooglePlayGames.BasicApi;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -10,6 +9,8 @@ using static UserDataStorage;
 
 public class GameSession : MonoBehaviour
 {
+    public bool OnLoginToGoogleGames => _onLoginToGoogleGames;
+
     public event Action<SaveData> OnUserDataLoaded;
     public event Action OnSuccessLogin;
 
@@ -26,6 +27,7 @@ public class GameSession : MonoBehaviour
     private UserDataStorage _userDataStorage;
     private Avatars _avatars;
     private string _userId;
+    private bool _onLoginToGoogleGames;
 
     private readonly string _saveDataName = "saveData";
     private readonly int _timeToDisable = 1000;
@@ -42,57 +44,25 @@ public class GameSession : MonoBehaviour
         _submitButton.onClick.AddListener(PromptForUsername);
     }
 
-    private async void Start()
+    private void Start()
     {
-        var tcs = new TaskCompletionSource<bool>();
-        PlayGamesPlatform.Instance.Authenticate(success =>
+        Social.localUser.Authenticate(success =>
         {
-            if (success == SignInStatus.Success)
+            if (success == true)
             {
                 _userId = PlayGamesPlatform.Instance.localUser.id;
-                tcs.SetResult(true);
                 OnSuccessLogin?.Invoke();
+                _onLoginToGoogleGames = true;
+
+                LoadingUserDataFromCloud();
             }
             else
             {
-                tcs.SetResult(false);
+                _onLoginToGoogleGames = false;
+
+                LoadingUserDataFromLocalStorage();
             }
         });
-
-        if (!await tcs.Task)
-        {
-            _errorUI.SetActive(true);
-            return;
-        }
-
-        LoadingUserData();
-    }
-
-    private async void LoadingUserData()
-    {
-        var saveData = await _userDataStorage.LoadGame(_userId);
-        if (saveData.Equals(null) || string.IsNullOrEmpty(saveData.username))
-        {
-            _connectionUI.SetActive(true);
-        }
-        else
-        {
-            var saveDataLocal = await _storageService.LoadAsync<SaveData>(_saveDataName);
-            if (!saveData.Equals(saveDataLocal) && (saveData.id == saveDataLocal.id))
-            {
-                saveData = saveDataLocal;
-            }
-            else
-            {
-                await _storageService.SaveAsync(_saveDataName, saveData);
-            }
-
-            OnUserDataLoaded?.Invoke(saveData);
-            _mainUI.SetActive(true);
-            string achievementId = "CgkIyvTP6NIPEAIQAg";
-            _achievements.UpdateAchivement(achievementId);
-            await SaveGame();
-        }
     }
 
     public async Task SaveGame(int credits = 0, int topScore = 0, int avatarIndex = -1, int gunIndex = 0)
@@ -122,13 +92,78 @@ public class GameSession : MonoBehaviour
 
         await _storageService.SaveAsync(_saveDataName, saveData);
         OnUserDataLoaded?.Invoke(saveData);
-        await _userDataStorage.SaveGame(saveData);
+
+        if (_onLoginToGoogleGames)
+        {
+            await _userDataStorage.SaveGame(saveData);
+        }
     }
 
     public async Task SaveGame()
     {
         var saveData = await _storageService.LoadAsync<SaveData>(_saveDataName);
         await _userDataStorage.SaveGame(saveData);
+    }
+
+    public void LoginToGooglePlayGames()
+    {
+        Social.localUser.Authenticate(async success =>
+        {
+            if (success == true)
+            {
+                _userId = PlayGamesPlatform.Instance.localUser.id;
+                OnSuccessLogin?.Invoke();
+                _onLoginToGoogleGames = true;
+
+                await SaveGame();
+            }
+            else
+            {
+                _onLoginToGoogleGames = false;
+            }
+        });
+    }
+
+    private async void LoadingUserDataFromCloud()
+    {
+        var saveData = await _userDataStorage.LoadGame(_userId);
+        if (saveData.Equals(null) || string.IsNullOrEmpty(saveData.username))
+        {
+            _connectionUI.SetActive(true);
+        }
+        else
+        {
+            var saveDataLocal = await _storageService.LoadAsync<SaveData>(_saveDataName);
+            if (!saveData.Equals(saveDataLocal) && (saveData.id == saveDataLocal.id))
+            {
+                saveData = saveDataLocal;
+            }
+            else
+            {
+                await _storageService.SaveAsync(_saveDataName, saveData);
+            }
+
+            OnUserDataLoaded?.Invoke(saveData);
+            _mainUI.SetActive(true);
+            string achievementId = "CgkIyvTP6NIPEAIQAg";
+            _achievements.UpdateAchivement(achievementId);
+            await SaveGame();
+        }
+    }
+
+    private async void LoadingUserDataFromLocalStorage()
+    {
+        var saveData = await _storageService.LoadAsync<SaveData>(_saveDataName);
+        if (saveData.Equals(null) || string.IsNullOrEmpty(saveData.username))
+        {
+            _userId = Guid.NewGuid().ToString();
+            _connectionUI.SetActive(true);
+        }
+        else
+        {
+            OnUserDataLoaded?.Invoke(saveData);
+            _mainUI.SetActive(true);
+        }
     }
 
     private async void PromptForUsername()
@@ -157,7 +192,11 @@ public class GameSession : MonoBehaviour
         OnUserDataLoaded?.Invoke(currentSaveData);
 
         DisableUI();
-        await _userDataStorage.SaveGame(currentSaveData);
+
+        if (_onLoginToGoogleGames)
+        {
+            await _userDataStorage.SaveGame(currentSaveData);
+        }
     }
 
     private async void DisableUI()

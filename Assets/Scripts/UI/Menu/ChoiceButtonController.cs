@@ -2,13 +2,21 @@ using UnityEngine;
 
 public class ChoiceButtonController : MonoBehaviour
 {
+    [SerializeField] private GameSession _gameSession;
+
     public void ChoiceAchievementsUI()
     {
-        Social.ShowAchievementsUI();
+        if (_gameSession.OnLoginToGoogleGames)
+        {
+            Social.ShowAchievementsUI();
+        }
     }
 
     public void ChoiceLeaderboardUI()
     {
-        Social.ShowLeaderboardUI();
+        if (_gameSession.OnLoginToGoogleGames)
+        {
+            Social.ShowLeaderboardUI();
+        }
     }
 }

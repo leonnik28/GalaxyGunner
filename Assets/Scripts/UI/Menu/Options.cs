@@ -84,6 +84,13 @@ public class Options : MonoBehaviour
     private async Task UpdateOptions(bool isStart = false)
     {
         var options = await _storageService.LoadAsync<OptionsValue>(_optionsFilename);
+
+        if (options.FpsValue == 0 && isStart)
+        {
+            options.FpsValue = 1;
+            _value.FpsValue = 1;
+        }
+
         _fpsDropdown.value = options.FpsValue;
         _musicToggle.isOn = options.Music;
         _soundEffectsToggle.isOn = options.SoundEffects;

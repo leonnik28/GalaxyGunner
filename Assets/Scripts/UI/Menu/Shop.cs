@@ -53,11 +53,10 @@ public class Shop : MonoBehaviour
     {
         _credits.ChangeCredits(-_gunInventory.GunInShop.Cost);
         await _gameSession.SaveGame(credits: _credits.CurrentCredits, gunIndex: _gunInventory.GunInShop.Index);
-        await _gameSession.SaveGame();
         _purchaseUI.SetActive(false);
         _gameUIController.DisableGameUI();
         OnGunBuy?.Invoke(_gunInventory.GunInShop.Name);
-        if(_gunInventory.GunInShop.Index == 2)
+        if(_gunInventory.GunInShop.Index == 2 && _gameSession.OnLoginToGoogleGames)
         {
             string achievementId = "CgkIyvTP6NIPEAIQAA";
             _achievements.UpdateAchivement(achievementId);
