@@ -96,7 +96,7 @@ public class UpdateGameLevel : MonoBehaviour
         {
             actionMap.Enable();
         }
-        _joystick.SetActive(false);
+        _joystick.SetActive(true);
         _movementUI.SetActive(true);
 
         GameReset();
