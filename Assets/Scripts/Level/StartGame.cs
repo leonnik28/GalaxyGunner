@@ -63,7 +63,7 @@ public class StartGame : MonoBehaviour
             {
                 actionMap.Enable();
             }
-            _joystick.gameObject.SetActive(true);
+            _joystick.SetActive(true);
 
             ChangeScreenMaterial();
 

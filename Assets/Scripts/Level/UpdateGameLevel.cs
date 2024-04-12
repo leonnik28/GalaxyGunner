@@ -19,6 +19,7 @@ public class UpdateGameLevel : MonoBehaviour
     [SerializeField] private GameObject _screen;
     [SerializeField] private Material _screenMaterial;
     [SerializeField] private GameObject _joystick;
+    [SerializeField] private InputActionAsset _actionAsset;
 
     [Header("Gameplay Components")]
     [SerializeField] private RoadGenerate _roadGenerate;
@@ -66,7 +67,7 @@ public class UpdateGameLevel : MonoBehaviour
         _isGameActive = false;
 
         InputSystem.DisableAllEnabledActions();
-        _joystick.gameObject.SetActive(false);
+        _joystick.SetActive(false);
         _movementUI.SetActive(false);
 
         if (_playerHealthIndex >= 1 && isReload)
@@ -91,6 +92,11 @@ public class UpdateGameLevel : MonoBehaviour
         _roadGenerate.ChangeChunk(emptyChunk);
 
         _reliveUI.SetActive(false);
+        foreach (var actionMap in _actionAsset.actionMaps)
+        {
+            actionMap.Enable();
+        }
+        _joystick.SetActive(false);
         _movementUI.SetActive(true);
 
         GameReset();

@@ -599,6 +599,8 @@ MonoBehaviour:
   _screen: {fileID: 15275490}
   _screenMaterial: {fileID: 2100000, guid: d54a159eecca89e479312ee205e71f11, type: 2}
   _joystick: {fileID: 1788105720}
+  _actionAsset: {fileID: -944628639613478452, guid: 42527f54cc0299f4ead4afa6c4fd6808,
+    type: 3}
   _roadGenerate: {fileID: 1415674795}
   _uiVirtualCamera: {fileID: 489958330}
   _gunSpawn: {fileID: 1578603323}

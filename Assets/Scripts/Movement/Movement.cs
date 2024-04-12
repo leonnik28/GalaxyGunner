@@ -112,8 +112,8 @@ public class Movement : MonoBehaviour
     {
         horizontalInput *= Mathf.Clamp01(Mathf.Abs(horizontalInput - _wallDirection.x));
 
-        _moveDirection = (transform.forward * _forwardSpeed)
-            + (transform.right * horizontalInput * _strafeSpeed);
+        _moveDirection = (horizontalInput * _strafeSpeed * transform.right)
+                        + (_forwardSpeed * transform.forward);
 
         var projectedNormal = GetProjectedNormal(_moveDirection);
 
