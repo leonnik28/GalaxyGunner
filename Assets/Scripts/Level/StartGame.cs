@@ -2,6 +2,7 @@ using Cinemachine;
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 
 public class StartGame : MonoBehaviour
@@ -19,6 +20,7 @@ public class StartGame : MonoBehaviour
 
     [Space]
     [SerializeField] private GameObject _joystick;
+    [SerializeField] private InputActionAsset _actionAsset;
     [SerializeField] private GameObject _screen;
     [SerializeField] private Material _screenMaterial;
 
@@ -57,6 +59,10 @@ public class StartGame : MonoBehaviour
             _virtualCameraUI.gameObject.SetActive(false);
 
             _movementUI.SetActive(true);
+            foreach (var actionMap in _actionAsset.actionMaps)
+            {
+                actionMap.Enable();
+            }
             _joystick.gameObject.SetActive(true);
 
             ChangeScreenMaterial();

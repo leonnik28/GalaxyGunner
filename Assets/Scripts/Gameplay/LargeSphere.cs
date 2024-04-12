@@ -14,11 +14,17 @@ public class LargeSphere : MonoBehaviour, ILargeSphere
     private void IncrementAchievement(string achievementId, int stepsToIncrement)
     {
         bool isUnlocked = false;
-        CheckToUnlockedAchevement(achievementId, isUnlocked);
-        if (!isUnlocked)
+        Social.localUser.Authenticate(success =>
         {
-            PlayGamesPlatform.Instance.IncrementAchievement(achievementId, stepsToIncrement, success => { });
-        }
+            if (success == true)
+            {
+                CheckToUnlockedAchevement(achievementId, isUnlocked);
+                if (!isUnlocked)
+                {
+                    PlayGamesPlatform.Instance.IncrementAchievement(achievementId, stepsToIncrement, success => { });
+                }
+            }
+        });
     }
 
     private void CheckToUnlockedAchevement(string achievementId, bool isUnlocked)

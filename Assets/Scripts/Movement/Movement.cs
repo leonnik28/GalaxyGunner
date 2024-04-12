@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float _wallJumpHeight = 1f;
     [SerializeField] private float _wallJumpNormalHeight = 2f;
     [SerializeField] private float _wallMoveRiseUpHeight = 5f;
-    [SerializeField] private float _wallFallMultiplier = .05f;
+    [SerializeField] private float _wallFallMultiplier = .45f;
 
     [Header("Ground Detect")]
     [SerializeField] private LayerMask _groundLayerMask;
@@ -49,7 +49,7 @@ public class Movement : MonoBehaviour
         {
             return m_isGrounded;
         }
-        set 
+        set
         {
             if (value != m_isGrounded)
             {
@@ -79,7 +79,6 @@ public class Movement : MonoBehaviour
     private bool m_isGrounded;
     private bool m_isWalled;
 
-
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
@@ -106,7 +105,6 @@ public class Movement : MonoBehaviour
         if (_isGrounded)
         {
             _surfaceNormal = groundHit.normal;
-
         }
     }
 
@@ -115,7 +113,7 @@ public class Movement : MonoBehaviour
         horizontalInput *= Mathf.Clamp01(Mathf.Abs(horizontalInput - _wallDirection.x));
 
         _moveDirection = (transform.forward * _forwardSpeed)
-            + (transform.right * (horizontalInput * _strafeSpeed));
+            + (transform.right * horizontalInput * _strafeSpeed);
 
         var projectedNormal = GetProjectedNormal(_moveDirection);
 
@@ -136,11 +134,16 @@ public class Movement : MonoBehaviour
 
     public void Jump()
     {
-         _velocity = CurrentState.GetJumpVelocity(_surfaceNormal, _velocity);
+        _velocity = CurrentState.GetJumpVelocity(_surfaceNormal, _velocity);
     }
 
     private void SetMovementState(bool isGrounded, bool isWalled)
     {
+        if (CurrentState.State == MovementState.PlaceState.Air && (isGrounded || isWalled))
+        {
+            _velocity = Vector3.zero;
+        }
+
         switch ((isGrounded, isWalled))
         {
             case (false, false):
@@ -185,7 +188,7 @@ public class Movement : MonoBehaviour
             _wallSlowdownDistance,
             _wallLayerMask))
         {
-            _wallDirection = direction - direction * 
+            _wallDirection = direction - direction *
                 (raycastHit.distance / _wallSlowdownDistance);
 
             if (raycastHit.distance < _wallDetectDistance)
@@ -206,31 +209,6 @@ public class Movement : MonoBehaviour
     {
         transform.position = oldPosition;
         _currentMoveVector = Vector3.zero;
+        _velocity = Vector3.zero;
     }
-
-#if UNITY_EDITOR
-    private void OnValidate()
-    {
-        if (_wallSlowdownDistance <= _wallDetectDistance)
-        {
-            _wallSlowdownDistance = _wallDetectDistance + .1f;
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(
-            transform.position,
-            transform.position
-            + GetProjectedNormal(
-                transform.forward)
-            * 2f);
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(
-            transform.position,
-            transform.position + Vector3.down * _groundDetectDistance);
-    }
-#endif
 }

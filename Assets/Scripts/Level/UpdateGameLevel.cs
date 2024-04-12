@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class UpdateGameLevel : MonoBehaviour
 {
@@ -63,6 +64,8 @@ public class UpdateGameLevel : MonoBehaviour
     public void GameOver(bool isReload = true)
     {
         _isGameActive = false;
+
+        InputSystem.DisableAllEnabledActions();
         _joystick.gameObject.SetActive(false);
         _movementUI.SetActive(false);
 
