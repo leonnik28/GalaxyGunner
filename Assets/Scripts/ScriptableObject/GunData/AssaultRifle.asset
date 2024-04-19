@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _index: 2
   _name: AssaultRifle
-  _damage: 3
+  _damage: 2.5
   _distance: 15
   _rateOfFire: 500
   _gunTransform: {fileID: 1648365757156262789, guid: e053e8d9665f72f4abbf730eb4dde156,
