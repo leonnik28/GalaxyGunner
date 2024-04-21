@@ -962,7 +962,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1768194797}
+      objectReference: {fileID: 1768194799}
     - target: {fileID: 1493091683689143408, guid: 742a83276767ed249a5b867594715ccf,
         type: 3}
       propertyPath: _audioObject
@@ -1182,7 +1182,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1768194797}
+      objectReference: {fileID: 1768194799}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 742a83276767ed249a5b867594715ccf, type: 3}
 --- !u!82 &1720060269 stripped
@@ -1212,7 +1212,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1768194798}
-  - component: {fileID: 1768194797}
+  - component: {fileID: 1768194800}
+  - component: {fileID: 1768194799}
   m_Layer: 0
   m_Name: Advertising
   m_TagString: Untagged
@@ -1220,21 +1221,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1768194797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768194796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a449870e48763140b69978faf038e56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _credits: {fileID: 1774168920}
-  _updateGameLevel: {fileID: 1415674797}
-  _achievements: {fileID: 1774168924}
 --- !u!4 &1768194798
 Transform:
   m_ObjectHideFlags: 0
@@ -1250,6 +1236,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1768194799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768194796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dc32092efe7e44491075edfde4c21a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _credits: {fileID: 1774168920}
+  _updateGameLevel: {fileID: 1415674797}
+  _achievements: {fileID: 1774168924}
+--- !u!114 &1768194800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768194796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1698021da6260e54c9cf95816b498b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidGameId: 5602019
+  _testMode: 0
 --- !u!1 &1774168912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,8 +1305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainUI: {fileID: 244860223}
   _connectionUI: {fileID: 1967035410}
-  _errorUI: {fileID: 0}
   _achievements: {fileID: 1774168924}
+  _adsInitializer: {fileID: 1768194800}
   _usernameInputField: {fileID: 1269514365}
   _submitButton: {fileID: 1744723595}
 --- !u!114 &1774168914
@@ -2013,7 +2028,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1768194797}
+      objectReference: {fileID: 1768194799}
     - target: {fileID: 8100504665436432113, guid: cd907b323bc888b4787a004c9a8e4eea,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2136,21 +2151,6 @@ PrefabInstance:
       propertyPath: _gunInventory
       value: 
       objectReference: {fileID: 1774168919}
-    - target: {fileID: 142549639063389462, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
-        type: 3}
-      propertyPath: _groundDetectDistance
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 142549639063389462, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
-        type: 3}
-      propertyPath: _wallLayerMask.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
-    - target: {fileID: 142549639063389462, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
-        type: 3}
-      propertyPath: _groundLayerMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 561842716418655205, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
       propertyPath: m_RootOrder
@@ -2216,21 +2216,6 @@ PrefabInstance:
       propertyPath: _updateGameLevel
       value: 
       objectReference: {fileID: 1415674797}
-    - target: {fileID: 3328199789063860109, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.07999969
-      objectReference: {fileID: 0}
-    - target: {fileID: 3328199789063860109, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.978485
-      objectReference: {fileID: 0}
-    - target: {fileID: 3328199789063860109, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.98697
-      objectReference: {fileID: 0}
     - target: {fileID: 7553194361211170073, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
         type: 3}
       propertyPath: _updateGameLevel

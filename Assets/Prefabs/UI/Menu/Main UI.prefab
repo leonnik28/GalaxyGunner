@@ -4303,8 +4303,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: YandexAds, Assembly-CSharp
-        m_MethodName: ShowRewardedAdOnMenu
+        m_TargetAssemblyTypeName: UnityAds, Assembly-CSharp
+        m_MethodName: ShowAdOnMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5496,8 +5496,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: YandexAds, Assembly-CSharp
-        m_MethodName: ShowRewardedAdOnMenu
+        m_TargetAssemblyTypeName: UnityAds, Assembly-CSharp
+        m_MethodName: ShowAdOnMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

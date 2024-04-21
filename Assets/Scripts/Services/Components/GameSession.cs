@@ -16,10 +16,10 @@ public class GameSession : MonoBehaviour
 
     [SerializeField] private GameObject _mainUI;
     [SerializeField] private GameObject _connectionUI;
-    [SerializeField] private GameObject _errorUI;
 
     [SerializeField] private Achievements _achievements;
     [SerializeField] private StorageService _storageService;
+    [SerializeField] private AdsInitializer _adsInitializer;
 
     [SerializeField] private TMP_InputField _usernameInputField;
     [SerializeField] private Button _submitButton;
@@ -149,6 +149,7 @@ public class GameSession : MonoBehaviour
             _achievements.UpdateAchivement(achievementId);
             await SaveGame();
         }
+        _adsInitializer.InitializeAds();
     }
 
     private async void LoadingUserDataFromLocalStorage()
@@ -164,6 +165,7 @@ public class GameSession : MonoBehaviour
             OnUserDataLoaded?.Invoke(saveData);
             _mainUI.SetActive(true);
         }
+        _adsInitializer.InitializeAds();
     }
 
     private async void PromptForUsername()

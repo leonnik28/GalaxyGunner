@@ -234,11 +234,11 @@ MonoBehaviour:
   _wallFallMultiplier: 0.75
   _groundLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 64
   _groundDetectDistance: 0.25
   _wallLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 128
   _wallSlowdownDistance: 2
   _wallDetectDistance: 1
 --- !u!54 &3328199789833353601

@@ -26,14 +26,6 @@ public class GameActions : MonoBehaviour
         _shop.OnGunBuy += NewGunBuy;
     }
 
-    private void OnEnable()
-    {
-        if (_gameActionList.Count >= 9) {
-            Destroy(_gameActionList[0].gameObject);
-            _gameActionList.Remove(_gameActionList[0]);
-        }
-    }
-
     private void SuccessCreatedAccount()
     {
         string currentText = "Success Login!";
@@ -64,5 +56,16 @@ public class GameActions : MonoBehaviour
         TextMeshProUGUI textAction = actionObject.GetComponentInChildren<TextMeshProUGUI>();
         textAction.text = currentText;
         _gameActionList.Add(actionObject);
+
+        DeleteActionObject();
+    }
+
+    private void DeleteActionObject()
+    {
+        if (_gameActionList.Count >= 10)
+        {
+            Destroy(_gameActionList[0].gameObject);
+            _gameActionList.Remove(_gameActionList[0]);
+        }
     }
 }
