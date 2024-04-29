@@ -43,6 +43,7 @@ public class UpdateGameLevel : MonoBehaviour
     [SerializeField] private GameObject _deathUI;
     [SerializeField] private GameObject _reliveUI;
     [SerializeField] private GameObject _movementUI;
+    [SerializeField] private GameObject _pauseButton;
     [SerializeField] private GameObject _mainUI;
     [SerializeField] private TextMeshProUGUI _finalScoreText;
     [SerializeField] private TextMeshProUGUI _finalCreditText;
@@ -64,11 +65,7 @@ public class UpdateGameLevel : MonoBehaviour
 
     public void GameOver(bool isReload = true)
     {
-        _isGameActive = false;
-
-        InputSystem.DisableAllEnabledActions();
-        _joystick.SetActive(false);
-        _movementUI.SetActive(false);
+        StopGameAction();
 
         if (_playerHealthIndex >= 1 && isReload)
         {
@@ -92,21 +89,8 @@ public class UpdateGameLevel : MonoBehaviour
         _roadGenerate.ChangeChunk(emptyChunk);
 
         _reliveUI.SetActive(false);
-        foreach (var actionMap in _actionAsset.actionMaps)
-        {
-            actionMap.Enable();
-        }
-        _joystick.SetActive(true);
-        _movementUI.SetActive(true);
 
-        GameReset();
-
-        if (!_isMusicMute)
-        {
-            _player.SetMusic(true, false);
-        }
-
-        Time.timeScale = 1;
+        StartGameAction();
 
         await Task.Delay(_emptyChunkDeletionTime);
         if (emptyChunk)
@@ -129,6 +113,36 @@ public class UpdateGameLevel : MonoBehaviour
         _mainUI.SetActive(true);
     }
 
+    public void StopGameAction()
+    {
+        _isGameActive = false;
+
+        InputSystem.DisableAllEnabledActions();
+        _joystick.SetActive(false);
+        _movementUI.SetActive(false);
+        _pauseButton.SetActive(false);
+    }
+
+    public void StartGameAction()
+    {
+        foreach (var actionMap in _actionAsset.actionMaps)
+        {
+            actionMap.Enable();
+        }
+        _joystick.SetActive(true);
+        _movementUI.SetActive(true);
+        _pauseButton.SetActive(true);
+
+        GameReset();
+
+        if (!_isMusicMute)
+        {
+            _player.SetMusic(true, false);
+        }
+
+        Time.timeScale = 1;
+    }
+
     private void OpenDeahtUI()
     {
         _deathUI.SetActive(true);
@@ -147,7 +161,7 @@ public class UpdateGameLevel : MonoBehaviour
         }
     }
 
-    private void SetMusic()
+    public void SetMusic()
     {
         if (_player.GameMusic.mute)
         {

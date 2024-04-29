@@ -16,6 +16,7 @@ public class StartGame : MonoBehaviour
     [Space]
     [SerializeField] private GameObject _mainUI;
     [SerializeField] private GameObject _movementUI;
+    [SerializeField] private GameObject _pauseButton;
     [SerializeField] private CinemachineVirtualCamera _virtualCameraUI;
 
     [Space]
@@ -59,6 +60,7 @@ public class StartGame : MonoBehaviour
             _virtualCameraUI.gameObject.SetActive(false);
 
             _movementUI.SetActive(true);
+
             foreach (var actionMap in _actionAsset.actionMaps)
             {
                 actionMap.Enable();
@@ -80,6 +82,7 @@ public class StartGame : MonoBehaviour
     private async void StartMove()
     {
         await Task.Delay(_timeDelay);
+        _pauseButton.SetActive(true);
         OnGameStart?.Invoke();
     }
 }
