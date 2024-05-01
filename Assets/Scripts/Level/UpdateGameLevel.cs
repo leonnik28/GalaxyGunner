@@ -52,7 +52,7 @@ public class UpdateGameLevel : MonoBehaviour
     [SerializeField] private int _playerHealthIndex = 1;
     [SerializeField] private int _emptyChunkDeletionTime = 3000;
     [SerializeField] private int _gameResetDelay = 200;
-    [SerializeField] private int _creditsFactor = 18;
+    [SerializeField] private int _creditsFactor = 9;
 
     private Vector3 _updatedPlayerPosition;
     private bool _isGameActive = true;

@@ -178,6 +178,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1696018997}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &244860231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244860223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1511ccae7919cfc46b603b9b337fdc94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &275691965 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4750858518486762869, guid: 742a83276767ed249a5b867594715ccf,
@@ -631,7 +643,7 @@ MonoBehaviour:
   _playerHealthIndex: 1
   _emptyChunkDeletionTime: 3000
   _gameResetDelay: 1000
-  _creditsFactor: 21
+  _creditsFactor: 9
 --- !u!114 &1415674798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1363,6 +1375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _androidGameId: 5602019
   _testMode: 0
+  _unityAds: {fileID: 1768194799}
 --- !u!1 &1774168912
 GameObject:
   m_ObjectHideFlags: 0

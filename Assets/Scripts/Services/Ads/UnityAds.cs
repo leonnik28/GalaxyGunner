@@ -11,7 +11,7 @@ public class UnityAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListe
     private bool _isAdOnMenu;
 
     private readonly string _androidAdUnitId = "Rewarded_Android";
-    private readonly int _countCreditsForShow = 5;
+    private readonly int _countCreditsForShow = 15;
 
     private void Awake()
     {
@@ -59,6 +59,7 @@ public class UnityAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListe
                     _achievements.UpdateAchivement(achievementId);
                 }
             }
+            LoadAd();
         }
     }
 
