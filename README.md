@@ -1,6 +1,10 @@
 # Galaxy Gunner
 
-![Galaxy Gunner](https://i.imgur.com/l8b9ivN.jpeg)
+![Galaxy Gunner](https://i.imgur.com/lcyYqG8.png)
+
+## Скачать
+
+Скачать игру Galaxy Gunner можно в [Google Play Store](https://play.google.com/store/apps/details?id=com.LeonnikGames.GalacticGunner).
 
 Добро пожаловать в мир Galaxy Gunner, открытого исходного кода раннера с элементами шутера от первого лица, созданного с использованием Unity и C#. Этот проект представляет собой захватывающую игру, которая сочетает в себе различные технологии и инструменты для создания уникального игрового опыта.
 
@@ -18,7 +22,3 @@
 ## Лицензия
 
 Galaxy Gunner находится под лицензией [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/). Это означает, что вы можете свободно использовать, модифицировать и распространять эту игру при условии указания авторства, отсутствия коммерческого использования и распространения на тех же условиях.
-
-## Скачать
-
-Скачать игру Galaxy Gunner можно в [Google Play Store](https://play.google.com/store/apps/details?id=com.LeonnikGames.GalacticGunner).
