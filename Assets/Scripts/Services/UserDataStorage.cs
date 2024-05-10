@@ -6,7 +6,7 @@ using GooglePlayGames.BasicApi;
 using GooglePlayGames.BasicApi.SavedGame;
 using UnityEngine;
 
-public class UserDataStorage : MonoBehaviour
+public class UserDataStorage
 {
     [Serializable]
     public struct SaveData

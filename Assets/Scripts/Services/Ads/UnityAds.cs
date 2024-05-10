@@ -1,21 +1,24 @@
 using UnityEngine;
 using UnityEngine.Advertisements;
+using Zenject;
 
 public class UnityAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
-    [SerializeField] private Credits _credits;
+    private Credits _credits;
     [SerializeField] private UpdateGameLevel _updateGameLevel;
-    [SerializeField] private Achievements _achievements;
+    private Achievements _achievements;
 
-    private GameSession _gameSession;
+    [SerializeField] private GameSession _gameSession;
     private bool _isAdOnMenu;
 
     private readonly string _androidAdUnitId = "Rewarded_Android";
     private readonly int _countCreditsForShow = 15;
 
-    private void Awake()
+    [Inject]
+    public void Construct(Credits credits, Achievements achievements)
     {
-        _gameSession = _credits.gameObject.GetComponent<GameSession>();
+        _credits = credits;
+        _achievements = achievements;
     }
 
     public void LoadAd()

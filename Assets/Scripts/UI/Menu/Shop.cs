@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using TMPro;
+using Zenject;
 
 public class Shop : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Shop : MonoBehaviour
     public Action<string> OnGunBuy;
 
     [SerializeField] private GameSession _gameSession;
-    [SerializeField] private Achievements _achievements;
+    private Achievements _achievements;
 
     [SerializeField] private GameUIController _gameUIController;
     [SerializeField] private GameObject _purchaseUI;
@@ -19,14 +20,18 @@ public class Shop : MonoBehaviour
     private GameObject _gunToPurchase;
 
     private Credits _credits;
-    private GunInventory _gunInventory;
+    [SerializeField] private GunInventory _gunInventory;
     private GameObject _currentGunObject;
+
+    [Inject]
+    public void Construct(Credits credits, Achievements achievements)
+    {
+        _credits = credits;
+        _achievements = achievements;
+    }
 
     private void Awake()
     {
-        _credits = _gameSession.GetComponent<Credits>();
-        _gunInventory = _gameSession.GetComponent<GunInventory>();
-
         OnExitClicked += ChangeCurrentGun;
     }
 

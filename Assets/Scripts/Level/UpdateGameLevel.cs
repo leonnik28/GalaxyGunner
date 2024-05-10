@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 public class UpdateGameLevel : MonoBehaviour
 {
@@ -35,9 +36,6 @@ public class UpdateGameLevel : MonoBehaviour
 
     [Header("Services Components")]
     [SerializeField] private GameSession _gameSession;
-    [SerializeField] private TopScore _topScore;
-    [SerializeField] private Credits _credits;
-    [SerializeField] private Achievements _achievements;
 
     [Header("UI Elements")]
     [SerializeField] private GameObject _deathUI;
@@ -54,9 +52,21 @@ public class UpdateGameLevel : MonoBehaviour
     [SerializeField] private int _gameResetDelay = 200;
     [SerializeField] private int _creditsFactor = 9;
 
+    private TopScore _topScore;
+    private Credits _credits;
+    private Achievements _achievements;
+
     private Vector3 _updatedPlayerPosition;
     private bool _isGameActive = true;
     private bool _isMusicMute;
+
+    [Inject]
+    public void Construct(Credits credits, Achievements achievements, TopScore topScore)
+    {
+        _credits = credits;
+        _achievements = achievements;
+        _topScore = topScore;
+    }
 
     private void Start()
     {

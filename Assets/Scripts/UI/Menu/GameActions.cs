@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 public class GameActions : MonoBehaviour
 {
@@ -15,10 +16,15 @@ public class GameActions : MonoBehaviour
 
     private List<GameObject> _gameActionList;
 
+    [Inject]
+    private void Construct(Credits credits)
+    {
+        _credits = credits;
+    }
+
     private void Awake()
     {
         _gameActionList = new List<GameObject>();
-        _credits = _gameSession.GetComponent<Credits>();
 
         _gameSession.OnSuccessLogin += SuccessCreatedAccount;
         _credits.OnChangeCredits += CreditsChange;

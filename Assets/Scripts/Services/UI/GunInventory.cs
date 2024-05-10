@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 using static UserDataStorage;
 
 public class GunInventory : MonoBehaviour
@@ -25,12 +26,10 @@ public class GunInventory : MonoBehaviour
     private Gun _gunInShop;
     private Gun _gunInInventory;
     private GameObject _currentGunObject;
-    private GunPool _gunPool;
+    [SerializeField] private GunPool _gunPool;
 
     private void Start()
     {
-        _gunPool = _gameSession.GetComponent<GunPool>();
-
         _gameSession.OnUserDataLoaded += LoadGuns;
 
         _gunShopList = new List<Gun>();
