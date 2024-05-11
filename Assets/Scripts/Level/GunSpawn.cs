@@ -8,11 +8,12 @@ public class GunSpawn : MonoBehaviour
     public Animator GunAnimator => _gunAnimator;
     public AudioSource GunAudioSource => _gunAudioSource;
 
+    [SerializeField] private GunPool _gunPool;
+    [SerializeField] private GunInventory _gunInventory;
+
     private IStorageService _storageService;
 
     private Gun _gun;
-   [SerializeField] private GunPool _gunPool;
-   [SerializeField] private GunInventory _gunInventory;
     private Animator _gunAnimator;
     private AudioSource _gunAudioSource;
 
