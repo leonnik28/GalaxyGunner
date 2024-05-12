@@ -2,7 +2,7 @@
 
 ![Galaxy Gunner](https://i.imgur.com/lcyYqG8.png)
 
-![Version](https://img.shields.io/github/v/tag/leonnik28/GalaxyGunner?label=Version)  ![Commits](https://img.shields.io/github/commit-activity/m/leonnik28/GalaxyGunner?style=plastic&color=yellow)  ![Last Commit](https://img.shields.io/github/last-commit/leonnik28/GalaxyGunner?style=plastic&color=orange)
+![Version](https://img.shields.io/github/v/tag/leonnik28/GalaxyGunner?label=Version&style=plastic&color=brightgreen)  ![Commits](https://img.shields.io/github/commit-activity/m/leonnik28/GalaxyGunner?style=plastic&color=yellow)  ![Last Commit](https://img.shields.io/github/last-commit/leonnik28/GalaxyGunner?style=plastic&color=orange)
 
 Добро пожаловать в мир Galaxy Gunner, открытого исходного кода раннера с элементами шутера от первого лица, созданного с использованием Unity и C#. Этот проект представляет собой захватывающую игру, которая сочетает в себе различные технологии и инструменты для создания уникального игрового опыта.
 
