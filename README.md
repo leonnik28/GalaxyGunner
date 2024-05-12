@@ -2,17 +2,20 @@
 
 ![Galaxy Gunner](https://i.imgur.com/lcyYqG8.png)
 
+![Version](https://img.shields.io/github/v/tag/leonnik28/GalaxyGunner?label=Version&style=plastic&color=brightgreen)  ![Commits](https://img.shields.io/github/commit-activity/m/leonnik28/GalaxyGunner?style=plastic&color=yellow)  ![Last Commit](https://img.shields.io/github/last-commit/leonnik28/GalaxyGunner?style=plastic&color=orange)
+
 Добро пожаловать в мир Galaxy Gunner, открытого исходного кода раннера с элементами шутера от первого лица, созданного с использованием Unity и C#. Этот проект представляет собой захватывающую игру, которая сочетает в себе различные технологии и инструменты для создания уникального игрового опыта.
 
 ## Особенности
 
 - **Cinemachine**: Использование Cinemachine для создания динамичной и кинематографичной камеры, которая улучшает игровой процесс.
-- **DOTween**: Для плавной анимации и перемещения объектов использовался DOTween.
+- **Zenject**: Для внедрения зависимостей и управления жизненным циклом объектов использовался Zenject.
 - **Google Play Services**: Игра интегрирована с Google Play Services для поддержки таблицы лидеров и достижений, а также OAuth.
 - **Scriptable Objects**: Использование Scriptable Objects для гибкой настройки и управления данными игры.
 - **Task**: Для асинхронного программирования и оптимизации производительности были использованы Task.
 - **UnityAds**: Игра включает в себя рекламу UnityAds для монетизации.
 - **Custom UI**: Был создан настраиваемый пользовательский интерфейс, который обеспечивает отзывчивость и удобство использования.
+- **DOTween**: Для плавной анимации и перемещения объектов использовался DOTween.
 - **URP (Universal Render Pipeline)**: Для улучшения визуальных эффектов и производительности использовался URP.
 
 ## Скачать

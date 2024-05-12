@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ChunksPoolFactory : IChunksPoolFactory
 {
-    private Transform _parent;
+    private readonly Transform _parent;
 
     public ChunksPoolFactory(Transform parent)
     {

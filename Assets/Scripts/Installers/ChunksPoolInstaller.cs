@@ -13,25 +13,25 @@ public class ChunksPoolInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        InstallChunkPoolBindings();
-        InstallChunksPoolBinding();
+        InstallChunksPoolFactories();
+        InstallChunksPoolManager();
     }
 
-    private void InstallChunkPoolBindings()
+    private void InstallChunksPoolFactories()
     {
         ChunksPoolFactory chunksPoolFactory = Container.Instantiate<ChunksPoolFactory>(new object[] { _chunksPoolTransform });
 
-        ChunksPoolBase chunksPoolBase = chunksPoolFactory.Create(_whiteChunkItems);
-        Container.Bind<ChunksPoolBase>().WithId("White").FromInstance(chunksPoolBase);
+        ChunksPoolBase whiteChunksPoolBase = chunksPoolFactory.Create(_whiteChunkItems);
+        Container.Bind<ChunksPoolBase>().WithId("White").FromInstance(whiteChunksPoolBase);
 
-        ChunksPoolBase chunksPoolBase1 = chunksPoolFactory.Create(_blackChunkItems);
-        Container.Bind<ChunksPoolBase>().WithId("Black").FromInstance(chunksPoolBase1);
+        ChunksPoolBase blackChunksBase = chunksPoolFactory.Create(_blackChunkItems);
+        Container.Bind<ChunksPoolBase>().WithId("Black").FromInstance(blackChunksBase);
 
-        ChunksPoolBase chunksPoolBase2 = chunksPoolFactory.Create(_blueChunkItems);
-        Container.Bind<ChunksPoolBase>().WithId("Blue").FromInstance(chunksPoolBase2);
+        ChunksPoolBase blueChunksBase = chunksPoolFactory.Create(_blueChunkItems);
+        Container.Bind<ChunksPoolBase>().WithId("Blue").FromInstance(blueChunksBase);
     }
 
-    private void InstallChunksPoolBinding()
+    private void InstallChunksPoolManager()
     {
         List<ChunksPoolBase> chunksPools = new List<ChunksPoolBase>
         {

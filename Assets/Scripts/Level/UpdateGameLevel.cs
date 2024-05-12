@@ -197,6 +197,7 @@ public class UpdateGameLevel : MonoBehaviour
         {
             _player.SetMusic(false);
         }
+
         _roadGenerate.StartGame();
         _gunSpawn.DeleteGun();
         _shooting.GameStop();
@@ -206,6 +207,8 @@ public class UpdateGameLevel : MonoBehaviour
 
         ChangeScreenMaterial();
         _uiVirtualCamera.gameObject.SetActive(true);
+
+        
 
         GameReset();
 

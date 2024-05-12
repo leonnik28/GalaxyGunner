@@ -6,8 +6,8 @@ public class RoadGenerate : MonoBehaviour
 {
     public int ChunkIndex => _oldRoadChunkIndex;
 
-    [SerializeField] private TraveledDistance _traveledDistance;
     [SerializeField] private Chunk _startChunk;
+    [SerializeField] private TraveledDistance _traveledDistance;
 
     [Space]
     [SerializeField] private float _offset = 5f;
@@ -46,6 +46,7 @@ public class RoadGenerate : MonoBehaviour
         _oldRoadChunkIndex = 0;
         _currentChunkType = _chunkType;
 
+
         while (_roadChunksQueue.Count > 0)
         {
             Chunk chunk = _roadChunksQueue.Dequeue();
@@ -68,7 +69,6 @@ public class RoadGenerate : MonoBehaviour
             chunk.transform.position = Vector3.forward * ((i + 1) * _offset);
             _roadChunksQueue.Enqueue(chunk);
         }
-
     }
 
     public Chunk FindNeedChunk(List<Chunk> otherChunksList)
