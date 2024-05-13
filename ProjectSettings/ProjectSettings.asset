@@ -890,6 +890,7 @@ PlayerSettings:
   cloudServicesEnabled:
     Build: 0
     Game Performance: 0
+    Legacy Analytics: 0
     Purchasing: 0
     UDP: 0
     Unity Ads: 1

@@ -162,7 +162,6 @@ GameObject:
   - component: {fileID: 80401487}
   - component: {fileID: 80401488}
   - component: {fileID: 80401485}
-  - component: {fileID: 80401489}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -188,7 +187,6 @@ MonoBehaviour:
   - {fileID: 80401488}
   - {fileID: 80401485}
   - {fileID: 4863209422200609420}
-  - {fileID: 80401489}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -259,19 +257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54adaee29587e774cb022692e72c90d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &80401489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80401482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ffad0bd075ccd45a9f8eb3ce60ab66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _root: {fileID: 1578603330}
 --- !u!1 &83285469 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2076826817795894090, guid: 742a83276767ed249a5b867594715ccf,
@@ -883,6 +868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startChunk: {fileID: 1662077731}
+  _traveledDistance: {fileID: 4285803391307028505}
   _offset: 10
   _roadChunksCount: 5
 --- !u!114 &1415674796
@@ -1226,6 +1212,12 @@ Animator:
 --- !u!4 &1578603330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5827657141737884176, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
+    type: 3}
+  m_PrefabInstance: {fileID: 7553194361761322014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1644854609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8790658460896577775, guid: 1f5f6a3e843ae9d42b69f9647e183ae4,
     type: 3}
   m_PrefabInstance: {fileID: 7553194361761322014}
   m_PrefabAsset: {fileID: 0}
@@ -2235,7 +2227,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 7553194361761322014}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1644854609}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a040f9a6b012e684780673bc3254eb63, type: 3}
@@ -2247,7 +2239,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 7553194361761322014}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1644854609}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce6b1aead0cf49a478633a6b6cc97407, type: 3}
@@ -2259,6 +2251,19 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 7553194361761322014}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4285803391307028505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644854609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e171d3c95c96c74faa66d6b9f9d04f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _root: {fileID: 1578603330}
 --- !u!4 &4863209422200609419
 Transform:
   m_ObjectHideFlags: 0

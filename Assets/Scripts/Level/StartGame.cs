@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using Zenject;
 
 public class StartGame : MonoBehaviour
 {
@@ -29,7 +30,14 @@ public class StartGame : MonoBehaviour
     [SerializeField] private int _timeDelay = 1800;
     [SerializeField] private int _timeDelayExitMainUI = 1000;
 
+    private Analytics _analytics;
     private InputSystemUIInputModule _mainUiInputSystemModule;
+
+    [Inject]
+    private void Construct(Analytics analytics)
+    {
+        _analytics = analytics;
+    }
 
     private void Start()
     {
@@ -52,6 +60,8 @@ public class StartGame : MonoBehaviour
     {
         if (_mainUiInputSystemModule.enabled) {
             _mainUiInputSystemModule.enabled = false;
+
+            _analytics.OnPlayerStartGame(_gunSpawn.Gun.Name);
 
             _gunSpawn.Spawn();
             await Task.Delay(_timeDelayExitMainUI);

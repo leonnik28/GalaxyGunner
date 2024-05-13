@@ -55,16 +55,18 @@ public class UpdateGameLevel : MonoBehaviour
     private TopScore _topScore;
     private Credits _credits;
     private Achievements _achievements;
+    private Analytics _analytics;
 
     private Vector3 _updatedPlayerPosition;
     private bool _isGameActive = true;
     private bool _isMusicMute;
 
     [Inject]
-    public void Construct(Credits credits, Achievements achievements, TopScore topScore)
+    public void Construct(Credits credits, Achievements achievements, Analytics analytics, TopScore topScore)
     {
         _credits = credits;
         _achievements = achievements;
+        _analytics = analytics;
         _topScore = topScore;
     }
 
@@ -75,6 +77,8 @@ public class UpdateGameLevel : MonoBehaviour
 
     public void GameOver(bool isReload = true)
     {
+        _analytics.OnPlayerDeath(_roadGenerate.ChunkType, _score.CurrentScore);
+
         StopGameAction();
 
         if (_playerHealthIndex >= 1 && isReload)

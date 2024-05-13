@@ -4,7 +4,7 @@ using Zenject;
 
 public class RoadGenerate : MonoBehaviour
 {
-    public int ChunkIndex => _oldRoadChunkIndex;
+    public int ChunkType => _chunkType;
 
     [SerializeField] private Chunk _startChunk;
     [SerializeField] private TraveledDistance _traveledDistance;
