@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using UnityEngine;
+using Zenject;
 
 public class GunSpawn : MonoBehaviour
 {
@@ -7,21 +8,23 @@ public class GunSpawn : MonoBehaviour
     public Animator GunAnimator => _gunAnimator;
     public AudioSource GunAudioSource => _gunAudioSource;
 
-    [SerializeField] private GunInventory _gunInventory;
     [SerializeField] private GunPool _gunPool;
+    [SerializeField] private GunInventory _gunInventory;
 
     private IStorageService _storageService;
 
     private Gun _gun;
     private Animator _gunAnimator;
     private AudioSource _gunAudioSource;
+
     private GameObject _spawnedGun;
 
     private readonly string _gunFilename = "currentGun";
 
-    private void Awake()
+    [Inject]
+    private void Construct(StorageService storageService)
     {
-        _storageService = new StorageService();
+        _storageService = storageService;
     }
 
     public async void Spawn()

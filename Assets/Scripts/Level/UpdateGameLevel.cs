@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 public class UpdateGameLevel : MonoBehaviour
 {
@@ -35,9 +36,6 @@ public class UpdateGameLevel : MonoBehaviour
 
     [Header("Services Components")]
     [SerializeField] private GameSession _gameSession;
-    [SerializeField] private TopScore _topScore;
-    [SerializeField] private Credits _credits;
-    [SerializeField] private Achievements _achievements;
 
     [Header("UI Elements")]
     [SerializeField] private GameObject _deathUI;
@@ -54,9 +52,23 @@ public class UpdateGameLevel : MonoBehaviour
     [SerializeField] private int _gameResetDelay = 200;
     [SerializeField] private int _creditsFactor = 9;
 
+    private TopScore _topScore;
+    private Credits _credits;
+    private Achievements _achievements;
+    private Analytics _analytics;
+
     private Vector3 _updatedPlayerPosition;
     private bool _isGameActive = true;
     private bool _isMusicMute;
+
+    [Inject]
+    public void Construct(Credits credits, Achievements achievements, Analytics analytics, TopScore topScore)
+    {
+        _credits = credits;
+        _achievements = achievements;
+        _analytics = analytics;
+        _topScore = topScore;
+    }
 
     private void Start()
     {
@@ -65,6 +77,8 @@ public class UpdateGameLevel : MonoBehaviour
 
     public void GameOver(bool isReload = true)
     {
+        _analytics.OnPlayerDeath(_roadGenerate.ChunkType, _score.CurrentScore);
+
         StopGameAction();
 
         if (_playerHealthIndex >= 1 && isReload)
@@ -187,6 +201,7 @@ public class UpdateGameLevel : MonoBehaviour
         {
             _player.SetMusic(false);
         }
+
         _roadGenerate.StartGame();
         _gunSpawn.DeleteGun();
         _shooting.GameStop();
@@ -196,6 +211,8 @@ public class UpdateGameLevel : MonoBehaviour
 
         ChangeScreenMaterial();
         _uiVirtualCamera.gameObject.SetActive(true);
+
+        
 
         GameReset();
 

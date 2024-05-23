@@ -2,27 +2,33 @@ using System;
 using UnityEngine;
 using YandexMobileAds;
 using YandexMobileAds.Base;
+using Zenject;
 
 public class YandexAds : MonoBehaviour
 {
-    [SerializeField] private Credits _credits;
+    private Credits _credits;
     [SerializeField] private UpdateGameLevel _updateGameLevel;
-    [SerializeField] private Achievements _achievements;
+    private Achievements _achievements;
 
     private RewardedAdLoader _rewardedAdLoader;
     private RewardedAd _rewardedAd;
 
-    private GameSession _gameSession;
+    [SerializeField] private GameSession _gameSession;
 
     private readonly string _adUnitId = "R-M-6526269-1";
     private readonly int _countCreditsForShow = 5;
+
+    [Inject]
+    public void Construct(Credits credits, Achievements achievements)
+    {
+        _credits = credits;
+        _achievements = achievements;
+    }
 
     private void Awake()
     {
         SetupLoader();
         RequestRewardedAd();
-
-        _gameSession = _credits.gameObject.GetComponent<GameSession>();
     }
 
     public void ShowRewardedAdOnMenu()

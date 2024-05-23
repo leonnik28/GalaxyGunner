@@ -1,16 +1,23 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class ProfileUI : MonoBehaviour
 {
-    [SerializeField] private ProfileData _profileData;
+    private ProfileData _profileData;
 
     [SerializeField] private TextMeshProUGUI _username;
     [SerializeField] private TextMeshProUGUI _id;
     [SerializeField] private TextMeshProUGUI _credits;
     [SerializeField] private TextMeshProUGUI _topScore;
     [SerializeField] private Image _profileImage;
+
+    [Inject]
+    private void Construct(ProfileData profileData)
+    {
+        _profileData = profileData;
+    }
 
     private void Awake()
     {

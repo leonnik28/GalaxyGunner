@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 using static UserDataStorage;
 
 public class GameSession : MonoBehaviour
@@ -17,14 +18,14 @@ public class GameSession : MonoBehaviour
     [SerializeField] private GameObject _mainUI;
     [SerializeField] private GameObject _connectionUI;
 
-    [SerializeField] private Achievements _achievements;
-    [SerializeField] private StorageService _storageService;
+    private Achievements _achievements;
     [SerializeField] private AdsInitializer _adsInitializer;
 
     [SerializeField] private TMP_InputField _usernameInputField;
     [SerializeField] private Button _submitButton;
 
     private UserDataStorage _userDataStorage;
+    private StorageService _storageService;
     private Avatars _avatars;
     private string _userId;
     private bool _onLoginToGoogleGames;
@@ -32,11 +33,16 @@ public class GameSession : MonoBehaviour
     private readonly string _saveDataName = "saveData";
     private readonly int _timeToDisable = 1000;
 
+    [Inject]
+    private void Construct(StorageService storageService, UserDataStorage userDataStorage, Achievements achievements)
+    {
+        _storageService = storageService;
+        _userDataStorage = userDataStorage;
+        _achievements = achievements;
+    }
+
     private void Awake()
     {
-        _storageService = new StorageService();
-
-        _userDataStorage = gameObject.GetComponent<UserDataStorage>();
         _avatars = gameObject.GetComponent<Avatars>();
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();

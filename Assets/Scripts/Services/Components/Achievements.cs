@@ -2,7 +2,7 @@ using GooglePlayGames;
 using UnityEngine.SocialPlatforms;
 using UnityEngine;
 
-public class Achievements : MonoBehaviour
+public class Achievements
 {
     public void UpdateAchivement(string achievementId)
     {

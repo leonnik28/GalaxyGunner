@@ -3,19 +3,19 @@ using UnityEngine.EventSystems;
 
 public class VariableJoystick : Joystick
 {
-    public float MoveThreshold { get { return moveThreshold; } set { moveThreshold = Mathf.Abs(value); } }
+    public float MoveThreshold { get { return _moveThreshold; } set { _moveThreshold = Mathf.Abs(value); } }
 
-    [SerializeField] private float moveThreshold = 1;
-    [SerializeField] private JoystickType joystickType = JoystickType.Fixed;
+    [SerializeField] private float _moveThreshold = 1;
+    [SerializeField] private JoystickType _joystickType = JoystickType.Fixed;
 
-    private Vector2 fixedPosition = Vector2.zero;
+    private Vector2 _fixedPosition = Vector2.zero;
 
     public void SetMode(JoystickType joystickType)
     {
-        this.joystickType = joystickType;
+        _joystickType = joystickType;
         if (joystickType == JoystickType.Fixed)
         {
-            background.anchoredPosition = fixedPosition;
+            background.anchoredPosition = _fixedPosition;
             background.gameObject.SetActive(true);
         }
         else
@@ -27,13 +27,13 @@ public class VariableJoystick : Joystick
     protected override void Start()
     {
         base.Start();
-        fixedPosition = background.anchoredPosition;
-        SetMode(joystickType);
+        _fixedPosition = background.anchoredPosition;
+        SetMode(_joystickType);
     }
 
     public override void OnPointerDown(PointerEventData eventData)
     {
-        if (joystickType != JoystickType.Fixed)
+        if (_joystickType != JoystickType.Fixed)
         {
             background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
             background.gameObject.SetActive(true);
@@ -43,7 +43,7 @@ public class VariableJoystick : Joystick
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        if (joystickType != JoystickType.Fixed)
+        if (_joystickType != JoystickType.Fixed)
             background.gameObject.SetActive(false);
 
         base.OnPointerUp(eventData);
@@ -51,9 +51,9 @@ public class VariableJoystick : Joystick
 
     protected override void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
     {
-        if (joystickType == JoystickType.Dynamic && magnitude > moveThreshold)
+        if (_joystickType == JoystickType.Dynamic && magnitude > _moveThreshold)
         {
-            Vector2 difference = normalised * (magnitude - moveThreshold) * radius;
+            Vector2 difference = normalised * (magnitude - _moveThreshold) * radius;
             background.anchoredPosition += difference;
         }
         base.HandleInput(magnitude, normalised, radius, cam);
